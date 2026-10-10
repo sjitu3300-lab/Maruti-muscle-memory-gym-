@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute Beginner Workout Guide - Maruti Muscle Memory GYM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            width: 100vw;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(217, 56, 30, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            font-size: 13px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .logo span {
+            color: #d9381e;
+        }
+        .back-btn {
+            background-color: #d9381e;
+            color: white;
+            padding: 8px 18px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #b52d16;
+        }
+
+        /* Page Banner */
+        .page-hero {
+            padding: 140px 5% 60px 5%;
+            background: linear-gradient(180deg, rgba(217, 56, 30, 0.15) 0%, rgba(10,10,10,1) 100%);
+            text-align: center;
+        }
+        .page-hero span {
+            color: #d9381e;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .page-hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .page-hero p {
+            color: #999;
+            font-size: 14px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Weekly Schedule Container */
+        .schedule-container {
+            padding: 50px 5% 90px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .day-block {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 0;
+            transition: 0.3s;
+        }
+        .day-block:hover {
+            border-color: #d9381e;
+        }
+        .day-img {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            background-size: cover;
+            background-position: center;
+        }
+        .day-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .day-badge {
+            color: #d9381e;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .day-content h3 {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .day-content p {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .exercise-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: #1c1c1c;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 3px solid #d9381e;
+        }
+        .meta-item strong {
+            color: #fff;
+            font-size: 12px;
+            display: block;
+            text-transform: uppercase;
+        }
+        .meta-item span {
+            color: #888;
+            font-size: 12px;
+        }
+
+        @media(max-width: 900px) {
+            .day-block {
+                grid-template-columns: 1fr;
+            }
+            .day-img {
+                height: 250px;
+            }
+            .day-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Maruti <span>Muscle Memory</span></div>
+        <a href="index.html" class="back-btn">&larr; Back to Home</a>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <span>Option 01 • Zero to Hero</span>
+        <h1>Absolute Beginner Weekly Blueprint</h1>
+        <p>Agar aapne pehle kabhi gym nahi kiya, toh yeh scientifically structured program aapke neuromuscular connection, correct posture aur foundational strength ko build karega.</p>
+    </section>
+
+    <!-- Weekly Schedule Section -->
+    <div class="schedule-container">
+
+        <!-- Monday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Monday • Day 1</span>
+                <h3>Chest & Triceps (Foundation Press)</h3>
+                <p><strong>Kaise Karein:</strong> Flat Bench Press ya Push-ups se shuru karein. Chest ko upar rakhen aur elbows ko 45-degree angle par move karein.</p>
+                <p><strong>Body Changing Benefits:</strong> Pectoral muscles active hoti hain, upper body posture sudharta hai aur triceps tone hote hain.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item">
+                        <strong>Sets & Reps</strong>
+                        <span>3 Sets × 12, 10, 8 Reps</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Rest Time</strong>
+                        <span>90 Seconds between sets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tuesday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Monday • Day 2</span>
+                <h3>Back & Biceps (Pull Power)</h3>
+                <p><strong>Kaise Karein:</strong> Lat Pulldown aur Seated Cable Row ka use karein. Pull karte waqt chest ko bahar nikal kar shoulder blades ko squeeze karein.</p>
+                <p><strong>Body Changing Benefits:</strong> Back ki width badhti hai, spinal posture strong hota hai aur back pain ki problem door hoti hai.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item">
+                        <strong>Sets & Reps</strong>
+                        <span>3 Sets × 12 Reps each</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Rest Time</strong>
+                        <span>90 Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wednesday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Wednesday • Day 3</span>
+                <h3>Active Rest & Mobility</h3>
+                <p><strong>Kaise Karein:</strong> Light stretching, foam rolling aur core stability plank (3 sets x 30 seconds).</p>
+                <p><strong>Body Changing Benefits:</strong> Muscles ko recover hone ka time milta hai aur flexibility improve hoti hai.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item">
+                        <strong>Focus</strong>
+                        <span>Core & Flexibility</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Duration</strong>
+                        <span>30 Minutes Light Session</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thursday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Thursday • Day 4</span>
+                <h3>Legs & Lower Body Foundation</h3>
+                <p><strong>Kaise Karein:</strong> Bodyweight Squats ya Leg Press machine se start karein. Knees ko toes ki direction mein bend karein aur back straight rakhen.</p>
+                <p><strong>Body Changing Benefits:</strong> Lower body stamina boost hota hai, glutes aur quads strong bante hain aur overall body metabolism fast hota hai.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item">
+                        <strong>Sets & Reps</strong>
+                        <span>4 Sets × 12 Reps</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Rest Time</strong>
+                        <span>90 Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Friday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Friday • Day 5</span>
+                <h3>Shoulders & Abs (V-Taper Sculpting)</h3>
+                <p><strong>Kaise Karein:</strong> Dumbbell Lateral Raises aur Seated Shoulder Press lightweight ke sath perform karein.</p>
+                <p><strong>Body Changing Benefits:</strong> Broad shoulders ka look milta hai aur core strength develop hoti hai.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item">
+                        <strong>Sets & Reps</strong>
+                        <span>3 Sets × 15 Reps</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Rest Time</strong>
+                        <span>60 Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Saturday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Saturday • Day 6</span>
+                <h3>Full Body Conditioning & Cardio</h3>
+                <p><strong>Kaise Karein:</strong> 20 minutes Treadmill walking/jogging + light dumbbell complexes.</p>
+                <p><strong>Body Changing Benefits:</strong> Extra fat burn hota hai, heart health improve hoti hai aur stamina extreme level par jata hai.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item">
+                        <strong>Duration</strong>
+                        <span>30 Minutes Total</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Intensity</strong>
+                        <span>Moderate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
