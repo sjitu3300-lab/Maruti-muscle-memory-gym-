@@ -21,7 +21,7 @@
             width: 100vw;
         }
 
-        /* 1. Unique Mobile-Friendly Header */
+        /* Unique Mobile-Friendly Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -79,7 +79,7 @@
             background-color: #b52d16;
         }
 
-        /* Hero Section with AI Video Background Setup */
+        /* 1. Hero Section with Scroll-Driven AI Video Effect (Lady Dumbbell Workout) */
         .hero {
             height: 100vh;
             width: 100%;
@@ -99,7 +99,9 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            opacity: 0.5;
+            opacity: 0.6;
+            transform: scale(1);
+            transition: transform 0.1s ease-out;
         }
         .hero-overlay {
             position: absolute;
@@ -107,7 +109,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 85%, #0a0a0a 100%);
+            background: linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.9) 85%, #0a0a0a 100%);
             z-index: 2;
         }
         .hero-content {
@@ -261,12 +263,64 @@
             line-height: 1.5;
         }
 
+        /* 5. Gym Machines Showcase Section (Hotel Rooms Style) */
+        .machines-section {
+            padding: 90px 5%;
+            background-color: #0d0d0d;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .machines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .machine-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .machine-card:hover {
+            border-color: #d9381e;
+            transform: translateY(-5px);
+        }
+        .machine-img {
+            height: 220px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .machine-info {
+            padding: 20px;
+        }
+        .machine-info span {
+            color: #d9381e;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .machine-info h4 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .machine-info p {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
         /* Choose Your Fitness Journey Section */
         .journey-section {
             padding: 90px 5%;
-            background-color: #0f0f0f;
-            border-top: 1px solid #1a1a1a;
-            border-bottom: 1px solid #1a1a1a;
+            background-color: #0a0a0a;
         }
         .journey-section h2 {
             font-size: clamp(26px, 4vw, 32px);
@@ -338,10 +392,12 @@
             letter-spacing: 1px;
         }
 
-        /* 2. Top 10 Articles & Workout/Diet Guide Section */
+        /* 2. Top 10 Clickable Articles Section */
         .articles-section {
             padding: 90px 5%;
-            background-color: #0a0a0a;
+            background-color: #0f0f0f;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
         }
         .articles-grid {
             display: grid;
@@ -354,11 +410,15 @@
             border: 1px solid #222;
             padding: 25px;
             border-radius: 6px;
+            text-decoration: none;
+            display: block;
+            color: inherit;
             transition: 0.3s;
         }
         .article-card:hover {
             border-color: #d9381e;
             transform: translateY(-5px);
+            background: #181212;
         }
         .article-card span {
             color: #d9381e;
@@ -375,22 +435,29 @@
             text-transform: uppercase;
             margin-bottom: 10px;
             line-height: 1.4;
+            color: #fff;
         }
         .article-card p {
             color: #888;
             font-size: 12px;
             line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            color: #d9381e;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
         /* Owner & About Section */
         .about-section {
             padding: 90px 5%;
-            background-color: #0f0f0f;
+            background-color: #0a0a0a;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
-            border-top: 1px solid #1a1a1a;
         }
         .about-img-box {
             position: relative;
@@ -518,7 +585,7 @@
             letter-spacing: 1px;
         }
 
-        /* Location & Map Section */
+        /* 6. Location & Map Section with Exact Shop Address */
         .location-section {
             padding: 90px 5%;
             background-color: #070707;
@@ -644,20 +711,20 @@
         <nav>
             <ul>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#machines">Machines</a></li>
                 <li><a href="#journey">Journey</a></li>
                 <li><a href="#articles">Guides</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#location">Location</a></li>
             </ul>
         </nav>
         <button class="book-btn" onclick="location.href='#location'">Join Now</button>
     </header>
 
-    <!-- Hero Section with AI Video Background Setup (Scroll-driven effect setup) -->
+    <!-- 1. Hero Section with Scroll-Driven AI Lady Dumbbell Video Effect -->
     <section class="hero" id="home">
-        <!-- AI Workout Video Background -->
-        <video class="hero-video-bg" autoplay muted loop playsinline>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-muscular-man-doing-exercises-with-dumbbells-41604-large.mp4" type="video/mp4">
+        <!-- AI Lady Workout / Dumbbell Lifting Video Background -->
+        <video id="heroVideo" class="hero-video-bg" autoplay muted loop playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-doing-exercises-with-dumbbells-in-a-gym-41607-large.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
 
@@ -711,6 +778,43 @@
         </div>
     </section>
 
+    <!-- 5. Gym Machines Showcase Section (Hotel Rooms Style) -->
+    <section class="machines-section animate-on-scroll" id="machines">
+        <div class="section-header">
+            <div class="section-title">
+                <span>World-Class Infrastructure</span>
+                <h2>Professional Gym Machines & Setup</h2>
+            </div>
+        </div>
+
+        <div class="machines-grid">
+            <div class="machine-card">
+                <div class="machine-img" style="background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="machine-info">
+                    <span>Zone 01 • Strength</span>
+                    <h4>Heavy Duty Power Racks</h4>
+                    <p>Safe and sturdy squat racks equipped with olympic bars and bumper plates.</p>
+                </div>
+            </div>
+            <div class="machine-card">
+                <div class="machine-img" style="background-image: url('https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="machine-info">
+                    <span>Zone 02 • Isolation</span>
+                    <h4>Pin-Selected Weight Stacks</h4>
+                    <p>Ergonomically designed cable crossover and lat pulldown isolation machines.</p>
+                </div>
+            </div>
+            <div class="machine-card">
+                <div class="machine-img" style="background-image: url('https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="machine-info">
+                    <span>Zone 03 • Cardio</span>
+                    <h4>Pro Treadmills & Rowers</h4>
+                    <p>High-end cardio equipment with digital tracking for endurance training.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Choose Your Fitness Journey Section -->
     <section class="journey-section animate-on-scroll" id="journey">
         <h2>Choose Your Fitness Journey</h2>
@@ -738,7 +842,7 @@
         </div>
     </section>
 
-    <!-- 2. Top 10 Workout & Diet Articles Section -->
+    <!-- 2. Top 10 Clickable Articles Section (Individual pages setup) -->
     <section class="articles-section animate-on-scroll" id="articles">
         <div class="section-header">
             <div class="section-title">
@@ -748,56 +852,66 @@
         </div>
 
         <div class="articles-grid">
-            <div class="article-card">
+            <a href="article-beginner-rules.html" class="article-card">
                 <span>Guide 01 • Beginner</span>
                 <h4>Pehli Baar Gym Ja Rahe Hain? Yeh Basic Rules Follow Karein</h4>
                 <p>Proper posture, breathing technique aur zero injury ke sath gym start karne ka complete tarika.</p>
-            </div>
-            <div class="article-card">
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-protein-diet.html" class="article-card">
                 <span>Guide 02 • Diet</span>
                 <h4>Muscle Gain Ke Liye Best High-Protein Indian Diet Plan</h4>
                 <p>Paneer, daal, eggs aur oats ke sath daily protein goals poore karne ke aasan nuskhe.</p>
-            </div>
-            <div class="article-card">
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-muscle-memory.html" class="article-card">
                 <span>Guide 03 • Workout</span>
                 <h4>Muscle Memory Kya Hai? Jaldi Growth Kaise Payein</h4>
                 <p>Samjhein ki kaise aapke purane muscle gains gap ke baad bhi jaldi wapas aate hain.</p>
-            </div>
-            <div class="article-card">
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-fat-loss.html" class="article-card">
                 <span>Guide 04 • Fat Loss</span>
                 <h4>Fat Loss vs Muscle Building: Dono Ek Sath Kaise Karein?</h4>
                 <p>Body recomposition ka sahi formula jo aapke fat ko burn aur muscle ko tone kare.</p>
-            </div>
-            <div class="article-card">
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-recovery.html" class="article-card">
                 <span>Guide 05 • Recovery</span>
                 <h4>Rest Days Aur Sleep Kyun Zaroori Hain Growth Ke Liye?</h4>
                 <p>Gym mein sirf workout nahi hota, asli muscle recovery ghar par rest ke dauran banti hai.</p>
-            </div>
-            <div class="article-card">
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-supplements.html" class="article-card">
                 <span>Guide 06 • Supplements</span>
                 <h4>Kya Whey Protein Lena Safe Hai? Sahi Jankari</h4>
                 <p>Beginners ke liye protein supplements aur hydration ke bare mein saari clear baatein.</p>
-            </div>
-            <div class="article-card">
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-compound.html" class="article-card">
                 <span>Guide 07 • Workout</span>
                 <h4>Chest aur Biceps Growth Ke Liye Top 5 Compound Exercises</h4>
                 <p>Kam samay mein maximum muscle activation hasil karne ke powerful movements.</p>
-            </div>
-            <div class="article-card">
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-meal-timing.html" class="article-card">
                 <span>Guide 08 • Diet</span>
                 <h4>Pre-Workout aur Post-Workout Meal Mein Kya Khana Chahiye?</h4>
                 <p>Workout se pehle energy boost aur baad mein muscle recovery ke liye perfect foods.</p>
-            </div>
-            <div class="article-card">
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-consistency.html" class="article-card">
                 <span>Guide 09 • Mindset</span>
                 <h4>Gym Mein Consistency Kaise Banayein (Long-Term Motivation)</h4>
                 <p>Jab laziness aaye tab apne aapko push karke discipline kaise establish karein.</p>
-            </div>
-            <div class="article-card">
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-injury-prevention.html" class="article-card">
                 <span>Guide 10 • Safety</span>
                 <h4>Gym Injuries Se Kaise Bachen: Proper Warm-up Routine</h4>
                 <p>Stretching aur mobility exercises jo aapko severe joint pain aur injuries se bachayein.</p>
-            </div>
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
         </div>
     </section>
 
@@ -834,7 +948,7 @@
         </div>
     </div>
 
-    <!-- Location & Map Section -->
+    <!-- 6. Location & Map Section with Exact Shop Address -->
     <section class="location-section animate-on-scroll" id="location">
         <div class="location-grid">
             <div class="location-info">
@@ -859,7 +973,7 @@
             </div>
 
             <div class="map-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.0!2d73.7!3d27.2!2m3!1f0!2f0!3f0!3m2!1f1024!2f768!4f13.1!3m3!1m2!1s0x396bc6!2sChenar%2C%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1650000000000" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.123!2d73.712!3d27.204!2m3!1f0!2f0!3f0!3m2!1f1024!2f768!4f13.1!3m3!1m2!1s0x396bc6!2sBSF%20Colony%2C%20Chenar%2C%20Rajasthan%20341001!5e0!3m2!1sen!2sin!4v1650000000000" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -891,7 +1005,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Instant Counter on Page Load & GSAP Scroll Animations (Up/Down reveal) -->
+    <!-- JavaScript for Instant Counter, Scroll-driven Video Animation & GSAP Scroll Effects -->
     <script>
         // 3. Instant Counting Animation on Page Load
         window.addEventListener('DOMContentLoaded', () => {
@@ -914,10 +1028,20 @@
             });
         });
 
-        // 4. GSAP Advanced Scroll Animations (Scroller Up & Down Reversible Reveal)
+        // 1. Scroll-driven Video Motion (Lady dumbbell lifting scale effect on scroll)
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroVideo = document.getElementById('heroVideo');
+            if (heroVideo && scrollY <= window.innerHeight) {
+                let scaleVal = 1 + (scrollY * 0.0005);
+                heroVideo.style.transform = `scale(${scaleVal})`;
+            }
+        });
+
+        // 4. GSAP Advanced Scroll Animations (Up/Down Reversible Reveal)
         gsap.registerPlugin(ScrollTrigger);
 
-        document.querySelectorAll('.animate-on-scroll, .services-grid > *, .journey-grid > *, .articles-grid > *').forEach((element) => {
+        document.querySelectorAll('.animate-on-scroll, .services-grid > *, .machines-grid > *, .journey-grid > *, .articles-grid > *').forEach((element) => {
             gsap.fromTo(element, 
                 { opacity: 0, y: 50 }, 
                 {
@@ -929,7 +1053,7 @@
                         trigger: element,
                         start: "top 85%",
                         end: "top 20%",
-                        toggleActions: "play reverse play reverse" // Wapas upar scroll karne par wapas animate hoke hide/reveal hoga
+                        toggleActions: "play reverse play reverse"
                     }
                 }
             );
