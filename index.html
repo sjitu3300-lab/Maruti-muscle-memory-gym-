@@ -305,7 +305,7 @@
             line-height: 1.4;
         }
 
-        /* Choose Your Fitness Journey Section */
+        /* Choose Your Fitness Journey Section (Linked Cards) */
         .journey-section {
             padding: 90px 5%;
             background-color: #0a0a0a;
@@ -338,6 +338,8 @@
             justify-content: flex-end;
             padding: 30px;
             border: 1px solid #222;
+            text-decoration: none;
+            color: inherit;
             cursor: pointer;
             transition: 0.4s;
         }
@@ -346,6 +348,10 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to top, rgba(10,10,10,0.95) 40%, rgba(10,10,10,0.3) 100%);
+        }
+        .journey-card:hover {
+            border-color: #d9381e;
+            transform: translateY(-5px);
         }
         .journey-card * {
             position: relative;
@@ -365,6 +371,7 @@
             font-weight: 900;
             margin-bottom: 10px;
             text-transform: uppercase;
+            color: #fff;
         }
         .journey-card p {
             color: #999;
@@ -832,30 +839,35 @@
         </div>
     </section>
 
-    <!-- Choose Your Fitness Journey Section -->
+    <!-- Choose Your Fitness Journey Section (Linked to Beginner, Intermediate, Advanced pages) -->
     <section class="journey-section reveal" id="journey">
         <h2>Choose Your Fitness Journey</h2>
         <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
 
         <div class="journey-grid">
-            <div class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');" onclick="location.href='#location'">
+            <!-- Option 1: Beginner Page Link -->
+            <a href="beginner.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 01</span>
                 <h3>Absolute Beginner</h3>
                 <p>Zero se shuruat karne walon ke liye proper form aur foundational strength training.</p>
                 <span class="explore-link">Explore Plan &rarr;</span>
-            </div>
-            <div class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');" onclick="location.href='#location'">
+            </a>
+
+            <!-- Option 2: Restart / Intermediate Page Link -->
+            <a href="intermediate.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 02</span>
                 <h3>Restart / Intermediate</h3>
                 <p>Gym chhodne ke baad wapas muscle memory regain karne aur stamina build karne ke liye.</p>
                 <span class="explore-link">Explore Plan &rarr;</span>
-            </div>
-            <div class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');" onclick="location.href='#location'">
+            </a>
+
+            <!-- Option 3: Advanced Page Link -->
+            <a href="advanced.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 03</span>
                 <h3>Advanced (1-2 Yrs)</h3>
                 <p>Heavy lifting, muscle hypertrophy aur advanced split routines ke sath professional progress.</p>
                 <span class="explore-link">Explore Plan &rarr;</span>
-            </div>
+            </a>
         </div>
     </section>
 
