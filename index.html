@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maruti Muscle Memory GYM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        .logo {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .logo span {
+            color: #d9381e;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav ul li a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: #d9381e;
+        }
+        .book-btn {
+            background-color: #d9381e;
+            color: white;
+            padding: 10px 22px;
+            border: none;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        .book-btn:hover {
+            background-color: #b52d16;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10,10,10,0.5), rgba(10,10,10,1)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 80px;
+            position: relative;
+            margin-top: 60px;
+        }
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
+        }
+        .subtitle {
+            color: #d9381e;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .hero h1 {
+            font-size: 55px;
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            color: #aaa;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 450px;
+        }
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .btn-red {
+            background-color: #d9381e;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .btn-red:hover {
+            background-color: #b52d16;
+        }
+        .link-text {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .link-text:hover {
+            color: #d9381e;
+        }
+
+        /* Floating Stat Cards in Hero */
+        .hero-stats {
+            display: flex;
+            gap: 20px;
+            z-index: 2;
+        }
+        .stat-box {
+            background: rgba(30, 10, 10, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(217, 56, 30, 0.3);
+            padding: 30px 25px;
+            border-radius: 4px;
+            text-align: left;
+            min-width: 160px;
+        }
+        .stat-box h3 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .stat-box p {
+            color: #b0b0b0;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        /* Training Services Section */
+        .services-section {
+            padding: 100px 80px;
+            background-color: #0a0a0a;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-title span {
+            color: #888;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .service-card {
+            height: 420px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            border: 1px solid #222;
+            transition: 0.4s;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(10,10,10,0.95) 20%, rgba(10,10,10,0.2) 100%);
+        }
+        .service-card:hover {
+            border-color: #d9381e;
+            transform: translateY(-5px);
+        }
+        .service-card * {
+            position: relative;
+            z-index: 2;
+        }
+        .service-card span {
+            color: #d9381e;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .service-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Experience Journey Section (Aapki Requirement) */
+        .journey-section {
+            padding: 80px;
+            background-color: #0f0f0f;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .journey-section h2 {
+            font-size: 32px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .journey-section > p {
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .journey-card {
+            background: #141414;
+            border: 1px solid #262626;
+            padding: 35px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+        }
+        .journey-card:hover {
+            border-color: #d9381e;
+            background: #181212;
+            transform: translateY(-5px);
+        }
+        .journey-card .level-tag {
+            color: #d9381e;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .journey-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .journey-card p {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .journey-card .explore-link {
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Banner Section */
+        .cta-banner {
+            margin: 80px;
+            background-color: #d9381e;
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            align-items: center;
+            overflow: hidden;
+        }
+        .cta-left {
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .cta-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        .cta-left h2 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .cta-left p {
+            color: rgba(255,255,255,0.85);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .cta-right {
+            background-color: #121212;
+            padding: 50px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cta-right span {
+            color: #d9381e;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .cta-right h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .cta-right p {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+        .cta-right a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .cta-right a:hover {
+            color: #d9381e;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #070707;
+            padding: 60px 80px 30px 80px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .footer-stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid #1a1a1a;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .f-stat h4 {
+            font-size: 32px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .f-stat p {
+            color: #777;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-col h5 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .footer-col p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: #888;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+        .footer-col ul li a:hover {
+            color: #d9381e;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #141414;
+            color: #555;
+            font-size: 12px;
+        }
+
+        /* Responsive Design */
+        @media(max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                justify-content: center;
+                height: auto;
+                padding: 100px 30px;
+            }
+            .hero-stats {
+                margin-top: 40px;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .services-grid, .journey-grid, .footer-content, .footer-stats-bar {
+                grid-template-columns: 1fr;
+            }
+            .cta-banner {
+                grid-template-columns: 1fr;
+                margin: 40px 20px;
+            }
+            header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">Maruti <span>Muscle Memory</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#journey">Experience Level</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="book-btn" onclick="location.href='#contact'">Join Now</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="subtitle">Certified Personal Training</span>
+            <h1>Forge Your Best Self at Maruti Muscle Memory</h1>
+            <p>Personal training designed around your goals — your pace, your results, specialized strength and conditioning.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-red">Book A Free Session</a>
+                <a href="#services" class="link-text">View Programs</a>
+            </div>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat-box">
+                <h3>100%</h3>
+                <p>Client Satisfaction Guaranteed – built around your goals.</p>
+            </div>
+            <div class="stat-box">
+                <h3>500+</h3>
+                <p>Clients Trained Real people, real results — from beginners to athletes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <div class="section-title">
+                <span>What We Offer</span>
+                <h2>Training Services</h2>
+            </div>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800');">
+                <span>01</span>
+                <h4>1:1 Personal Training</h4>
+                <p>Tailored sessions designed around your goals with full 1-on-1 coach attention.</p>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800');">
+                <span>02</span>
+                <h4>Group Bootcamp</h4>
+                <p>High-energy group training that pushes limits and builds community.</p>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800');">
+                <span>03</span>
+                <h4>Online Coaching</h4>
+                <p>Remote programming and weekly check-ins — train anywhere, anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Choose Your Fitness Journey Section (Aapki Requirement ke 3 Clickable Cards) -->
+    <section class="journey-section" id="journey">
+        <h2>Choose Your Fitness Journey</h2>
+        <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
+
+        <div class="journey-grid">
+            <!-- Card 1: Beginner -->
+            <div class="journey-card" onclick="location.href='beginner.html'">
+                <span class="level-tag">Option 01</span>
+                <h3>Absolute Beginner</h3>
+                <p>Agar aapne pehle kabhi gym nahi kiya aur zero se shuruat kar rahe hain, proper posture aur foundational strength ke sath.</p>
+                <span class="explore-link">Explore Beginner Plan &rarr;</span>
+            </div>
+
+            <!-- Card 2: Restart / Intermediate -->
+            <div class="journey-card" onclick="location.href='intermediate.html'">
+                <span class="level-tag">Option 02</span>
+                <h3>Restart / Intermediate</h3>
+                <p>Agar aapne pehle gym ki hai aur kuch gap ke baad dobara wapas join kar rahe hain, muscle memory regain karne ke liye.</p>
+                <span class="explore-link">Explore Restart Plan &rarr;</span>
+            </div>
+
+            <!-- Card 3: Advanced -->
+            <div class="journey-card" onclick="location.href='advanced.html'">
+                <span class="level-tag">Option 03</span>
+                <h3>Advanced (1-2 Yrs Experience)</h3>
+                <p>Jinhe 1-2 saal ka continuous experience hai aur jo heavy lifting, hypertrophy, aur advanced split routines chahte hain.</p>
+                <span class="explore-link">Explore Advanced Plan &rarr;</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <div class="cta-banner" id="contact">
+        <div class="cta-left">
+            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=300" alt="Trainer" class="cta-avatar">
+            <div>
+                <h2>Ready To Forge Your Best Self?</h2>
+                <p>Take the first step. Book a free consultation and get a training plan built around you.</p>
+            </div>
+        </div>
+        <div class="cta-right">
+            <span>Free Consultation</span>
+            <h3>Your First Session Is On Us</h3>
+            <p>No commitment. No pressure. Just a real conversation about your goals.</p>
+            <a href="#contact">Claim Your Free Session &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-stats-bar">
+            <div class="f-stat">
+                <h4>100%</h4>
+                <p>Client Satisfaction</p>
+            </div>
+            <div class="f-stat">
+                <h4>500+</h4>
+                <p>Clients Trained</p>
+            </div>
+            <div class="f-stat">
+                <h4>8 YRS</h4>
+                <p>Coaching Experience</p>
+            </div>
+            <div class="f-stat">
+                <h4>200+</h4>
+                <p>Programs Created</p>
+            </div>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-col">
+                <h5>Maruti Muscle Memory</h5>
+                <p>Professional fitness training and specialized strength conditioning designed around your personal goals.</p>
+            </div>
+               <div class="footer-col">
+                <h5>Programs</h5>
+                <ul>
+                    <li><a href="#services">1:1 Personal Training</a></li>
+                    <li><a href="#services">Group Bootcamp</a></li>
+                    <li><a href="#services">Online Coaching</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Location & Info</h5>
+                <ul>
+                    <li><a href="#contact">BSF Colony, Chenar, Rajasthan</a></li>
+                    <li><a href="#contact">Call: +91 89470 12333</a></li>
+                    <li><a href="#contact">Timing: 5:30 AM - 10:30 PM</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Start Today</h5>
+                <p>Ready to transform? Book your free consultation now.</p>
+                <a href="#contact" class="btn-red" style="display:inline-block; margin-top:5px;">Book Free Session</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Maruti Muscle Memory GYM. All rights reserved.</p>
+            <p>Designed for Premium Fitness</p>
+        </div>
+    </footer>
+
+</body>
+</html>
