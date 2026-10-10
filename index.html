@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maruti Muscle Memory GYM</title>
-    <!-- GSAP & ScrollTrigger for Advanced Scroll Animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -79,7 +76,7 @@
             background-color: #b52d16;
         }
 
-        /* 1. Hero Section with Scroll-Driven AI Video Effect (Lady Dumbbell Workout) */
+        /* 1. Hero Section with Original High-Quality Image Background */
         .hero {
             height: 100vh;
             width: 100%;
@@ -90,27 +87,7 @@
             padding: 0 5%;
             margin-top: 60px;
             overflow: hidden;
-        }
-        .hero-video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.6;
-            transform: scale(1);
-            transition: transform 0.1s ease-out;
-        }
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.9) 85%, #0a0a0a 100%);
-            z-index: 2;
+            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 85%, #0a0a0a 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
         }
         .hero-content {
             max-width: 600px;
@@ -263,7 +240,7 @@
             line-height: 1.5;
         }
 
-        /* 5. Gym Machines Showcase Section (Hotel Rooms Style) */
+        /* Gym Machines Showcase Section */
         .machines-section {
             padding: 90px 5%;
             background-color: #0d0d0d;
@@ -392,7 +369,7 @@
             letter-spacing: 1px;
         }
 
-        /* 2. Top 10 Clickable Articles Section */
+        /* Top 10 Clickable Articles Section */
         .articles-section {
             padding: 90px 5%;
             background-color: #0f0f0f;
@@ -585,7 +562,7 @@
             letter-spacing: 1px;
         }
 
-        /* 6. Location & Map Section with Exact Shop Address */
+        /* Location & Map Section */
         .location-section {
             padding: 90px 5%;
             background-color: #070707;
@@ -644,7 +621,7 @@
             filter: grayscale(100%) invert(92%) contrast(85%);
         }
 
-        /* Footer */
+        /* Footer with Original Points and Highlights */
         footer {
             background-color: #050505;
             padding: 60px 5% 30px 5%;
@@ -671,13 +648,49 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
+        
+        /* Footer Points Section */
+        .footer-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #141414;
+        }
+        .footer-highlight-col h5 {
+            color: #fff;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        .footer-highlight-col ul {
+            list-style: none;
+        }
+        .footer-highlight-col ul li {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 15px;
+        }
+        .footer-highlight-col ul li::before {
+            content: '•';
+            color: #d9381e;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
         .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
-            padding-top: 20px;
+            padding-top: 10px;
             color: #555;
             font-size: 11px;
         }
@@ -720,14 +733,8 @@
         <button class="book-btn" onclick="location.href='#location'">Join Now</button>
     </header>
 
-    <!-- 1. Hero Section with Scroll-Driven AI Lady Dumbbell Video Effect -->
+    <!-- 1. Hero Section with Original Image Background -->
     <section class="hero" id="home">
-        <!-- AI Lady Workout / Dumbbell Lifting Video Background -->
-        <video id="heroVideo" class="hero-video-bg" autoplay muted loop playsinline>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-doing-exercises-with-dumbbells-in-a-gym-41607-large.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-
         <div class="hero-content">
             <span class="subtitle">Certified Personal Training</span>
             <h1>Forge Your Best Self</h1>
@@ -751,7 +758,7 @@
     </section>
 
     <!-- Training Services Section -->
-    <section class="services-section animate-on-scroll" id="services">
+    <section class="services-section" id="services">
         <div class="section-header">
             <div class="section-title">
                 <span>What We Offer</span>
@@ -778,8 +785,8 @@
         </div>
     </section>
 
-    <!-- 5. Gym Machines Showcase Section (Hotel Rooms Style) -->
-    <section class="machines-section animate-on-scroll" id="machines">
+    <!-- Gym Machines Showcase Section -->
+    <section class="machines-section" id="machines">
         <div class="section-header">
             <div class="section-title">
                 <span>World-Class Infrastructure</span>
@@ -816,7 +823,7 @@
     </section>
 
     <!-- Choose Your Fitness Journey Section -->
-    <section class="journey-section animate-on-scroll" id="journey">
+    <section class="journey-section" id="journey">
         <h2>Choose Your Fitness Journey</h2>
         <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
 
@@ -842,8 +849,8 @@
         </div>
     </section>
 
-    <!-- 2. Top 10 Clickable Articles Section (Individual pages setup) -->
-    <section class="articles-section animate-on-scroll" id="articles">
+    <!-- Top 10 Clickable Articles Section -->
+    <section class="articles-section" id="articles">
         <div class="section-header">
             <div class="section-title">
                 <span>Expert Guidance</span>
@@ -916,7 +923,7 @@
     </section>
 
     <!-- Owner & About Section -->
-    <section class="about-section animate-on-scroll" id="about">
+    <section class="about-section" id="about">
         <div class="about-img-box">
             <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=800" alt="Owner Trainer">
         </div>
@@ -932,7 +939,7 @@
     </section>
 
     <!-- CTA Banner Section -->
-    <div class="cta-banner animate-on-scroll">
+    <div class="cta-banner">
         <div class="cta-left">
             <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=300" alt="Trainer" class="cta-avatar">
             <div>
@@ -948,8 +955,8 @@
         </div>
     </div>
 
-    <!-- 6. Location & Map Section with Exact Shop Address -->
-    <section class="location-section animate-on-scroll" id="location">
+    <!-- Location & Map Section -->
+    <section class="location-section" id="location">
         <div class="location-grid">
             <div class="location-info">
                 <h2>Visit Our Gym Location</h2>
@@ -978,7 +985,7 @@
         </div>
     </section>
 
-    <!-- Footer Stats & Bar -->
+    <!-- Footer Stats & Highlights Points -->
     <footer>
         <div class="footer-stats-grid">
             <div class="f-stat">
@@ -999,15 +1006,45 @@
             </div>
         </div>
 
+        <!-- Footer Highlight Points -->
+        <div class="footer-highlights">
+            <div class="footer-highlight-col">
+                <h5>Training Programs</h5>
+                <ul>
+                    <li>1:1 Personalized Coaching</li>
+                    <li>Muscle Hypertrophy & Bulk</li>
+                    <li>Fat Loss & Shredding</li>
+                    <li>Beginner Form Correction</li>
+                </ul>
+            </div>
+            <div class="footer-highlight-col">
+                <h5>Gym Facilities</h5>
+                <ul>
+                    <li>Modern Heavy Duty Machines</li>
+                    <li>Air-Conditioned Workout Floor</li>
+                    <li>Certified Trainer Support</li>
+                    <li>Clean & Hygienic Environment</li>
+                </ul>
+            </div>
+            <div class="footer-highlight-col">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#home" style="color:inherit; text-decoration:none;">Back to Top</a></li>
+                    <li><a href="#machines" style="color:inherit; text-decoration:none;">View Equipment</a></li>
+                    <li><a href="#articles" style="color:inherit; text-decoration:none;">Fitness Articles</a></li>
+                    <li><a href="#location" style="color:inherit; text-decoration:none;">Get Directions</a></li>
+                </ul>
+            </div>
+        </div>
+
         <div class="footer-bottom">
             <p>&copy; 2026 Maruti Muscle Memory GYM. All rights reserved.</p>
-            <p>Designed for Ultimate Fitness</p>
+            <p>Designed for Ultimate Fitness & Strength</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Instant Counter, Scroll-driven Video Animation & GSAP Scroll Effects -->
+    <!-- JavaScript for Instant Counter on Page Load -->
     <script>
-        // 3. Instant Counting Animation on Page Load
         window.addEventListener('DOMContentLoaded', () => {
             const counters = document.querySelectorAll('.counter');
             counters.forEach(counter => {
@@ -1026,37 +1063,6 @@
                 };
                 updateCount();
             });
-        });
-
-        // 1. Scroll-driven Video Motion (Lady dumbbell lifting scale effect on scroll)
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const heroVideo = document.getElementById('heroVideo');
-            if (heroVideo && scrollY <= window.innerHeight) {
-                let scaleVal = 1 + (scrollY * 0.0005);
-                heroVideo.style.transform = `scale(${scaleVal})`;
-            }
-        });
-
-        // 4. GSAP Advanced Scroll Animations (Up/Down Reversible Reveal)
-        gsap.registerPlugin(ScrollTrigger);
-
-        document.querySelectorAll('.animate-on-scroll, .services-grid > *, .machines-grid > *, .journey-grid > *, .articles-grid > *').forEach((element) => {
-            gsap.fromTo(element, 
-                { opacity: 0, y: 50 }, 
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 85%",
-                        end: "top 20%",
-                        toggleActions: "play reverse play reverse"
-                    }
-                }
-            );
         });
     </script>
 </body>
