@@ -18,6 +18,17 @@
             width: 100vw;
         }
 
+        /* Scroll Animation Initial State */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Unique Mobile-Friendly Header */
         header {
             display: flex;
@@ -76,7 +87,7 @@
             background-color: #b52d16;
         }
 
-        /* 1. Hero Section with Original High-Quality Image Background */
+        /* Hero Section */
         .hero {
             height: 100vh;
             width: 100%;
@@ -621,7 +632,7 @@
             filter: grayscale(100%) invert(92%) contrast(85%);
         }
 
-        /* Footer with Original Points and Highlights */
+        /* Footer */
         footer {
             background-color: #050505;
             padding: 60px 5% 30px 5%;
@@ -649,7 +660,6 @@
             letter-spacing: 1.5px;
         }
         
-        /* Footer Points Section */
         .footer-highlights {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -733,7 +743,7 @@
         <button class="book-btn" onclick="location.href='#location'">Join Now</button>
     </header>
 
-    <!-- 1. Hero Section with Original Image Background -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <span class="subtitle">Certified Personal Training</span>
@@ -758,7 +768,7 @@
     </section>
 
     <!-- Training Services Section -->
-    <section class="services-section" id="services">
+    <section class="services-section reveal" id="services">
         <div class="section-header">
             <div class="section-title">
                 <span>What We Offer</span>
@@ -786,7 +796,7 @@
     </section>
 
     <!-- Gym Machines Showcase Section -->
-    <section class="machines-section" id="machines">
+    <section class="machines-section reveal" id="machines">
         <div class="section-header">
             <div class="section-title">
                 <span>World-Class Infrastructure</span>
@@ -823,7 +833,7 @@
     </section>
 
     <!-- Choose Your Fitness Journey Section -->
-    <section class="journey-section" id="journey">
+    <section class="journey-section reveal" id="journey">
         <h2>Choose Your Fitness Journey</h2>
         <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
 
@@ -850,7 +860,7 @@
     </section>
 
     <!-- Top 10 Clickable Articles Section -->
-    <section class="articles-section" id="articles">
+    <section class="articles-section reveal" id="articles">
         <div class="section-header">
             <div class="section-title">
                 <span>Expert Guidance</span>
@@ -923,7 +933,7 @@
     </section>
 
     <!-- Owner & About Section -->
-    <section class="about-section" id="about">
+    <section class="about-section reveal" id="about">
         <div class="about-img-box">
             <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=800" alt="Owner Trainer">
         </div>
@@ -939,7 +949,7 @@
     </section>
 
     <!-- CTA Banner Section -->
-    <div class="cta-banner">
+    <div class="cta-banner reveal">
         <div class="cta-left">
             <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=300" alt="Trainer" class="cta-avatar">
             <div>
@@ -956,7 +966,7 @@
     </div>
 
     <!-- Location & Map Section -->
-    <section class="location-section" id="location">
+    <section class="location-section reveal" id="location">
         <div class="location-grid">
             <div class="location-info">
                 <h2>Visit Our Gym Location</h2>
@@ -1006,7 +1016,6 @@
             </div>
         </div>
 
-        <!-- Footer Highlight Points -->
         <div class="footer-highlights">
             <div class="footer-highlight-col">
                 <h5>Training Programs</h5>
@@ -1043,9 +1052,10 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Instant Counter on Page Load -->
+    <!-- JavaScript for Instant Counter and Scroll Reveal Animation -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
+            // Counter Animation
             const counters = document.querySelectorAll('.counter');
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
@@ -1064,6 +1074,25 @@
                 updateCount();
             });
         });
+
+        // Scroll Reveal Animation Script
+        window.addEventListener('scroll', revealOnScroll);
+
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        // Trigger once on load
+        revealOnScroll();
     </script>
 </body>
 </html>
