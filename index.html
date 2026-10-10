@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maruti Muscle Memory GYM</title>
-    <!-- GSAP for Smooth Scroll Animations -->
+    <!-- GSAP & ScrollTrigger for Advanced Scroll Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
@@ -27,7 +27,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(10, 10, 10, 0.95);
             position: fixed;
             width: 100%;
             top: 0;
@@ -79,33 +79,41 @@
             background-color: #b52d16;
         }
 
-        /* Hero Section */
+        /* Hero Section with AI Video Background Setup */
         .hero {
             height: 100vh;
             width: 100%;
-            background: linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.95) 85%, #0a0a0a 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 5%;
-            position: relative;
             margin-top: 60px;
+            overflow: hidden;
         }
-        .hero-bg-text {
+        .hero-video-bg {
             position: absolute;
-            top: 15%;
-            left: 5%;
-            font-size: 15vw;
-            font-weight: 900;
-            color: rgba(217, 56, 30, 0.04);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             z-index: 1;
-            text-transform: uppercase;
-            pointer-events: none;
-            white-space: nowrap;
+            opacity: 0.5;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 85%, #0a0a0a 100%);
+            z-index: 2;
         }
         .hero-content {
             max-width: 600px;
-            z-index: 2;
+            z-index: 3;
+            position: relative;
         }
         .subtitle {
             color: #d9381e;
@@ -124,7 +132,7 @@
             margin-bottom: 20px;
         }
         .hero p {
-            color: #999;
+            color: #bbb;
             font-size: 13px;
             line-height: 1.6;
             margin-bottom: 25px;
@@ -161,12 +169,13 @@
         .hero-stats {
             display: flex;
             gap: 15px;
-            z-index: 2;
+            z-index: 3;
+            position: relative;
         }
         .stat-card {
-            background: linear-gradient(135deg, rgba(217, 56, 30, 0.25) 0%, rgba(20, 20, 20, 0.85) 100%);
+            background: linear-gradient(135deg, rgba(217, 56, 30, 0.3) 0%, rgba(20, 20, 20, 0.9) 100%);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(217, 56, 30, 0.3);
+            border: 1px solid rgba(217, 56, 30, 0.4);
             padding: 25px 20px;
             border-radius: 6px;
             width: 160px;
@@ -185,16 +194,11 @@
 
         /* Training Services Section */
         .services-section {
-            padding: 80px 5%;
+            padding: 90px 5%;
             background-color: #0a0a0a;
         }
         .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
             margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 20px;
         }
         .section-title span {
             color: #777;
@@ -257,9 +261,9 @@
             line-height: 1.5;
         }
 
-        /* 3. Choose Your Fitness Journey Section with High Quality Images */
+        /* Choose Your Fitness Journey Section */
         .journey-section {
-            padding: 80px 5%;
+            padding: 90px 5%;
             background-color: #0f0f0f;
             border-top: 1px solid #1a1a1a;
             border-bottom: 1px solid #1a1a1a;
@@ -300,11 +304,6 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to top, rgba(10,10,10,0.95) 40%, rgba(10,10,10,0.3) 100%);
-            transition: 0.3s;
-        }
-        .journey-card:hover {
-            border-color: #d9381e;
-            transform: translateY(-5px);
         }
         .journey-card * {
             position: relative;
@@ -339,14 +338,59 @@
             letter-spacing: 1px;
         }
 
-        /* 4. Owner & About Section */
-        .about-section {
+        /* 2. Top 10 Articles & Workout/Diet Guide Section */
+        .articles-section {
             padding: 90px 5%;
             background-color: #0a0a0a;
+        }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .article-card {
+            background: #141414;
+            border: 1px solid #222;
+            padding: 25px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        .article-card:hover {
+            border-color: #d9381e;
+            transform: translateY(-5px);
+        }
+        .article-card span {
+            color: #d9381e;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .article-card h4 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .article-card p {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* Owner & About Section */
+        .about-section {
+            padding: 90px 5%;
+            background-color: #0f0f0f;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
+            border-top: 1px solid #1a1a1a;
         }
         .about-img-box {
             position: relative;
@@ -474,7 +518,7 @@
             letter-spacing: 1px;
         }
 
-        /* 5. Inder Paradise Hotel Style Location & Map Section */
+        /* Location & Map Section */
         .location-section {
             padding: 90px 5%;
             background-color: #070707;
@@ -533,7 +577,7 @@
             filter: grayscale(100%) invert(92%) contrast(85%);
         }
 
-        /* Footer Stats & Bar */
+        /* Footer */
         footer {
             background-color: #050505;
             padding: 60px 5% 30px 5%;
@@ -571,7 +615,6 @@
             font-size: 11px;
         }
 
-        /* Responsive Breakpoints for Mobile View Optimization */
         @media(max-width: 992px) {
             .hero {
                 flex-direction: column;
@@ -588,20 +631,21 @@
                 grid-template-columns: 1fr;
             }
             nav ul {
-                display: none; /* Mobile Menu Simplified */
+                display: none;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Unique Header Section -->
+    <!-- Header -->
     <header>
         <div class="logo">Maruti <span>Muscle Memory</span></div>
         <nav>
             <ul>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#journey">Journey</a></li>
+                <li><a href="#articles">Guides</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#location">Location</a></li>
             </ul>
@@ -609,13 +653,18 @@
         <button class="book-btn" onclick="location.href='#location'">Join Now</button>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with AI Video Background Setup (Scroll-driven effect setup) -->
     <section class="hero" id="home">
-        <div class="hero-bg-text">Maruti</div>
+        <!-- AI Workout Video Background -->
+        <video class="hero-video-bg" autoplay muted loop playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-muscular-man-doing-exercises-with-dumbbells-41604-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
         <div class="hero-content">
             <span class="subtitle">Certified Personal Training</span>
             <h1>Forge Your Best Self</h1>
-            <p>Personal training designed around your goals — your pace, your results.</p>
+            <p>Personal training designed around your goals — specialized strength & muscle memory conditioning.</p>
             <div class="hero-buttons">
                 <a href="#location" class="btn-red">Book A Free Session</a>
                 <a href="#services" class="link-text">View Programs &rarr;</a>
@@ -635,7 +684,7 @@
     </section>
 
     <!-- Training Services Section -->
-    <section class="services-section" id="services">
+    <section class="services-section animate-on-scroll" id="services">
         <div class="section-header">
             <div class="section-title">
                 <span>What We Offer</span>
@@ -662,8 +711,8 @@
         </div>
     </section>
 
-    <!-- 3. Choose Your Fitness Journey Section with High Quality Images -->
-    <section class="journey-section" id="journey">
+    <!-- Choose Your Fitness Journey Section -->
+    <section class="journey-section animate-on-scroll" id="journey">
         <h2>Choose Your Fitness Journey</h2>
         <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
 
@@ -671,26 +720,89 @@
             <div class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');" onclick="location.href='#location'">
                 <span class="level-tag">Option 01</span>
                 <h3>Absolute Beginner</h3>
-                <p>Agar aapne pehle kabhi gym nahi kiya aur zero se shuruat kar rahe hain, proper posture ke sath.</p>
+                <p>Zero se shuruat karne walon ke liye proper form aur foundational strength training.</p>
                 <span class="explore-link">Explore Plan &rarr;</span>
             </div>
             <div class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');" onclick="location.href='#location'">
                 <span class="level-tag">Option 02</span>
                 <h3>Restart / Intermediate</h3>
-                <p>Agar aapne pehle gym ki hai aur gap ke baad dobara wapas join kar rahe hain, muscle memory regain karne.</p>
+                <p>Gym chhodne ke baad wapas muscle memory regain karne aur stamina build karne ke liye.</p>
                 <span class="explore-link">Explore Plan &rarr;</span>
             </div>
             <div class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');" onclick="location.href='#location'">
                 <span class="level-tag">Option 03</span>
                 <h3>Advanced (1-2 Yrs)</h3>
-                <p>Jinhe experience hai aur jo heavy lifting, hypertrophy, aur advanced split routines chahte hain.</p>
+                <p>Heavy lifting, muscle hypertrophy aur advanced split routines ke sath professional progress.</p>
                 <span class="explore-link">Explore Plan &rarr;</span>
             </div>
         </div>
     </section>
 
-    <!-- 4. Owner & About Section -->
-    <section class="about-section" id="about">
+    <!-- 2. Top 10 Workout & Diet Articles Section -->
+    <section class="articles-section animate-on-scroll" id="articles">
+        <div class="section-header">
+            <div class="section-title">
+                <span>Expert Guidance</span>
+                <h2>Top 10 Workout & Diet Guides</h2>
+            </div>
+        </div>
+
+        <div class="articles-grid">
+            <div class="article-card">
+                <span>Guide 01 • Beginner</span>
+                <h4>Pehli Baar Gym Ja Rahe Hain? Yeh Basic Rules Follow Karein</h4>
+                <p>Proper posture, breathing technique aur zero injury ke sath gym start karne ka complete tarika.</p>
+            </div>
+            <div class="article-card">
+                <span>Guide 02 • Diet</span>
+                <h4>Muscle Gain Ke Liye Best High-Protein Indian Diet Plan</h4>
+                <p>Paneer, daal, eggs aur oats ke sath daily protein goals poore karne ke aasan nuskhe.</p>
+            </div>
+            <div class="article-card">
+                <span>Guide 03 • Workout</span>
+                <h4>Muscle Memory Kya Hai? Jaldi Growth Kaise Payein</h4>
+                <p>Samjhein ki kaise aapke purane muscle gains gap ke baad bhi jaldi wapas aate hain.</p>
+            </div>
+            <div class="article-card">
+                <span>Guide 04 • Fat Loss</span>
+                <h4>Fat Loss vs Muscle Building: Dono Ek Sath Kaise Karein?</h4>
+                <p>Body recomposition ka sahi formula jo aapke fat ko burn aur muscle ko tone kare.</p>
+            </div>
+            <div class="article-card">
+                <span>Guide 05 • Recovery</span>
+                <h4>Rest Days Aur Sleep Kyun Zaroori Hain Growth Ke Liye?</h4>
+                <p>Gym mein sirf workout nahi hota, asli muscle recovery ghar par rest ke dauran banti hai.</p>
+            </div>
+            <div class="article-card">
+                <span>Guide 06 • Supplements</span>
+                <h4>Kya Whey Protein Lena Safe Hai? Sahi Jankari</h4>
+                <p>Beginners ke liye protein supplements aur hydration ke bare mein saari clear baatein.</p>
+            </div>
+            <div class="article-card">
+                <span>Guide 07 • Workout</span>
+                <h4>Chest aur Biceps Growth Ke Liye Top 5 Compound Exercises</h4>
+                <p>Kam samay mein maximum muscle activation hasil karne ke powerful movements.</p>
+            </div>
+            <div class="article-card">
+                <span>Guide 08 • Diet</span>
+                <h4>Pre-Workout aur Post-Workout Meal Mein Kya Khana Chahiye?</h4>
+                <p>Workout se pehle energy boost aur baad mein muscle recovery ke liye perfect foods.</p>
+            </div>
+            <div class="article-card">
+                <span>Guide 09 • Mindset</span>
+                <h4>Gym Mein Consistency Kaise Banayein (Long-Term Motivation)</h4>
+                <p>Jab laziness aaye tab apne aapko push karke discipline kaise establish karein.</p>
+            </div>
+            <div class="article-card">
+                <span>Guide 10 • Safety</span>
+                <h4>Gym Injuries Se Kaise Bachen: Proper Warm-up Routine</h4>
+                <p>Stretching aur mobility exercises jo aapko severe joint pain aur injuries se bachayein.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Owner & About Section -->
+    <section class="about-section animate-on-scroll" id="about">
         <div class="about-img-box">
             <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=800" alt="Owner Trainer">
         </div>
@@ -706,7 +818,7 @@
     </section>
 
     <!-- CTA Banner Section -->
-    <div class="cta-banner">
+    <div class="cta-banner animate-on-scroll">
         <div class="cta-left">
             <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=300" alt="Trainer" class="cta-avatar">
             <div>
@@ -722,8 +834,8 @@
         </div>
     </div>
 
-    <!-- 5. Inder Paradise Hotel Style Location & Map Section -->
-    <section class="location-section" id="location">
+    <!-- Location & Map Section -->
+    <section class="location-section animate-on-scroll" id="location">
         <div class="location-grid">
             <div class="location-info">
                 <h2>Visit Our Gym Location</h2>
@@ -752,7 +864,7 @@
         </div>
     </section>
 
-    <!-- Footer Section with Fast Counting Animation Stats -->
+    <!-- Footer Stats & Bar -->
     <footer>
         <div class="footer-stats-grid">
             <div class="f-stat">
@@ -779,18 +891,15 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Scroll Animations & Fast Number Counting -->
+    <!-- JavaScript for Instant Counter on Page Load & GSAP Scroll Animations (Up/Down reveal) -->
     <script>
-        // Fast Counting Animation Script
-        const counters = document.querySelectorAll('.counter');
-        let animated = false;
-
-        function runCounters() {
+        // 3. Instant Counting Animation on Page Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 let count = 0;
-                // Fast speed calculation
-                const increment = target / 25; 
+                const increment = target / 20;
 
                 const updateCount = () => {
                     count += increment;
@@ -803,16 +912,27 @@
                 };
                 updateCount();
             });
-        }
+        });
 
-        // Trigger counting on scroll view
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY + window.innerHeight;
-            const triggerPos = document.querySelector('.footer-stats-grid').offsetTop;
-            if (scrollPos > triggerPos && !animated) {
-                runCounters();
-                animated = true;
-            }
+        // 4. GSAP Advanced Scroll Animations (Scroller Up & Down Reversible Reveal)
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.querySelectorAll('.animate-on-scroll, .services-grid > *, .journey-grid > *, .articles-grid > *').forEach((element) => {
+            gsap.fromTo(element, 
+                { opacity: 0, y: 50 }, 
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        end: "top 20%",
+                        toggleActions: "play reverse play reverse" // Wapas upar scroll karne par wapas animate hoke hide/reveal hoga
+                    }
+                }
+            );
         });
     </script>
 </body>
