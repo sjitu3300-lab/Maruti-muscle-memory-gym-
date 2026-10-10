@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Hypertrophy Guide - Maruti Muscle Memory GYM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            width: 100vw;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(217, 56, 30, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            font-size: 13px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .logo span {
+            color: #d9381e;
+        }
+        .back-btn {
+            background-color: #d9381e;
+            color: white;
+            padding: 8px 18px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #b52d16;
+        }
+        .page-hero {
+            padding: 140px 5% 60px 5%;
+            background: linear-gradient(180deg, rgba(217, 56, 30, 0.15) 0%, rgba(10,10,10,1) 100%);
+            text-align: center;
+        }
+        .page-hero span {
+            color: #d9381e;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .page-hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .page-hero p {
+            color: #999;
+            font-size: 14px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .schedule-container {
+            padding: 50px 5% 90px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .day-block {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            transition: 0.3s;
+        }
+        .day-block:hover {
+            border-color: #d9381e;
+        }
+        .day-img {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            background-size: cover;
+            background-position: center;
+        }
+        .day-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .day-badge {
+            color: #d9381e;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .day-content h3 {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .day-content p {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .exercise-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: #1c1c1c;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 3px solid #d9381e;
+        }
+        .meta-item strong {
+            color: #fff;
+            font-size: 12px;
+            display: block;
+            text-transform: uppercase;
+        }
+        .meta-item span {
+            color: #888;
+            font-size: 12px;
+        }
+        @media(max-width: 900px) {
+            .day-block {
+                grid-template-columns: 1fr;
+            }
+            .day-img {
+                height: 250px;
+            }
+            .day-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Maruti <span>Muscle Memory</span></div>
+        <a href="index.html" class="back-btn">&larr; Back to Home</a>
+    </header>
+
+    <section class="page-hero">
+        <span>Option 03 • Pro Hypertrophy & Heavy Lifting</span>
+        <h1>Advanced Split Blueprint</h1>
+        <p>Jinhe 1-2 saal ka continuous experience hai aur jo maximum muscle mass, density, aur strength gains target kar rahe hain.</p>
+    </section>
+
+    <div class="schedule-content schedule-container">
+        <!-- Monday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Monday • Day 1</span>
+                <h3>Heavy Chest & Anterior Delts</h3>
+                <p><strong>Kaise Karein:</strong> Barbell Bench Press (Heavy), Weighted Dips aur Cable Flyes. Failure tak sets perform karein with drop sets.</p>
+                <p><strong>Body Changing Benefits:</strong> Chest density aur outer sweep maximize hoti hai, upper body mass extreme level par grow karta hai.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item"><strong>Sets & Reps</strong><span>5 Sets × 8, 6, 6, 4, 12 Reps</span></div>
+                    <div class="meta-item"><strong>Rest Time</strong><span>2 Minutes</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tuesday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Tuesday • Day 2</span>
+                <h3>Max Effort Back & Rear Delts</h3>
+                <p><strong>Kaise Karein:</strong> Deadlifts, Weighted Pull-ups aur Pendlay Rows. Form strict rakhte hue heavy weights lift karein.</p>
+                <p><strong>Body Changing Benefits:</strong> Complete back thickness, lat spread aur spinal erector development milti hai.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item"><strong>Sets & Reps</strong><span>5 Sets × 5 to 10 Reps</span></div>
+                    <div class="meta-item"><strong>Rest Time</strong><span>2 Minutes</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wednesday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Wednesday • Day 3</span>
+                <h3>Quad & Calf Destruction</h3>
+                <p><strong>Kaise Karein:</strong> Heavy Barbell Squats, Hack Squats aur Leg Extensions with drop-sets.</p>
+                <p><strong>Body Changing Benefits:</strong> Leg mass, teardrop quadriceps aur overall lower body power surge hoti hai.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item"><strong>Sets & Reps</strong><span>5 Sets × 10, 8, 8, 6, 15 Reps</span></div>
+                    <div class="meta-item"><strong>Rest Time</strong><span>90 Seconds</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thursday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Thursday • Day 4</span>
+                <h3>Shoulder & Trap Specialization</h3>
+                <p><strong>Kaise Karein:</strong> Seated Dumbbell Press, Heavy Lateral Raises superset with Shrugs.</p>
+                <p><strong>Body Changing Benefits:</strong> 3D boulder shoulders aur thick traps develop hote hain jo physique ko wide look dete hain.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item"><strong>Sets & Reps</strong><span>4 Sets × 12 Reps</span></div>
+                    <div class="meta-item"><strong>Rest Time</strong><span>75 Seconds</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Friday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Friday • Day 5</span>
+                <h3>Hamstrings, Glutes & Arms</h3>
+                <p><strong>Kaise Karein:</strong> Romanian Deadlifts, Lying Leg Curls aur Barbell/Preacher Biceps Curls + Skull Crushers.</p>
+                <p><strong>Body Changing Benefits:</strong> Arm vascularity, peak growth aur balanced lower body symmetry milti hai.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item"><strong>Sets & Reps</strong><span>4 Sets × 10 Reps</span></div>
+                    <div class="meta-item"><strong>Rest Time</strong><span>60 Seconds</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Saturday -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="day-content">
+                <span class="day-badge">Saturday • Day 6</span>
+                <h3>Pro Conditioning & Weak Point Training</h3>
+                <p><strong>Kaise Karein:</strong> Jin muscles mein growth kam lag rahi hai (jaise calves ya side delts) un par extra focus aur posing practice.</p>
+                <p><strong>Body Changing Benefits:</strong> Physique ki perfection aur symmetry improve hoti hai.</p>
+                <div class="exercise-meta">
+                    <div class="meta-item"><strong>Duration</strong><span>45 Minutes</span></div>
+                    <div class="meta-item"><strong>Focus</strong><span>Weak Points & Posing</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
