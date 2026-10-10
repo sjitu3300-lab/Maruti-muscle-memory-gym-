@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maruti Muscle Memory GYM</title>
+    <!-- GSAP for Smooth Scroll Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -15,26 +18,28 @@
             background-color: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
+            width: 100vw;
         }
 
-        /* Navbar */
+        /* 1. Unique Mobile-Friendly Header */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 60px;
-            background: rgba(10, 10, 10, 0.95);
+            padding: 15px 5%;
+            background: rgba(10, 10, 10, 0.98);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #1a1a1a;
+            border-bottom: 1px solid rgba(217, 56, 30, 0.2);
+            backdrop-filter: blur(10px);
         }
         .logo {
-            font-size: 14px;
-            font-weight: 800;
+            font-size: 13px;
+            font-weight: 900;
             color: #fff;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
         .logo span {
@@ -43,13 +48,13 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 35px;
+            gap: 25px;
         }
         nav ul li a {
-            color: #bbb;
+            color: #ccc;
             text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: 0.3s;
@@ -60,15 +65,15 @@
         .book-btn {
             background-color: #d9381e;
             color: white;
-            padding: 10px 24px;
+            padding: 8px 18px;
             border: none;
-            font-weight: 700;
-            font-size: 12px;
+            font-weight: 800;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-            transition: 0.3s;
             border-radius: 2px;
+            transition: 0.3s;
         }
         .book-btn:hover {
             background-color: #b52d16;
@@ -77,21 +82,22 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.95) 80%, #0a0a0a 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.95) 85%, #0a0a0a 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 60px;
+            padding: 0 5%;
             position: relative;
-            margin-top: 65px;
+            margin-top: 60px;
         }
         .hero-bg-text {
             position: absolute;
-            top: 10%;
+            top: 15%;
             left: 5%;
-            font-size: 14vw;
+            font-size: 15vw;
             font-weight: 900;
-            color: rgba(217, 56, 30, 0.05);
+            color: rgba(217, 56, 30, 0.04);
             z-index: 1;
             text-transform: uppercase;
             pointer-events: none;
@@ -104,126 +110,113 @@
         .subtitle {
             color: #d9381e;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 15px;
             display: block;
         }
         .hero h1 {
-            font-size: 54px;
+            font-size: clamp(38px, 6vw, 54px);
             font-weight: 900;
             line-height: 1.05;
             text-transform: uppercase;
             margin-bottom: 20px;
-            letter-spacing: -1px;
         }
         .hero p {
             color: #999;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             max-width: 420px;
         }
         .hero-buttons {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         .btn-red {
             background-color: #d9381e;
             color: white;
-            padding: 14px 28px;
+            padding: 12px 24px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 12px;
+            font-weight: 800;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-radius: 2px;
             transition: 0.3s;
         }
-        .btn-red:hover {
-            background-color: #b52d16;
-        }
         .link-text {
             color: #fff;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 12px;
+            font-weight: 800;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: 0.3s;
-        }
-        .link-text:hover {
-            color: #d9381e;
         }
 
-        /* Hero Stats Cards (Glassmorphism as in Image) */
+        /* Hero Stats Cards */
         .hero-stats {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             z-index: 2;
         }
         .stat-card {
-            background: linear-gradient(135deg, rgba(217, 56, 30, 0.25) 0%, rgba(20, 20, 20, 0.8) 100%);
-            backdrop-filter: blur(12px);
+            background: linear-gradient(135deg, rgba(217, 56, 30, 0.25) 0%, rgba(20, 20, 20, 0.85) 100%);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(217, 56, 30, 0.3);
-            padding: 35px 28px;
+            padding: 25px 20px;
             border-radius: 6px;
-            width: 175px;
+            width: 160px;
         }
         .stat-card h3 {
-            font-size: 40px;
+            font-size: 34px;
             font-weight: 900;
             color: #fff;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
         .stat-card p {
             color: #ccc;
-            font-size: 11px;
-            line-height: 1.4;
+            font-size: 10px;
+            line-height: 1.3;
         }
 
         /* Training Services Section */
         .services-section {
-            padding: 100px 60px;
+            padding: 80px 5%;
             background-color: #0a0a0a;
         }
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 45px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         .section-title span {
             color: #777;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             display: block;
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
         .section-title h2 {
-            font-size: 32px;
-            font-weight: 800;
+            font-size: clamp(26px, 4vw, 32px);
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .section-note {
-            color: #777;
-            font-size: 12px;
-            max-width: 250px;
-            text-align: right;
-            line-height: 1.5;
         }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
         .service-card {
-            height: 450px;
+            height: 400px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -232,19 +225,14 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 35px;
+            padding: 30px;
             border: 1px solid #1f1f1f;
-            transition: 0.4s;
         }
         .service-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(10,10,10,0.95) 25%, rgba(10,10,10,0.1) 100%);
-        }
-        .service-card:hover {
-            border-color: #d9381e;
-            transform: translateY(-5px);
+            background: linear-gradient(to top, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0.2) 100%);
         }
         .service-card * {
             position: relative;
@@ -253,15 +241,15 @@
         .service-card .num {
             color: #d9381e;
             font-size: 11px;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-weight: 800;
+            margin-bottom: 8px;
             display: block;
         }
         .service-card h4 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .service-card p {
             color: #999;
@@ -269,98 +257,152 @@
             line-height: 1.5;
         }
 
-        /* Small Stats Strip under Services */
-        .sub-stats-bar {
-            display: flex;
-            justify-content: flex-end;
-            gap: 40px;
-            margin-top: 30px;
-            padding-right: 10px;
-        }
-        .sub-stat-item h5 {
-            font-size: 20px;
-            font-weight: 800;
-            color: #fff;
-        }
-        .sub-stat-item p {
-            color: #777;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* 3 Experience Level Cards Section (Aapki Requirement) */
+        /* 3. Choose Your Fitness Journey Section with High Quality Images */
         .journey-section {
-            padding: 90px 60px;
+            padding: 80px 5%;
             background-color: #0f0f0f;
             border-top: 1px solid #1a1a1a;
             border-bottom: 1px solid #1a1a1a;
         }
         .journey-section h2 {
-            font-size: 32px;
+            font-size: clamp(26px, 4vw, 32px);
             text-transform: uppercase;
-            margin-bottom: 10px;
-            font-weight: 800;
+            margin-bottom: 8px;
+            font-weight: 900;
         }
         .journey-section > p {
             color: #777;
-            margin-bottom: 45px;
-            font-size: 13px;
+            margin-bottom: 40px;
+            font-size: 12px;
         }
         .journey-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
         .journey-card {
-            background: #141414;
+            background-size: cover;
+            background-position: center;
+            height: 420px;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
             border: 1px solid #222;
-            padding: 40px 30px;
-            border-radius: 4px;
             cursor: pointer;
+            transition: 0.4s;
+        }
+        .journey-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(10,10,10,0.95) 40%, rgba(10,10,10,0.3) 100%);
             transition: 0.3s;
         }
         .journey-card:hover {
             border-color: #d9381e;
-            background: #181212;
             transform: translateY(-5px);
+        }
+        .journey-card * {
+            position: relative;
+            z-index: 2;
         }
         .journey-card .level-tag {
             color: #d9381e;
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 10px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
             display: block;
         }
         .journey-card h3 {
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 12px;
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
         .journey-card p {
-            color: #888;
-            font-size: 13px;
+            color: #999;
+            font-size: 12px;
             line-height: 1.5;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         .journey-card .explore-link {
             color: #fff;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: 0.3s;
-        }
-        .journey-card:hover .explore-link {
-            color: #d9381e;
         }
 
-        /* CTA Banner Section (Exact Match to Image 1) */
+        /* 4. Owner & About Section */
+        .about-section {
+            padding: 90px 5%;
+            background-color: #0a0a0a;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-img-box {
+            position: relative;
+            height: 450px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+        .about-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-content span {
+            color: #d9381e;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .about-content h2 {
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+        .about-content p {
+            color: #888;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .owner-badge {
+            background: #141414;
+            border-left: 3px solid #d9381e;
+            padding: 15px 20px;
+            margin-top: 20px;
+        }
+        .owner-badge h4 {
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+        .owner-badge p {
+            color: #777;
+            font-size: 11px;
+            margin: 0;
+        }
+
+        /* CTA Banner Section */
         .cta-banner {
-            margin: 80px 60px;
+            margin: 60px 5%;
             background-color: #d9381e;
             border-radius: 6px;
             display: grid;
@@ -369,36 +411,35 @@
             overflow: hidden;
         }
         .cta-left {
-            padding: 60px;
+            padding: 50px 40px;
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 25px;
+            flex-wrap: wrap;
         }
         .cta-avatar {
-            width: 110px;
-            height: 110px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid rgba(255,255,255,0.3);
-            flex-shrink: 0;
         }
         .cta-left h2 {
-            font-size: 38px;
+            font-size: clamp(26px, 4vw, 36px);
             font-weight: 900;
             text-transform: uppercase;
             line-height: 1.1;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #fff;
-            letter-spacing: -0.5px;
         }
         .cta-left p {
             color: rgba(255,255,255,0.9);
-            font-size: 13px;
+            font-size: 12px;
             line-height: 1.5;
         }
         .cta-right {
             background-color: #111;
-            padding: 50px;
+            padding: 40px;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -407,167 +448,108 @@
         .cta-right span {
             color: #d9381e;
             font-size: 10px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: block;
         }
         .cta-right h3 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-transform: uppercase;
         }
         .cta-right p {
             color: #888;
             font-size: 12px;
-            margin-bottom: 25px;
-            line-height: 1.5;
+            margin-bottom: 20px;
         }
         .cta-right a {
             color: #fff;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 12px;
+            font-weight: 800;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-        .cta-right a:hover {
-            color: #d9381e;
         }
 
-        /* Training Tips & Insights Section (Exact Match to Image 2) */
-        .blog-section {
-            padding: 80px 60px;
-            background-color: #0a0a0a;
+        /* 5. Inder Paradise Hotel Style Location & Map Section */
+        .location-section {
+            padding: 90px 5%;
+            background-color: #070707;
             border-top: 1px solid #1a1a1a;
         }
-        .blog-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 40px;
-        }
-        .blog-header h2 {
-            font-size: 32px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-        .btn-outline-small {
-            border: 1px solid #333;
-            color: #fff;
-            padding: 8px 18px;
-            text-decoration: none;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-        .btn-outline-small:hover {
-            border-color: #d9381e;
-            color: #d9381e;
-        }
-        .blog-grid {
+        .location-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 25px;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
         }
-        .blog-card-large {
-            background: #141414;
-            border: 1px solid #222;
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 440px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            padding: 35px;
-        }
-        .blog-card-large::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0.2) 100%);
-        }
-        .blog-content-inner {
-            position: relative;
-            z-index: 2;
-        }
-        .blog-tag {
-            color: #d9381e;
-            font-size: 10px;
-            font-weight: 700;
+        .location-info h2 {
+            font-size: clamp(28px, 4vw, 34px);
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .blog-card-large h3 {
-            font-size: 22px;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-        .blog-card-large p {
-            color: #999;
-            font-size: 12px;
-            line-height: 1.5;
             margin-bottom: 15px;
         }
-        .blog-right-column {
+        .location-info p {
+            color: #888;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .loc-details-box {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 15px;
+            margin-bottom: 25px;
         }
-        .blog-card-small {
-            background: #141414;
-            border: 1px solid #222;
-            padding: 30px;
-            border-radius: 4px;
-            transition: 0.3s;
+        .loc-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
         }
-        .blog-card-small:hover {
-            border-color: #d9381e;
-        }
-        .blog-card-small h4 {
-            font-size: 16px;
-            font-weight: 700;
+        .loc-item strong {
+            color: #fff;
+            font-size: 13px;
             text-transform: uppercase;
-            margin-top: 8px;
-            margin-bottom: 8px;
+            min-width: 90px;
         }
-        .blog-card-small p {
+        .loc-item span {
             color: #888;
-            font-size: 12px;
-            line-height: 1.4;
+            font-size: 13px;
+        }
+        .map-box {
+            width: 100%;
+            height: 380px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(100%) invert(92%) contrast(85%);
         }
 
-        /* Footer Section (Exact Match to Image 2) */
+        /* Footer Stats & Bar */
         footer {
-            background-color: #070707;
-            padding: 60px;
+            background-color: #050505;
+            padding: 60px 5% 30px 5%;
             border-top: 1px solid #1a1a1a;
         }
         .footer-stats-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            padding-bottom: 50px;
+            padding-bottom: 40px;
             border-bottom: 1px solid #1a1a1a;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             text-align: center;
         }
         .f-stat h4 {
-            font-size: 34px;
+            font-size: 32px;
             font-weight: 900;
             color: #fff;
             margin-bottom: 5px;
@@ -578,113 +560,76 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
-        .footer-main {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        .footer-col h5 {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-        .footer-col p {
-            color: #777;
-            font-size: 12px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        .footer-col ul {
-            list-style: none;
-        }
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-        .footer-col ul li a {
-            color: #888;
-            text-decoration: none;
-            font-size: 12px;
-            transition: 0.3s;
-        }
-        .footer-col ul li a:hover {
-            color: #d9381e;
-        }
         .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 25px;
-            border-top: 1px solid #121212;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-top: 20px;
             color: #555;
             font-size: 11px;
         }
 
-        /* Responsive Design */
+        /* Responsive Breakpoints for Mobile View Optimization */
         @media(max-width: 992px) {
             .hero {
                 flex-direction: column;
                 justify-content: center;
                 height: auto;
-                padding: 100px 30px;
+                padding: 100px 5%;
             }
             .hero-stats {
-                margin-top: 40px;
+                margin-top: 30px;
                 width: 100%;
                 justify-content: space-between;
             }
-            .services-grid, .journey-grid, .footer-main, .footer-stats-grid, .blog-grid {
+            .about-section, .location-grid, .cta-banner {
                 grid-template-columns: 1fr;
             }
-            .cta-banner {
-                grid-template-columns: 1fr;
-                margin: 40px 20px;
-            }
-            header {
-                padding: 20px;
+            nav ul {
+                display: none; /* Mobile Menu Simplified */
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
+    <!-- 1. Unique Header Section -->
     <header>
         <div class="logo">Maruti <span>Muscle Memory</span></div>
         <nav>
             <ul>
-                <li><a href="#home">Services</a></li>
-                <li><a href="#journey">About</a></li>
-                <li><a href="#results">Results</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#location">Location</a></li>
             </ul>
         </nav>
-        <button class="book-btn" onclick="location.href='#contact'">Book Now</button>
+        <button class="book-btn" onclick="location.href='#location'">Join Now</button>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-bg-text">Maruti</div>
         <div class="hero-content">
-            <span class="subtitle">Certified Personal Trainer</span>
+            <span class="subtitle">Certified Personal Training</span>
             <h1>Forge Your Best Self</h1>
             <p>Personal training designed around your goals — your pace, your results.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn-red">Book A Free Session</a>
-                <a href="#services" class="link-text">View Programs</a>
+                <a href="#location" class="btn-red">Book A Free Session</a>
+                <a href="#services" class="link-text">View Programs &rarr;</a>
             </div>
         </div>
 
         <div class="hero-stats">
             <div class="stat-card">
-                <h3>100%</h3>
-                <p>Client Satisfaction Guaranteed — every program is built around your goals.</p>
+                <h3 class="counter" data-target="100">0</h3>
+                <p>Client Satisfaction Guaranteed</p>
             </div>
             <div class="stat-card">
-                <h3>500+</h3>
-                <p>Clients Trained Real people, real results — from beginners to athletes.</p>
+                <h3 class="counter" data-target="500">0</h3>
+                <p>Clients Trained Real Results</p>
             </div>
         </div>
     </section>
@@ -696,82 +641,72 @@
                 <span>What We Offer</span>
                 <h2>Training Services</h2>
             </div>
-            <div class="section-note">
-                Every program is built around your body, schedule, and your ambitions.
-            </div>
         </div>
 
         <div class="services-grid">
-            <!-- Service 1 -->
             <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800');">
                 <span class="num">01</span>
                 <h4>1:1 Personal Training</h4>
                 <p>Tailored sessions designed around your goals with full coach attention.</p>
             </div>
-            <!-- Service 2 -->
             <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800');">
                 <span class="num">02</span>
                 <h4>Group Bootcamp</h4>
                 <p>High-energy group training that pushes limits and builds community.</p>
             </div>
-            <!-- Service 3 -->
             <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800');">
                 <span class="num">03</span>
                 <h4>Online Coaching</h4>
                 <p>Remote programming and weekly check-ins — train anywhere, anytime.</p>
             </div>
         </div>
-
-        <div class="sub-stats-bar">
-            <div class="sub-stat-item">
-                <h5>500+</h5>
-                <p>Clients Trained</p>
-            </div>
-            <div class="sub-stat-item">
-                <h5>8+</h5>
-                <p>Years Experience</p>
-            </div>
-            <div class="sub-stat-item">
-                <h5>3</h5>
-                <p>Programs Available</p>
-            </div>
-        </div>
     </section>
 
-    <!-- 3 Experience Level Cards Section (Aapki Requirement) -->
+    <!-- 3. Choose Your Fitness Journey Section with High Quality Images -->
     <section class="journey-section" id="journey">
         <h2>Choose Your Fitness Journey</h2>
         <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
 
         <div class="journey-grid">
-            <!-- Card 1: Beginner -->
-            <div class="journey-card" onclick="location.href='beginner.html'">
+            <div class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');" onclick="location.href='#location'">
                 <span class="level-tag">Option 01</span>
                 <h3>Absolute Beginner</h3>
-                <p>Agar aapne pehle kabhi gym nahi kiya aur zero se shuruat kar rahe hain, proper posture aur foundational strength ke sath.</p>
-                <span class="explore-link">Explore Beginner Plan &rarr;</span>
+                <p>Agar aapne pehle kabhi gym nahi kiya aur zero se shuruat kar rahe hain, proper posture ke sath.</p>
+                <span class="explore-link">Explore Plan &rarr;</span>
             </div>
-
-            <!-- Card 2: Restart / Intermediate -->
-            <div class="journey-card" onclick="location.href='intermediate.html'">
+            <div class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');" onclick="location.href='#location'">
                 <span class="level-tag">Option 02</span>
                 <h3>Restart / Intermediate</h3>
-                <p>Agar aapne pehle gym ki hai aur kuch gap ke baad dobara wapas join kar rahe hain, muscle memory regain karne ke liye.</p>
-                <span class="explore-link">Explore Restart Plan &rarr;</span>
+                <p>Agar aapne pehle gym ki hai aur gap ke baad dobara wapas join kar rahe hain, muscle memory regain karne.</p>
+                <span class="explore-link">Explore Plan &rarr;</span>
             </div>
-
-            <!-- Card 3: Advanced -->
-            <div class="journey-card" onclick="location.href='advanced.html'">
+            <div class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');" onclick="location.href='#location'">
                 <span class="level-tag">Option 03</span>
-                <h3>Advanced (1-2 Yrs Experience)</h3>
-                <p>Jinhe 1-2 saal ka continuous experience hai aur jo heavy lifting, hypertrophy, aur advanced split routines chahte hain.</p>
-                <span class="explore-link">Explore Advanced Plan &rarr;</span>
+                <h3>Advanced (1-2 Yrs)</h3>
+                <p>Jinhe experience hai aur jo heavy lifting, hypertrophy, aur advanced split routines chahte hain.</p>
+                <span class="explore-link">Explore Plan &rarr;</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Owner & About Section -->
+    <section class="about-section" id="about">
+        <div class="about-img-box">
+            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=800" alt="Owner Trainer">
+        </div>
+        <div class="about-content">
+            <span>About The Gym</span>
+            <h2>Built For Serious Muscle & True Strength</h2>
+            <p>Maruti Muscle Memory GYM mein hum sirf workout nahi karate, balki aapke body ke neuromuscular connection aur muscle memory ko scientifically activate karte hain. Professional lighting aur premium environment aapko har din behtar perform karne ke liye inspire karta hai.</p>
+            <div class="owner-badge">
+                <h4>Jitendra Soni / Head Coach</h4>
+                <p>Certified Fitness Expert & Professional Trainer</p>
             </div>
         </div>
     </section>
 
     <!-- CTA Banner Section -->
-    <div class="cta-banner" id="contact">
+    <div class="cta-banner">
         <div class="cta-left">
             <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=300" alt="Trainer" class="cta-avatar">
             <div>
@@ -782,99 +717,103 @@
         <div class="cta-right">
             <span>Free Consultation</span>
             <h3>Your First Session Is On Us</h3>
-            <p>No commitment. No pressure. Just a real conversation about your goals.</p>
-            <a href="#contact">Claim Your Free Session &rarr;</a>
+            <p>No commitment. No pressure. Just a real conversation.</p>
+            <a href="#location">Claim Your Free Session &rarr;</a>
         </div>
     </div>
 
-    <!-- Training Tips & Insights Section -->
-    <section class="blog-section">
-        <div class="blog-header">
-            <h2>Training Tips & Insights</h2>
-            <a href="#" class="btn-outline-small">All Articles</a>
-        </div>
-
-        <div class="blog-grid">
-            <!-- Large Blog Card -->
-            <div class="blog-card-large" style="background-image: url('https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=800');">
-                <div class="blog-content-inner">
-                    <span class="blog-tag">Nutrition</span>
-                    <h3>The 5 Eating Habits Every Serious Athlete Must Know</h3>
-                    <p>Fueling your body right is half the battle. Here is what separates the committed from the rest.</p>
-                    <a href="#" class="explore-link">Read Article &rarr;</a>
+    <!-- 5. Inder Paradise Hotel Style Location & Map Section -->
+    <section class="location-section" id="location">
+        <div class="location-grid">
+            <div class="location-info">
+                <h2>Visit Our Gym Location</h2>
+                <p>Aaiye aur hamare premium setup ko experience kijiye. Hamari location asani se pahuchne yogya hai.</p>
+                
+                <div class="loc-details-box">
+                    <div class="loc-item">
+                        <strong>Address:</strong>
+                        <span>First Floor, Above Balaji lights and decor, BSF Colony, Chenar, Rajasthan 341001 [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]</span>
+                    </div>
+                    <div class="loc-item">
+                        <strong>Contact:</strong>
+                        <span>+91 89470 12333 [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]</span>
+                    </div>
+                    <div class="loc-item">
+                        <strong>Timing:</strong>
+                        <span>Mon - Sat: 5:30 AM – 10:30 PM [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]</span>
+                    </div>
                 </div>
+                <a href="tel:8947012333" class="btn-red" style="display: inline-block;">Call Now To Join</a>
             </div>
 
-            <!-- Small Blog Cards Column -->
-            <div class="blog-right-column">
-                <div class="blog-card-small">
-                    <span class="blog-tag" style="font-size:9px;">Recovery</span>
-                    <h4>Why Rest Days Are Non-Negotiable</h4>
-                    <p>Overtraining is the silent killer of progress. Learn to recover smarter.</p>
-                </div>
-                <div class="blog-card-small">
-                    <span class="blog-tag" style="font-size:9px;">Mindset</span>
-                    <h4>How to Stay Motivated Long-Term</h4>
-                    <p>Motivation fades, discipline builds. Mindset hacks for more training wins.</p>
-                </div>
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.0!2d73.7!3d27.2!2m3!1f0!2f0!3f0!3m2!1f1024!2f768!4f13.1!3m3!1m2!1s0x396bc6!2sChenar%2C%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1650000000000" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer Section with Fast Counting Animation Stats -->
     <footer>
         <div class="footer-stats-grid">
             <div class="f-stat">
-                <h4>100%</h4>
+                <h4 class="counter" data-target="100">0</h4>
                 <p>Client Satisfaction</p>
             </div>
             <div class="f-stat">
-                <h4>500+</h4>
+                <h4 class="counter" data-target="500">0</h4>
                 <p>Clients Trained</p>
             </div>
             <div class="f-stat">
-                <h4>8 YRS</h4>
-                <p>Coaching Experience</p>
+                <h4 class="counter" data-target="8">0</h4>
+                <p>Years Experience</p>
             </div>
             <div class="f-stat">
-                <h4>200+</h4>
+                <h4 class="counter" data-target="200">0</h4>
                 <p>Programs Created</p>
             </div>
         </div>
 
-        <div class="footer-main">
-            <div class="footer-col">
-                <h5>Maruti Muscle Memory</h5>
-                <p>First Floor, Above Balaji lights and decor, BSF Colony, Chenar, Rajasthan [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]. Professional fitness and strength training.</p>
-            </div>
-            <div class="footer-col">
-                <h5>Programs</h5>
-                <ul>
-                    <li><a href="#services">1:1 Personal Training</a></li>
-                    <li><a href="#services">Group Bootcamp</a></li>
-                    <li><a href="#services">Online Coaching</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Company</h5>
-                <ul>
-                    <li><a href="#journey">About Maruti</a></li>
-                    <li><a href="#contact">Results & Stories</a></li>
-                    <li><a href="#contact">Contact: +91 89470 12333</a> [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Start Today</h5>
-                <p>Ready to transform? Get your free consultation now.</p>
-                <a href="#contact" class="btn-red" style="display:inline-block; margin-top:5px;">Book Free Session</a>
-            </div>
-        </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2026 Maruti Muscle Memory. All rights reserved.</p>
-            <p>Privacy Policy | Terms of Service</p>
+            <p>&copy; 2026 Maruti Muscle Memory GYM. All rights reserved.</p>
+            <p>Designed for Ultimate Fitness</p>
         </div>
     </footer>
 
+    <!-- JavaScript for Scroll Animations & Fast Number Counting -->
+    <script>
+        // Fast Counting Animation Script
+        const counters = document.querySelectorAll('.counter');
+        let animated = false;
+
+        function runCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                // Fast speed calculation
+                const increment = target / 25; 
+
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count) + (target > 10 ? "+" : "%");
+                        setTimeout(updateCount, 25);
+                    } else {
+                        counter.innerText = target + (target > 10 ? "+" : "%");
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Trigger counting on scroll view
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + window.innerHeight;
+            const triggerPos = document.querySelector('.footer-stats-grid').offsetTop;
+            if (scrollPos > triggerPos && !animated) {
+                runCounters();
+                animated = true;
+            }
+        });
+    </script>
 </body>
 </html>
