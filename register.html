@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Registration - Maruti Muscle Memory GYM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .register-container {
+            background: #141414;
+            border: 1px solid #222;
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(217, 56, 30, 0.15);
+        }
+        .logo {
+            font-size: 16px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .logo span {
+            color: #d9381e;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background: #1c1c1c;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #d9381e;
+            outline: none;
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: #d9381e;
+            color: white;
+            padding: 14px;
+            border: none;
+            font-weight: 800;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #b52d16;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <div class="logo">Maruti <span>Muscle Memory</span></div>
+        <form id="regForm">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="fullName" required placeholder="Apna naam likhein">
+            </div>
+            <div class="form-group">
+                <label>Mobile Number (Login ID)</label>
+                <input type="tel" id="mobileNumber" required placeholder="10-digit mobile number">
+            </div>
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" id="age" required placeholder="Aapki umar">
+            </div>
+            <div class="form-group">
+                <label>Select Fitness Level</label>
+                <select id="fitnessLevel" required>
+                    <option value="" disabled selected>Level chuniye</option>
+                    <option value="beginner">Absolute Beginner (Zero Experience)</option>
+                    <option value="intermediate">Restart / Intermediate</option>
+                    <option value="advanced">Advanced (1-2 Years)</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">Start My Daily Workout &rarr;</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const userData = {
+                name: document.getElementById('fullName').value,
+                mobile: document.getElementById('mobileNumber').value,
+                age: document.getElementById('age').value,
+                level: document.getElementById('fitnessLevel').value,
+                currentDay: 1, // Pehla din se shuruat
+                startDate: new Date().toISOString()
+            };
+
+            // LocalStorage mein user data save kar rahe hain (Backend database hone par yahan API call hogi)
+            localStorage.setItem('gymUser', JSON.stringify(userData));
+            
+            alert('Registration Successful! Aapka Day 1 task load ho raha hai.');
+            window.location.href = 'dashboard.html'; // Task dashboard par redirect
+        });
+    </script>
+
+</body>
+</html>
