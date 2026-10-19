@@ -57,6 +57,7 @@
             display: flex;
             list-style: none;
             gap: 25px;
+            align-items: center;
         }
         nav ul li a {
             color: #ccc;
@@ -84,6 +85,94 @@
             transition: 0.3s;
         }
         .book-btn:hover {
+            background-color: #b52d16;
+        }
+
+        /* Modal Popup for Registration */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: #141414;
+            border: 1px solid #262626;
+            border-top: 4px solid #d9381e;
+            padding: 35px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #888;
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .modal-close:hover {
+            color: #fff;
+        }
+        .modal-title {
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #aaa;
+            margin-bottom: 6px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background: #1c1c1c;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #d9381e;
+            outline: none;
+        }
+        .submit-reg-btn {
+            width: 100%;
+            background-color: #d9381e;
+            color: white;
+            padding: 12px;
+            border: none;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .submit-reg-btn:hover {
             background-color: #b52d16;
         }
 
@@ -745,10 +834,43 @@
                 <li><a href="#journey">Journey</a></li>
                 <li><a href="#articles">Guides</a></li>
                 <li><a href="#location">Location</a></li>
+                <li><a href="#" onclick="openRegisterModal(event)" style="color: #d9381e;">Register / Task</a></li>
             </ul>
         </nav>
-        <button class="book-btn" onclick="location.href='#location'">Join Now</button>
+        <button class="book-btn" onclick="openRegisterModal(event)">Join Now</button>
     </header>
+
+    <!-- Registration Modal Popup -->
+    <div class="modal-overlay" id="regModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeRegisterModal()">&times;</span>
+            <div class="modal-title">New Member Registration</div>
+            <form id="regForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" required placeholder="Apna naam likhein">
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number (Login ID)</label>
+                    <input type="tel" id="mobileNumber" required placeholder="10-digit mobile number">
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" id="age" required placeholder="Aapki umar">
+                </div>
+                <div class="form-group">
+                    <label>Select Fitness Level</label>
+                    <select id="fitnessLevel" required>
+                        <option value="" disabled selected>Level chuniye</option>
+                        <option value="beginner">Absolute Beginner (Zero Experience)</option>
+                        <option value="intermediate">Restart / Intermediate</option>
+                        <option value="advanced">Advanced (1-2 Years)</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-reg-btn">Start My Daily Workout &rarr;</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -842,7 +964,7 @@
     <!-- Choose Your Fitness Journey Section (Linked to Beginner, Intermediate, Advanced pages) -->
     <section class="journey-section reveal" id="journey">
         <h2>Choose Your Fitness Journey</h2>
-        <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
+        <p>Apne experience level ke anusaار apna sahi training track select karein:</p>
 
         <div class="journey-grid">
             <!-- Option 1: Beginner Page Link -->
@@ -1064,8 +1186,47 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Instant Counter and Scroll Reveal Animation -->
+    <!-- JavaScript for Instant Counter, Scroll Reveal & Registration Modal -->
     <script>
+        // Modal Control Functions
+        function openRegisterModal(e) {
+            e.preventDefault();
+            document.getElementById('regModal').style.display = 'flex';
+        }
+
+        function closeRegisterModal() {
+            document.getElementById('regModal').style.display = 'none';
+        }
+
+        // Handle Registration Form Submit
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const userData = {
+                name: document.getElementById('fullName').value,
+                mobile: document.getElementById('mobileNumber').value,
+                age: document.getElementById('age').value,
+                level: document.getElementById('fitnessLevel').value,
+                currentDay: 1,
+                startDate: new Date().toISOString()
+            };
+
+            // Save to localStorage
+            localStorage.setItem('gymUser', JSON.stringify(userData));
+            
+            alert('Registration Successful! Aapka Day 1 task load ho raha hai.');
+            
+            // Redirect based on selected level
+            const level = userData.level;
+            if(level === 'beginner') {
+                window.location.href = 'beginner.html';
+            } else if(level === 'intermediate') {
+                window.location.href = 'intermediate.html';
+            } else {
+                window.location.href = 'advanced.html';
+            }
+        });
+
         window.addEventListener('DOMContentLoaded', () => {
             // Counter Animation
             const counters = document.querySelectorAll('.counter');
