@@ -166,7 +166,9 @@
             const message = `New Gym Member Registration:%0A- Name: ${name}%0A- Mobile: ${mobile}%0A- Age: ${age}%0A- Level: ${level}`;
             const whatsappUrl = `https://wa.me/${coachWhatsAppNumber}?text=${message}`;
             
-            // Background mein WhatsApp open karein aur profile page par redirect karein
+            alert('Registration Successful! Aapka WhatsApp open ho raha hai aur Profile page load ho raha hai.');
+            
+            // Background mein WhatsApp open karein aur profile.html par redirect karein
             window.open(whatsappUrl, '_blank');
             window.location.href = 'profile.html';
         });
