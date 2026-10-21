@@ -23,6 +23,7 @@
         .register-container {
             background: #141414;
             border: 1px solid #222;
+            border-top: 4px solid #d9381e;
             padding: 40px;
             border-radius: 8px;
             width: 100%;
@@ -83,6 +84,19 @@
         .submit-btn:hover {
             background-color: #b52d16;
         }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .back-link:hover {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -92,7 +106,7 @@
         <form id="regForm">
             <div class="form-group">
                 <label>Full Name</label>
-                <input type="text" id="fullName" required placeholder="Apna naam likhein">
+                <input type="text" id="fullName" required placeholder="Apna pura naam likhein">
             </div>
             <div class="form-group">
                 <label>Mobile Number (Login ID)</label>
@@ -113,26 +127,50 @@
             </div>
             <button type="submit" class="submit-btn">Start My Daily Workout &rarr;</button>
         </form>
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
     </div>
 
     <script>
         document.getElementById('regForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            const name = document.getElementById('fullName').value;
+            const mobile = document.getElementById('mobileNumber').value;
+            const age = document.getElementById('age').value;
+            const level = document.getElementById('fitnessLevel').value;
+
             const userData = {
-                name: document.getElementById('fullName').value,
-                mobile: document.getElementById('mobileNumber').value,
-                age: document.getElementById('age').value,
-                level: document.getElementById('fitnessLevel').value,
-                currentDay: 1, // Pehla din se shuruat
+                name: name,
+                mobile: mobile,
+                age: age,
+                level: level,
+                currentDay: 1,
                 startDate: new Date().toISOString()
             };
 
-            // LocalStorage mein user data save kar rahe hain (Backend database hone par yahan API call hogi)
+            // LocalStorage mein save karein
             localStorage.setItem('gymUser', JSON.stringify(userData));
+
+            // WhatsApp Message Generate karein (Aapke number +91 89470 12333 par bhejega)
+            const coachWhatsAppNumber = "918947012333";
+            const message = `New Gym Registration:%0A- Name: ${name}%0A- Mobile: ${mobile}%0A- Age: ${age}%0A- Level: ${level}`;
             
-            alert('Registration Successful! Aapka Day 1 task load ho raha hai.');
-            window.location.href = 'dashboard.html'; // Task dashboard par redirect
+            // Background mein WhatsApp chat open hogi ya message trigger hoga
+            const whatsappUrl = `https://wa.me/${coachWhatsAppNumber}?text=${message}`;
+            
+            alert('Registration Successful! Aapka WhatsApp open ho raha hai aur Day 1 task load ho raha hai.');
+            
+            // WhatsApp link open karein aur sath hi dashboard par redirect karein
+            window.open(whatsappUrl, '_blank');
+            
+            // Level ke hisaab se specific page par redirect
+            if(level === 'beginner') {
+                window.location.href = 'beginner.html';
+            } else if(level === 'intermediate') {
+                window.location.href = 'intermediate.html';
+            } else {
+                window.location.href = 'advanced.html';
+            }
         });
     </script>
 
