@@ -34,6 +34,11 @@
         .logo span {
             color: #d9381e;
         }
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
         .user-info {
             background: #141414;
             border: 1px solid #262626;
@@ -44,6 +49,20 @@
         }
         .user-info strong {
             color: #fff;
+        }
+        .home-link {
+            background: #222;
+            color: #fff;
+            padding: 8px 15px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .home-link:hover {
+            background: #d9381e;
         }
 
         /* Dashboard Container */
@@ -169,6 +188,11 @@
                 width: 100%;
                 height: 160px;
             }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -176,7 +200,10 @@
 
     <header>
         <div class="logo">Maruti <span>Muscle Memory</span></div>
-        <div class="user-info" id="userInfo">Loading User...</div>
+        <div class="header-actions">
+            <div class="user-info" id="userInfo">Loading User...</div>
+            <a href="index.html" class="home-link">Home</a>
+        </div>
     </header>
 
     <div class="dash-container">
@@ -193,23 +220,23 @@
         </div>
 
         <div class="success-banner" id="successBanner">
-            🎉 Complete Your Today Task! Great Job. Come back tomorrow for the next QR scan!
+            🎉 Complete Your Today Task! Great Job. Click finish to unlock next day!
         </div>
     </div>
 
     <script>
-        // LocalStorage se user data fetch karein
+        // LocalStorage se registered user data fetch karein
         const user = JSON.parse(localStorage.getItem('gymUser')) || {
-            name: "Guest User",
+            name: "Guest Member",
             level: "beginner",
             currentDay: 1
         };
 
-        document.getElementById('userInfo').innerHTML = `Welcome, <strong>${user.name}</strong> (${user.level.toUpperCase()})`;
+        document.getElementById('userInfo').innerHTML = `Member: <strong>${user.name}</strong> (${user.level.toUpperCase()})`;
         document.getElementById('userLevelBadge').innerText = `${user.level.toUpperCase()} PROGRAM • DAY ${user.currentDay}`;
         document.getElementById('dayTitle').innerText = `Day ${user.currentDay} Workout Task`;
 
-        // Sample Task Database based on Level and Days
+        // Workout Database for Beginner, Intermediate & Advanced across multiple days
         const workouts = {
             beginner: {
                 1: [
@@ -236,7 +263,7 @@
             advanced: {
                 1: [
                     { name: "Heavy Flat Bench Press", sets: "5 Sets x 6 Reps", desc: "Maximum hypertrophy aur strength pushing limit.", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=300" },
-                    { name: "Weighted Dips", sets: "4 Sets x 8 Reps", desc: "Lower chest aur tricep expansion ke liye.", img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=300" }
+                    { name: "Weighted Dips", sets: "4 Sets x 8 Reps", desc: "Lower chest aur tricep expansion ke liye.", img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800" }
                 ],
                 2: [
                     { name: "Deadlifts", sets: "5 Sets x 5 Reps", desc: "Full body raw strength aur posterior chain activation.", img: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=300" },
@@ -245,9 +272,9 @@
             }
         };
 
-        // Load Tasks for current user level and day (fallback to day 1 if day not found)
-        const currentLevelWorkouts = workouts[user.level] || workouts['beginner'];
-        const currentDayTasks = currentLevelWorkouts[user.currentDay] || currentLevelWorkouts[1];
+        // Select tasks based on user level and current day (defaults to Day 1 if day exceeds database)
+        const userLevelWorkouts = workouts[user.level] || workouts['beginner'];
+        const currentDayTasks = userLevelWorkouts[user.currentDay] || userLevelWorkouts[1];
 
         const taskListEl = document.getElementById('taskList');
         currentDayTasks.forEach((task, index) => {
@@ -290,11 +317,11 @@
         }
 
         function finishDayTask() {
-            // Increment day
+            // Increment day count for next login
             user.currentDay += 1;
-            if(user.currentDay > 2) user.currentDay = 1; // Loop back for demo
+            if(user.currentDay > 2) user.currentDay = 1; // Loop back for testing
             localStorage.setItem('gymUser', JSON.stringify(user));
-            alert(`Great job! Day task completed. Next scan par aapko Day ${user.currentDay} milega.`);
+            alert(`Great job! Day completed. Next scan par aapko Day ${user.currentDay} milega.`);
             window.location.reload();
         }
     </script>
