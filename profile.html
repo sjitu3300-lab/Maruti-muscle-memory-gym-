@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Profile - Maruti Muscle Memory GYM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .profile-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-top: 4px solid #d9381e;
+            padding: 40px 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(217, 56, 30, 0.15);
+            position: relative;
+        }
+        /* Auto Initials Logo Avatar */
+        .avatar-circle {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #d9381e 0%, #8a1705 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: 900;
+            color: #fff;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 5px 15px rgba(217, 56, 30, 0.4);
+            letter-spacing: 2px;
+        }
+        .gym-name {
+            font-size: 11px;
+            font-weight: 800;
+            color: #d9381e;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        .user-name {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .info-box {
+            background: #1c1c1c;
+            border: 1px solid #2a2a2a;
+            padding: 12px 15px;
+            border-radius: 4px;
+        }
+        .info-box span {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #777;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+        .info-box strong {
+            font-size: 14px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .goto-dash-btn {
+            width: 100%;
+            background-color: #d9381e;
+            color: white;
+            padding: 14px;
+            border: none;
+            font-weight: 800;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .goto-dash-btn:hover {
+            background-color: #b52d16;
+        }
+
+        /* Welcome Popup Notification */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+        }
+        .popup-box {
+            background: #141414;
+            border: 1px solid #333;
+            border-top: 4px solid #d9381e;
+            max-width: 400px; width: 100%;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .popup-box h3 {
+            font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; color: #fff;
+        }
+        .popup-box p {
+            color: #aaa; font-size: 13px; line-height: 1.5; margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Welcome Popup (Apears on load) -->
+    <div class="popup-overlay" id="welcomePopup">
+        <div class="popup-box">
+            <h3>Registration Successful!</h3>
+            <p id="popupText">Welcome! Your profile has been created and your Day 1 task is fully ready.</p>
+            <button class="goto-dash-btn" onclick="closePopup()">Open My Task Dashboard</button>
+        </div>
+    </div>
+
+    <!-- Profile Card Container -->
+    <div class="profile-card">
+        <div class="gym-name">Maruti Muscle Memory GYM</div>
+        <div class="avatar-circle" id="userInitials">JS</div>
+        <h2 class="user-name" id="displayName">Jitendra Soni</h2>
+
+        <div class="info-grid">
+            <div class="info-box">
+                <span>Mobile ID</span>
+                <strong id="displayMobile">8947012333</strong>
+            </div>
+            <div class="info-box">
+                <span>Age</span>
+                <strong id="displayAge">25 Years</strong>
+            </div>
+            <div class="info-box" style="grid-column: span 2;">
+                <span>Training Level</span>
+                <strong id="displayLevel" style="color: #d9381e;">Absolute Beginner</strong>
+            </div>
+        </div>
+
+        <button class="goto-dash-btn" onclick="goToDashboard()">Go To Daily Task Dashboard &rarr;</button>
+    </div>
+
+    <script>
+        // LocalStorage se user data load karein
+        const user = JSON.parse(localStorage.getItem('gymUser')) || {
+            name: "Jitendra Soni",
+            mobile: "8947012333",
+            age: "25",
+            level: "beginner",
+            initials: "JS"
+        };
+
+        // DOM Elements mein values set karein
+        document.getElementById('userInitials').innerText = user.initials || "JS";
+        document.getElementById('displayName').innerText = user.name;
+        document.getElementById('displayMobile').innerText = user.mobile;
+        document.getElementById('displayAge').innerText = user.age + " Years";
+        document.getElementById('displayLevel').innerText = user.level.toUpperCase();
+        document.getElementById('popupText').innerText = `Welcome ${user.name}! Your profile is created & your Day 1 task is ready.`;
+
+        function closePopup() {
+            document.getElementById('welcomePopup').style.display = 'none';
+        }
+
+        function goToDashboard() {
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+
+</body>
+</html>
