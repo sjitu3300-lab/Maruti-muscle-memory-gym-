@@ -125,7 +125,7 @@
                     <option value="advanced">Advanced (1-2 Years)</option>
                 </select>
             </div>
-            <button type="submit" class="submit-btn">Start My Daily Workout &rarr;</button>
+            <button type="submit" class="submit-btn">Create Profile & View Task &rarr;</button>
         </form>
         <a href="index.html" class="back-link">&larr; Back to Home</a>
     </div>
@@ -134,16 +134,26 @@
         document.getElementById('regForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const name = document.getElementById('fullName').value;
-            const mobile = document.getElementById('mobileNumber').value;
-            const age = document.getElementById('age').value;
+            const name = document.getElementById('fullName').value.trim();
+            const mobile = document.getElementById('mobileNumber').value.trim();
+            const age = document.getElementById('age').value.trim();
             const level = document.getElementById('fitnessLevel').value;
 
+            // Auto Initials Generator (Jaise Jitendra Soni -> JS)
+            const nameParts = name.split(' ');
+            let initials = nameParts[0].charAt(0);
+            if (nameParts.length > 1) {
+                initials += nameParts[nameParts.length - 1].charAt(0);
+            }
+            initials = initials.toUpperCase();
+
+            // User Profile Object
             const userData = {
                 name: name,
                 mobile: mobile,
                 age: age,
                 level: level,
+                initials: initials,
                 currentDay: 1,
                 startDate: new Date().toISOString()
             };
@@ -151,26 +161,14 @@
             // LocalStorage mein save karein
             localStorage.setItem('gymUser', JSON.stringify(userData));
 
-            // WhatsApp Message Generate karein (Aapke number +91 89470 12333 par bhejega)
+            // WhatsApp Lead Notification to Gym Owner (+91 89470 12333)
             const coachWhatsAppNumber = "918947012333";
-            const message = `New Gym Registration:%0A- Name: ${name}%0A- Mobile: ${mobile}%0A- Age: ${age}%0A- Level: ${level}`;
-            
-            // Background mein WhatsApp chat open hogi ya message trigger hoga
+            const message = `New Gym Member Registration:%0A- Name: ${name}%0A- Mobile: ${mobile}%0A- Age: ${age}%0A- Level: ${level}`;
             const whatsappUrl = `https://wa.me/${coachWhatsAppNumber}?text=${message}`;
             
-            alert('Registration Successful! Aapka WhatsApp open ho raha hai aur Day 1 task load ho raha hai.');
-            
-            // WhatsApp link open karein aur sath hi dashboard par redirect karein
+            // Background mein WhatsApp open karein aur profile page par redirect karein
             window.open(whatsappUrl, '_blank');
-            
-            // Level ke hisaab se specific page par redirect
-            if(level === 'beginner') {
-                window.location.href = 'beginner.html';
-            } else if(level === 'intermediate') {
-                window.location.href = 'intermediate.html';
-            } else {
-                window.location.href = 'advanced.html';
-            }
+            window.location.href = 'profile.html';
         });
     </script>
 
