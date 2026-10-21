@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Workout Dashboard - Maruti Muscle Memory GYM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            padding: 20px 5%;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #222;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 15px;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .logo span {
+            color: #d9381e;
+        }
+        .user-info {
+            background: #141414;
+            border: 1px solid #262626;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #aaa;
+        }
+        .user-info strong {
+            color: #fff;
+        }
+
+        /* Dashboard Container */
+        .dash-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .day-header {
+            background: linear-gradient(135deg, rgba(217, 56, 30, 0.2) 0%, rgba(20, 20, 20, 0.9) 100%);
+            border: 1px solid rgba(217, 56, 30, 0.4);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .day-header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .day-header span {
+            color: #d9381e;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .next-day-btn {
+            background-color: #d9381e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .next-day-btn:hover {
+            background-color: #b52d16;
+        }
+
+        /* Task Cards */
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .task-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 20px;
+            align-items: center;
+            transition: 0.3s;
+        }
+        .task-card.completed {
+            border-color: #2e7d32;
+            background: #0f180f;
+        }
+        .task-img {
+            width: 120px;
+            height: 90px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+        }
+        .task-details h3 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .task-details p {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+        .task-meta {
+            color: #d9381e;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .task-action input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            accent-color: #d9381e;
+            cursor: pointer;
+        }
+
+        /* Success Banner */
+        .success-banner {
+            background: #1b5e20;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+            margin-top: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: none;
+        }
+
+        @media(max-width: 768px) {
+            .task-card {
+                grid-template-columns: 1fr;
+            }
+            .task-img {
+                width: 100%;
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Maruti <span>Muscle Memory</span></div>
+        <div class="user-info" id="userInfo">Loading User...</div>
+    </header>
+
+    <div class="dash-container">
+        <div class="day-header">
+            <div>
+                <span id="userLevelBadge">Fitness Level</span>
+                <h1 id="dayTitle">Day 1 Task</h1>
+            </div>
+            <button class="next-day-btn" onclick="finishDayTask()">Finish & Unlock Next Day &rarr;</button>
+        </div>
+
+        <div class="task-list" id="taskList">
+            <!-- Dynamic Tasks will load here -->
+        </div>
+
+        <div class="success-banner" id="successBanner">
+            🎉 Complete Your Today Task! Great Job. Come back tomorrow for the next QR scan!
+        </div>
+    </div>
+
+    <script>
+        // LocalStorage se user data fetch karein
+        const user = JSON.parse(localStorage.getItem('gymUser')) || {
+            name: "Guest User",
+            level: "beginner",
+            currentDay: 1
+        };
+
+        document.getElementById('userInfo').innerHTML = `Welcome, <strong>${user.name}</strong> (${user.level.toUpperCase()})`;
+        document.getElementById('userLevelBadge').innerText = `${user.level.toUpperCase()} PROGRAM • DAY ${user.currentDay}`;
+        document.getElementById('dayTitle').innerText = `Day ${user.currentDay} Workout Task`;
+
+        // Sample Task Database based on Level and Days
+        const workouts = {
+            beginner: {
+                1: [
+                    { name: "Flat Bench Dumbbell Press", sets: "3 Sets x 12 Reps", desc: "Chest aur triceps ko activate karne ke liye flat bench par controlled movement karein.", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=300" },
+                    { name: "Lat Pulldown Machine", sets: "3 Sets x 12 Reps", desc: "Back width ke liye bar ko upper chest ki taraf smooth pull karein.", img: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=300" },
+                    { name: "Goblet Squats", sets: "3 Sets x 12 Reps", desc: "Legs aur core strength ke liye dumbbell pakad kar deep squat perform karein.", img: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=300" }
+                ],
+                2: [
+                    { name: "Overhead Shoulder Press", sets: "3 Sets x 12 Reps", desc: "Shoulder cap development ke liye dumbbell overhead press karein.", img: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=300" },
+                    { name: "Seated Cable Row", sets: "3 Sets x 12 Reps", desc: "Mid-back thickness aur posture improve karne ke liye.", img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=300" },
+                    { name: "Forearm Plank", sets: "3 Sets x 45 Sec", desc: "Core stability aur flat belly ke liye straight body hold karein.", img: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=300" }
+                ]
+            },
+            intermediate: {
+                1: [
+                    { name: "Incline Barbell Bench Press", sets: "4 Sets x 10 Reps", desc: "Upper chest mass build karne ke liye heavy compound movement.", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=300" },
+                    { name: "Barbell Bent-Over Rows", sets: "4 Sets x 8 Reps", desc: "Back thickness ke liye strict form mein row perform karein.", img: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=300" }
+                ],
+                2: [
+                    { name: "Barbell Back Squats", sets: "4 Sets x 10 Reps", desc: "Lower body power aur overall muscle growth ke liye.", img: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=300" },
+                    { name: "Military Overhead Press", sets: "4 Sets x 8 Reps", desc: "Shoulder mass aur core stability.", img: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=300" }
+                ]
+            },
+            advanced: {
+                1: [
+                    { name: "Heavy Flat Bench Press", sets: "5 Sets x 6 Reps", desc: "Maximum hypertrophy aur strength pushing limit.", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=300" },
+                    { name: "Weighted Dips", sets: "4 Sets x 8 Reps", desc: "Lower chest aur tricep expansion ke liye.", img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=300" }
+                ],
+                2: [
+                    { name: "Deadlifts", sets: "5 Sets x 5 Reps", desc: "Full body raw strength aur posterior chain activation.", img: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=300" },
+                    { name: "Weighted Pull-Ups", sets: "4 Sets x 6 Reps", desc: "V-taper lat width build karne ke liye.", img: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=300" }
+                ]
+            }
+        };
+
+        // Load Tasks for current user level and day (fallback to day 1 if day not found)
+        const currentLevelWorkouts = workouts[user.level] || workouts['beginner'];
+        const currentDayTasks = currentLevelWorkouts[user.currentDay] || currentLevelWorkouts[1];
+
+        const taskListEl = document.getElementById('taskList');
+        currentDayTasks.forEach((task, index) => {
+            taskListEl.innerHTML += `
+                <div class="task-card" id="card-${index}">
+                    <div class="task-img" style="background-image: url('${task.img}');"></div>
+                    <div class="task-details">
+                        <span class="task-meta">${task.sets}</span>
+                        <h3>${task.name}</h3>
+                        <p>${task.desc}</p>
+                    </div>
+                    <div class="task-action">
+                        <input type="checkbox" onchange="toggleTask(${index})" id="check-${index}">
+                    </div>
+                </div>
+            `;
+        });
+
+        function toggleTask(index) {
+            const card = document.getElementById(`card-${index}`);
+            const checkbox = document.getElementById(`check-${index}`);
+            if(checkbox.checked) {
+                card.classList.add('completed');
+            } else {
+                card.classList.remove('completed');
+            }
+
+            // Check if all tasks are checked
+            const allCheckboxes = document.querySelectorAll('.task-action input[type="checkbox"]');
+            let allDone = true;
+            allCheckboxes.forEach(cb => {
+                if(!cb.checked) allDone = false;
+            });
+
+            if(allDone) {
+                document.getElementById('successBanner').style.display = 'block';
+            } else {
+                document.getElementById('successBanner').style.display = 'none';
+            }
+        }
+
+        function finishDayTask() {
+            // Increment day
+            user.currentDay += 1;
+            if(user.currentDay > 2) user.currentDay = 1; // Loop back for demo
+            localStorage.setItem('gymUser', JSON.stringify(user));
+            alert(`Great job! Day task completed. Next scan par aapko Day ${user.currentDay} milega.`);
+            window.location.reload();
+        }
+    </script>
+
+</body>
+</html>
