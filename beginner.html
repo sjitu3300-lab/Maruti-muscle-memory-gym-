@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Absolute Beginner Workout Guide - Maruti Muscle Memory GYM</title>
+    <title>Beginner Level Fat Loss Workout - Maruti Muscle Memory GYM</title>
     <style>
         * {
             margin: 0;
@@ -113,13 +113,13 @@
             position: relative;
         }
         .day-img::after {
-            content: 'Click to View Guide';
+            content: 'Click to View Full Workout';
             position: absolute;
             bottom: 15px;
             left: 15px;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             color: #d9381e;
-            padding: 5px 10px;
+            padding: 6px 12px;
             font-size: 10px;
             font-weight: 800;
             text-transform: uppercase;
@@ -151,33 +151,14 @@
             line-height: 1.6;
             margin-bottom: 15px;
         }
-        .exercise-meta {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            background: #1c1c1c;
-            padding: 12px 15px;
-            border-radius: 4px;
-            border-left: 3px solid #d9381e;
-        }
-        .meta-item strong {
-            color: #fff;
-            font-size: 11px;
-            display: block;
-            text-transform: uppercase;
-        }
-        .meta-item span {
-            color: #888;
-            font-size: 11px;
-        }
         .view-detail-btn {
             background: none;
             border: 1px solid #d9381e;
             color: #d9381e;
-            padding: 8px 15px;
+            padding: 9px 18px;
             margin-top: 15px;
             font-weight: 800;
-            font-size: 10px;
+            font-size: 11px;
             text-transform: uppercase;
             cursor: pointer;
             border-radius: 3px;
@@ -189,11 +170,11 @@
             color: #fff;
         }
 
-        /* Modal Popup for Clickable Exercise Detail */
+        /* Modal Popup Box */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.88);
             display: none;
             justify-content: center;
             align-items: center;
@@ -205,9 +186,9 @@
             background: #141414;
             border: 1px solid #333;
             border-top: 4px solid #d9381e;
-            max-width: 600px;
+            max-width: 650px;
             width: 100%;
-            padding: 30px;
+            padding: 35px;
             border-radius: 8px;
             position: relative;
             max-height: 90vh;
@@ -216,20 +197,34 @@
         .modal-close {
             position: absolute;
             top: 15px; right: 20px;
-            color: #888; font-size: 22px;
+            color: #888; font-size: 24px;
             cursor: pointer; font-weight: bold;
         }
         .modal-close:hover { color: #fff; }
         .modal-img {
-            width: 100%; height: 250px;
+            width: 100%; height: 260px;
             background-size: cover; background-position: center;
             border-radius: 6px; margin-bottom: 20px;
+            border: 1px solid #222;
         }
         .modal-box h2 {
-            font-size: 22px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px;
+            font-size: 24px; font-weight: 900; text-transform: uppercase; margin-bottom: 12px; color: #fff;
         }
         .modal-box p {
-            color: #aaa; font-size: 13px; line-height: 1.6; margin-bottom: 15px;
+            color: #bbb; font-size: 13px; line-height: 1.7; margin-bottom: 15px;
+        }
+        .exercise-step {
+            background: #1c1c1c;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 12px;
+            border-left: 3px solid #d9381e;
+        }
+        .exercise-step strong {
+            color: #fff; display: block; margin-bottom: 40px; text-transform: uppercase; font-size: 12px;
+        }
+        .exercise-step span {
+            color: #999; font-size: 12px; display: block;
         }
 
         @media(max-width: 900px) {
@@ -247,40 +242,54 @@
     </header>
 
     <section class="page-hero">
-        <span>Option 01 • Zero to Hero</span>
-        <h1>Absolute Beginner Weekly Blueprint</h1>
-        <p>Har exercise par click karke uska complete form, posture aur execution guide dekhein.</p>
+        <span>Beginner Level • Fat Loss Workout</span>
+        <h1>4-Day Beginner Training Blueprint</h1>
+        <p>Aapke notes ke anusaar 4 din ka complete fat loss aur beginner routine. Har day par click karke detailed exercise guide dekhein.</p>
     </section>
 
     <div class="schedule-container">
 
-        <!-- Monday -->
+        <!-- Day 1: Cardio & Chest Ignition -->
         <div class="day-block">
-            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800');" onclick="openModal('Chest & Triceps Foundation', 'Flat Bench Press & Push-ups routine.', '3 Sets × 12, 10, 8 Reps', '90 Seconds', 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800')"></div>
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800');" onclick="openDayModal('Day 1: Cardio & Chest Ignition', 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800', 'Yeh session fat burning aur upper body activation ke liye design kiya gaya hai[cite: 12].', '<b>1. Cardio (Jumping Jacks):</b> 3 Sets x 1 Minute. Haath aur pair kholte hue jump karein taaki heart rate badhe.<br><br><b>2. Cycling:</b> 5-10 Minutes. Moderate speed par pedaling karein.<br><br><b>3. Abs Workout:</b> Basic crunches (3 Sets x 15 Reps).<br><br><b>4. Chest Workout:</b> Light bench press ya push-ups (3 Sets x 12 Reps).')"></div>
             <div class="day-content">
-                <span class="day-badge">Monday • Day 1</span>
-                <h3>Chest & Triceps (Foundation Press)</h3>
-                <p>Flat Bench Press ya Push-ups se shuru karein. Chest ko upar rakhen aur elbows ko 45-degree angle par move karein.</p>
-                <div class="exercise-meta">
-                    <div class="meta-item"><strong>Sets & Reps</strong><span>3 Sets × 12, 10, 8 Reps</span></div>
-                    <div class="meta-item"><strong>Rest Time</strong><span>90 Seconds</span></div>
-                </div>
-                <button class="view-detail-btn" onclick="openModal('Chest & Triceps Foundation', 'Flat Bench Press & Push-ups routine.', '3 Sets × 12, 10, 8 Reps', '90 Seconds', 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800')">View Exercise Guide</button>
+                <span class="day-badge">Day 1</span>
+                <h3>Cardio & Chest Ignition</h3>
+                <p>Cardio [Jumping Jack] + Cycling + Abs + Chest workout[cite: 12]. Shuruat karne ke liye best fat-burning combination.</p>
+                <button class="view-detail-btn" onclick="openDayModal('Day 1: Cardio & Chest Ignition', 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800', 'Yeh session fat burning aur upper body activation ke liye design kiya gaya hai[cite: 12].', '<b>1. Cardio (Jumping Jacks):</b> 3 Sets x 1 Minute.<br><br><b>2. Cycling:</b> 5-10 Minutes.<br><br><b>3. Abs Workout:</b> 3 Sets x 15 Reps.<br><br><b>4. Chest Workout:</b> 3 Sets x 12 Reps.')">View Day 1 Details</button>
             </div>
         </div>
 
-        <!-- Tuesday -->
+        <!-- Day 2: Lower Body & Back Power -->
         <div class="day-block">
-            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800');" onclick="openModal('Back & Biceps Pull Power', 'Lat Pulldown & Seated Cable Row.', '3 Sets × 12 Reps', '90 Seconds', 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800')"></div>
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');" onclick="openDayModal('Day 2: Lower Body & Back Power', 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800', 'Lower body strength aur back posture sudharne ke liye[cite: 12].', '<b>1. Jumping Jack:</b> 3 Sets x 1 Minute[cite: 12].<br><br><b>2. Cycling:</b> 5-10 Minutes[cite: 12].<br><br><b>3. Abs & Back Workout:</b> Core tightening aur lat pulldown.<br><br><b>4. Normal Squats & Calves:</b> 3 Sets x 15 Reps[cite: 12].')"></div>
             <div class="day-content">
-                <span class="day-badge">Tuesday • Day 2</span>
-                <h3>Back & Biceps (Pull Power)</h3>
-                <p>Lat Pulldown aur Seated Cable Row ka use karein. Pull karte waqt chest ko bahar nikal kar shoulder blades ko squeeze karein.</p>
-                <div class="exercise-meta">
-                    <div class="meta-item"><strong>Sets & Reps</strong><span>3 Sets × 12 Reps</span></div>
-                    <div class="meta-item"><strong>Rest Time</strong><span>90 Seconds</span></div>
-                </div>
-                <button class="view-detail-btn" onclick="openModal('Back & Biceps Pull Power', 'Lat Pulldown & Seated Cable Row.', '3 Sets × 12 Reps', '90 Seconds', 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800')">View Exercise Guide</button>
+                <span class="day-badge">Day 2</span>
+                <h3>Lower Body & Back Power</h3>
+                <p>Jumping Jack (3 sets x 1 min) + Cycling (5-10 min) + Abs + Back workout + Normal Squats (3 sets x 15 reps) + Calves[cite: 12].</p>
+                <button class="view-detail-btn" onclick="openDayModal('Day 2: Lower Body & Back Power', 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800', 'Lower body strength aur back posture sudharne ke liye[cite: 12].', '<b>1. Jumping Jack:</b> 3 Sets x 1 Minute[cite: 12].<br><br><b>2. Cycling:</b> 5-10 Minutes[cite: 12].<br><br><b>3. Abs & Back Workout:</b> Core tightening aur lat pulldown.<br><br><b>4. Normal Squats & Calves:</b> 3 Sets x 15 Reps[cite: 12].')">View Day 2 Details</button>
+            </div>
+        </div>
+
+        <!-- Day 3: Core & Shoulder Sculpting -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');" onclick="openDayModal('Day 3: Core & Shoulder Sculpting', 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800', 'Shoulder mobility aur abs definition ke liye[cite: 12].', '<b>1. Cycling:</b> 5-10 Minutes[cite: 12].<br><br><b>2. Jumping Jack:</b> 3 Sets x 1 Minute[cite: 12].<br><br><b>3. Abs Workout:</b> Crunches and leg raises.<br><br><b>4. Shoulder Workout:</b> Lightweight dumbbell presses (3 Sets x 12 Reps).')"></div>
+            <div class="day-content">
+                <span class="day-badge">Day 3</span>
+                <h3>Core & Shoulder Sculpting</h3>
+                <p>Cycling (5-10 min) + Jumping Jack (3 sets x 1 min) + Abs + Shoulder[cite: 12].</p>
+                <button class="view-detail-btn" onclick="openDayModal('Day 3: Core & Shoulder Sculpting', 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800', 'Shoulder mobility aur abs definition ke liye[cite: 12].', '<b>1. Cycling:</b> 5-10 Minutes[cite: 12].<br><br><b>2. Jumping Jack:</b> 3 Sets x 1 Minute[cite: 12].<br><br><b>3. Abs Workout:</b> Crunches and leg raises.<br><br><b>4. Shoulder Workout:</b> Lightweight dumbbell presses (3 Sets x 12 Reps).')">View Day 3 Details</button>
+            </div>
+        </div>
+
+        <!-- Day 4: Full Body Endurance & Arms -->
+        <div class="day-block">
+            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');" onclick="openDayModal('Day 4: Full Body Endurance & Arms', 'https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800', 'Biceps, triceps aur complete body toning ke liye[cite: 12].', '<b>1. Cycling & Jumping Jacks:</b> Warm-up cardio[cite: 12].<br><br><b>2. Abs, Biceps, Triceps & Forearm:</b> Complete arm toning routine[cite: 12].<br><br><b>3. Normal Squats & Calves:</b> 3 Sets x 15 Reps[cite: 12].')"></div>
+            <div class="day-content">
+                <span class="day-badge">Day 4</span>
+                <h3>Full Body Endurance & Arms</h3>
+                <p>Cycling (5-10 min) + Jumping Jack (3 sets x 1 min) + Abs + Biceps + Triceps + Forearm + Normal Squats (3 sets x 15 reps) + Calves[cite: 12].</p>
+                <button class="view-detail-btn" onclick="openDayModal('Day 4: Full Body Endurance & Arms', 'https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800', 'Biceps, triceps aur complete body toning ke liye[cite: 12].', '<b>1. Cycling & Jumping Jacks:</b> Warm-up cardio[cite: 12].<br><br><b>2. Abs, Biceps, Triceps & Forearm:</b> Complete arm toning routine[cite: 12].<br><br><b>3. Normal Squats & Calves:</b> 3 Sets x 15 Reps[cite: 12].')">View Day 4 Details</button>
             </div>
         </div>
 
@@ -291,21 +300,20 @@
         <div class="modal-box">
             <span class="modal-close" onclick="closeModal()">&times;</span>
             <div class="modal-img" id="modalImg" style="background-image: url('');"></div>
-            <h2 id="modalTitle">Exercise Title</h2>
-            <p id="modalDesc">Detailed description goes here...</p>
-            <div class="exercise-meta">
-                <div class="meta-item"><strong>Target Sets/Reps</strong><span id="modalMeta">3 Sets x 12 Reps</span></div>
-                <div class="meta-item"><strong>Rest Interval</strong><span id="modalRest">90 Sec</span></div>
+            <h2 id="modalTitle">Day Workout Guide</h2>
+            <p id="modalIntro">Introduction...</p>
+            <div class="exercise-step">
+                <strong>Routine Breakdown & Instructions</strong>
+                <span id="modalDetails">Details here...</span>
             </div>
         </div>
     </div>
 
     <script>
-        function openModal(title, desc, sets, rest, img) {
+        function openDayModal(title, img, intro, details) {
             document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('modalMeta').innerText = sets;
-            document.getElementById('modalRest').innerText = rest;
+            document.getElementById('modalIntro').innerText = intro;
+            document.getElementById('modalDetails').innerHTML = details;
             document.getElementById('modalImg').style.backgroundImage = `url('${img}')`;
             document.getElementById('exerciseModal').style.display = 'flex';
         }
