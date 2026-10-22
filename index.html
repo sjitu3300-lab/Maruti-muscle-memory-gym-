@@ -774,11 +774,42 @@
             </ul>
         </nav>
         <div class="header-actions">
-            <!-- Profile Icon Button placed near Join Button -->
             <a href="profile.html" class="profile-icon-btn" title="My Profile" id="profileIcon">👤</a>
-            <button class="book-btn" onclick="location.href='#location'">Join Now</button>
+            <button class="book-btn" onclick="openRegisterModal(event)">Join Now</button>
         </div>
     </header>
+
+    <!-- Registration Modal Popup -->
+    <div class="modal-overlay" id="regModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeRegisterModal()">&times;</span>
+            <div class="modal-title">New Member Registration</div>
+            <form id="regForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" required placeholder="Apna pura naam likhein">
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number (Login ID)</label>
+                    <input type="tel" id="mobileNumber" required placeholder="10-digit mobile number">
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" id="age" required placeholder="Aapki umar">
+                </div>
+                <div class="form-group">
+                    <label>Select Fitness Level</label>
+                    <select id="fitnessLevel" required>
+                        <option value="" disabled selected>Level chuniye</option>
+                        <option value="beginner">Absolute Beginner (Zero Experience)</option>
+                        <option value="intermediate">Restart / Intermediate</option>
+                        <option value="advanced">Advanced (1-2 Years)</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-reg-btn">Create Profile & View Task &rarr;</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -787,8 +818,7 @@
             <h1>Forge Your Best Self</h1>
             <p>Personal training designed around your goals — specialized strength & muscle memory conditioning.</p>
             <div class="hero-buttons">
-                <a href="#location" class="btn-red">Book A Free Session</a>
-                <a href="#services" class="link-text">View Programs &rarr;</a>
+                <a href="#location" class="btn-red" onclick="openRegisterModal(event)">Register Now</a>
             </div>
         </div>
 
@@ -875,7 +905,6 @@
         <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
 
         <div class="journey-grid">
-            <!-- Option 1: Beginner Page Link -->
             <a href="beginner.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 01</span>
                 <h3>Absolute Beginner</h3>
@@ -883,7 +912,6 @@
                 <span class="explore-link">Explore Plan &rarr;</span>
             </a>
 
-            <!-- Option 2: Restart / Intermediate Page Link -->
             <a href="intermediate.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 02</span>
                 <h3>Restart / Intermediate</h3>
@@ -891,7 +919,6 @@
                 <span class="explore-link">Explore Plan &rarr;</span>
             </a>
 
-            <!-- Option 3: Advanced Page Link -->
             <a href="advanced.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 03</span>
                 <h3>Advanced (1-2 Yrs)</h3>
@@ -1017,15 +1044,15 @@
                 <div class="loc-details-box">
                     <div class="loc-item">
                         <strong>Address:</strong>
-                        <span>First Floor, Above Balaji lights and decor, BSF Colony, Chenar, Rajasthan 341001 [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]</span>
+                        <span>First Floor, Above Balaji lights and decor, BSF Colony, Chenar, Rajasthan 341001</span>
                     </div>
                     <div class="loc-item">
                         <strong>Contact:</strong>
-                        <span>+91 89470 12333 [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]</span>
+                        <span>+91 89470 12333</span>
                     </div>
                     <div class="loc-item">
                         <strong>Timing:</strong>
-                        <span>Mon - Sat: 5:30 AM – 10:30 PM [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]</span>
+                        <span>Mon - Sat: 5:30 AM – 10:30 PM</span>
                     </div>
                 </div>
                 <a href="tel:8947012333" class="btn-red" style="display: inline-block;">Call Now To Join</a>
@@ -1069,7 +1096,7 @@
                 </ul>
             </div>
             <div class="footer-highlight-col">
-                <h5>Gym Facilities</h5>
+                <h5>GymFacilities</h5>
                 <ul>
                     <li>Modern Heavy Duty Machines</li>
                     <li>Air-Conditioned Workout Floor</li>
@@ -1090,13 +1117,12 @@
 
         <div class="footer-bottom">
             <p>&copy; 2026 Maruti Muscle Memory GYM. All rights reserved.</p>
-            <p>Designed for Ultimate Fitness & Strength</p>
+            <p>Designed for Ultimate Fitness & Strength & Strength</p>
         </div>
     </footer>
 
     <!-- JavaScript for Instant Counter, Scroll Reveal & Dynamic Profile Icon -->
     <script>
-        // Check if user is registered, update profile icon to show user initials if available
         window.addEventListener('DOMContentLoaded', () => {
             const savedUser = localStorage.getItem('gymUser');
             if(savedUser) {
@@ -1111,7 +1137,6 @@
                 }
             }
 
-            // Counter Animation
             const counters = document.querySelectorAll('.counter');
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
@@ -1131,7 +1156,6 @@
             });
         });
 
-        // Scroll Reveal Animation Script
         window.addEventListener('scroll', revealOnScroll);
 
         function revealOnScroll() {
@@ -1147,7 +1171,6 @@
             });
         }
         
-        // Trigger once on load
         revealOnScroll();
     </script>
 </body>
