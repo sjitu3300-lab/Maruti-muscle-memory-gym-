@@ -504,7 +504,7 @@
             letter-spacing: 1px;
         }
 
-        /* Updated Blog Slider Section (Matching image style with horizontal scroll & touch swipe)[cite: 14] */
+        /* 10 Articles Horizontal Slider Section */
         .blog-slider-section {
             padding: 90px 5%;
             background-color: #0c0c0c;
@@ -544,10 +544,10 @@
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             padding-bottom: 20px;
-            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            scrollbar-width: none;
         }
         .blog-slider-track::-webkit-scrollbar {
-            display: none; /* Hide scrollbar for Chrome/Safari */
+            display: none;
         }
         .blog-card {
             flex: 0 0 280px;
@@ -595,7 +595,6 @@
             color: #777;
             font-size: 11px;
         }
-        /* Slider Navigation Arrows */
         .slider-arrow {
             position: absolute;
             top: 50%;
@@ -1107,7 +1106,7 @@
         </div>
     </section>
 
-    <!-- Updated Blog Slider Section (Arrow & Touch Swipe Slider matching reference image style)[cite: 14] -->
+    <!-- 10 Articles Horizontal Slider Section (Swipable & Arrow Navigable)[cite: 14] -->
     <section class="blog-slider-section reveal" id="articles">
         <div class="blog-slider-header">
             <span>OUR BLOG</span>
@@ -1116,6 +1115,7 @@
         <div class="blog-container-wrapper">
             <button class="slider-arrow arrow-left" onclick="slideBlogs(-1)">&#8592;</button>
             <div class="blog-slider-track" id="blogTrack">
+                <!-- Article 1 -->
                 <a href="article-beginner-rules.html" class="blog-card">
                     <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=500');"></div>
                     <div class="blog-info">
@@ -1124,36 +1124,85 @@
                         <p class="blog-meta">Apr 21, 2020 • 0 Comments</p>
                     </div>
                 </a>
+                <!-- Article 2 -->
                 <a href="article-protein-diet.html" class="blog-card">
                     <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=500');"></div>
                     <div class="blog-info">
-                        <span class="blog-cat">Training</span>
+                        <span class="blog-cat">Diet</span>
                         <h4>10 strength exercises to improve your running</h4>
                         <p class="blog-meta">Apr 21, 2020 • 1 Comment</p>
                     </div>
                 </a>
+                <!-- Article 3 -->
                 <a href="article-muscle-memory.html" class="blog-card">
                     <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=500');"></div>
                     <div class="blog-info">
-                        <span class="blog-cat">Training</span>
+                        <span class="blog-cat">Workout</span>
                         <h4>How to choose the right workout strategy</h4>
                         <p class="blog-meta">Apr 21, 2020 • 0 Comments</p>
                     </div>
                 </a>
+                <!-- Article 4 -->
                 <a href="article-fat-loss.html" class="blog-card">
                     <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=500');"></div>
                     <div class="blog-info">
-                        <span class="blog-cat">Training</span>
+                        <span class="blog-cat">Fat Loss</span>
                         <h4>Top 5 workout locations to vary your daily routine</h4>
                         <p class="blog-meta">Apr 21, 2020 • 0 Comments</p>
                     </div>
                 </a>
+                <!-- Article 5 -->
                 <a href="article-recovery.html" class="blog-card">
                     <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=500');"></div>
                     <div class="blog-info">
                         <span class="blog-cat">Recovery</span>
                         <h4>Rest Days And Sleep Essential For Growth</h4>
                         <p class="blog-meta">Apr 22, 2020 • 2 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 6 -->
+                <a href="article-supplements.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Supplements</span>
+                        <h4>Is Whey Protein Safe For Beginners?</h4>
+                        <p class="blog-meta">Apr 23, 2020 • 3 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 7 -->
+                <a href="article-compound.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Workout</span>
+                        <h4>Top 5 Compound Exercises For Chest & Biceps</h4>
+                        <p class="blog-meta">Apr 24, 2020 • 1 Comment</p>
+                    </div>
+                </a>
+                <!-- Article 8 -->
+                <a href="article-meal-timing.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Diet</span>
+                        <h4>Pre-Workout And Post-Workout Meal Guide</h4>
+                        <p class="blog-meta">Apr 25, 2020 • 0 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 9 -->
+                <a href="article-consistency.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Mindset</span>
+                        <h4>How To Build Long-Term Gym Consistency</h4>
+                        <p class="blog-meta">Apr 26, 2020 • 4 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 10 -->
+                <a href="article-injury-prevention.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Safety</span>
+                        <h4>Avoid Gym Injuries With Proper Warm-up Routine</h4>
+                        <p class="blog-meta">Apr 27, 2020 • 2 Comments</p>
                     </div>
                 </a>
             </div>
@@ -1224,7 +1273,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Stats & Highlights Points -->
     <footer>
         <div class="footer-stats-grid">
             <div class="f-stat">
@@ -1294,7 +1343,7 @@
         // Blog Slider Arrow Navigation Function
         function slideBlogs(direction) {
             const track = document.getElementById('blogTrack');
-            const scrollAmount = 305; // Card width + gap
+            const scrollAmount = 305;
             track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
