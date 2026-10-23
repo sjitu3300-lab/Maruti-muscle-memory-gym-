@@ -17,6 +17,8 @@
             overflow-x: hidden;
             width: 100vw;
         }
+
+        /* Scroll Animation Initial State */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -26,6 +28,8 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Unique Mobile-Friendly Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -46,99 +50,725 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
-        .logo span { color: #d9381e; }
-        nav ul { display: flex; list-style: none; gap: 25px; }
+        .logo span {
+            color: #d9381e;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
         nav ul li a {
-            color: #ccc; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
-        nav ul li a:hover { color: #d9381e; }
-        .header-actions { display: flex; align-items: center; gap: 15px; }
+        nav ul li a:hover {
+            color: #d9381e;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
         .book-btn {
-            background-color: #d9381e; color: white; padding: 8px 18px; border: none; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; border-radius: 2px; transition: 0.3s;
+            background-color: #d9381e;
+            color: white;
+            padding: 8px 18px;
+            border: none;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: 0.3s;
         }
-        .book-btn:hover { background-color: #b52d16; }
+        .book-btn:hover {
+            background-color: #b52d16;
+        }
+        /* Profile Icon Styling near Join Button */
         .profile-icon-btn {
-            width: 36px; height: 36px; background: #1c1c1c; border: 1px solid #333; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #fff; text-decoration: none; font-weight: 800; font-size: 11px; transition: 0.3s; cursor: pointer;
+            width: 36px;
+            height: 36px;
+            background: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 11px;
+            transition: 0.3s;
+            cursor: pointer;
         }
-        .profile-icon-btn:hover { border-color: #d9381e; color: #d9381e; }
-
-        /* Modal Popup for Registration */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); display: none; justify-content: center; align-items: center; z-index: 2000; backdrop-filter: blur(5px);
+        .profile-icon-btn:hover {
+            border-color: #d9381e;
+            color: #d9381e;
         }
-        .modal-content {
-            background: #141414; border: 1px solid #262626; border-top: 4px solid #d9381e; padding: 35px; border-radius: 8px; width: 90%; max-width: 450px; position: relative;
-        }
-        .modal-close { position: absolute; top: 15px; right: 20px; color: #888; font-size: 20px; cursor: pointer; font-weight: bold; }
-        .modal-close:hover { color: #fff; }
-        .modal-title { font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; color: #fff; text-align: center; }
-        .form-group { margin-bottom: 18px; }
-        .form-group label { display: block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-bottom: 6px; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; background: #1c1c1c; border: 1px solid #333; color: #fff; border-radius: 4px; font-size: 13px; }
-        .form-group input:focus, .form-group select:focus { border-color: #d9381e; outline: none; }
-        .submit-reg-btn { width: 100%; background-color: #d9381e; color: white; padding: 12px; border: none; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; border-radius: 4px; transition: 0.3s; margin-top: 10px; }
-        .submit-reg-btn:hover { background-color: #b52d16; }
 
         /* Hero Section */
         .hero {
-            height: 100vh; width: 100%; position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; margin-top: 60px; overflow: hidden; background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 85%, #0a0a0a 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            margin-top: 60px;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 85%, #0a0a0a 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
         }
-        .hero-content { max-width: 600px; z-index: 3; position: relative; }
-        .subtitle { color: #d9381e; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .hero h1 { font-size: clamp(38px, 6vw, 54px); font-weight: 900; line-height: 1.05; text-transform: uppercase; margin-bottom: 20px; }
-        .hero p { color: #bbb; font-size: 13px; line-height: 1.6; margin-bottom: 25px; max-width: 420px; }
-        .hero-buttons { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-        .btn-red { background-color: #d9381e; color: white; padding: 12px 24px; text-decoration: none; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; border-radius: 2px; transition: 0.3s; }
+        .hero-content {
+            max-width: 600px;
+            z-index: 3;
+            position: relative;
+        }
+        .subtitle {
+            color: #d9381e;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 54px);
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            color: #bbb;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            max-width: 420px;
+        }
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn-red {
+            background-color: #d9381e;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .link-text {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        /* New Image-style Services Section ("Achieve amazing results with our services") */
-        .achieve-section {
-            padding: 90px 5%; background-color: #0d0d0d; text-align: center; border-bottom: 1px solid #1a1a1a;
+        /* Hero Stats Cards */
+        .hero-stats {
+            display: flex;
+            gap: 15px;
+            z-index: 3;
+            position: relative;
         }
-        .achieve-top-span { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 10px; display: block; }
-        .achieve-section h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 900; text-transform: uppercase; margin-bottom: 50px; }
-        .achieve-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; max-width: 1000px; margin: 0 auto; text-align: left;
+        .stat-card {
+            background: linear-gradient(135deg, rgba(217, 56, 30, 0.3) 0%, rgba(20, 20, 20, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(217, 56, 30, 0.4);
+            padding: 25px 20px;
+            border-radius: 6px;
+            width: 160px;
         }
-        .achieve-item { padding: 20px; }
-        .achieve-item .icon { font-size: 28px; color: #d9381e; margin-bottom: 15px; }
-        .achieve-item h4 { font-size: 18px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; color: #fff; }
-        .achieve-item p { color: #777; font-size: 12px; line-height: 1.5; }
+        .stat-card h3 {
+            font-size: 34px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .stat-card p {
+            color: #ccc;
+            font-size: 10px;
+            line-height: 1.3;
+        }
 
-        /* Choose Your Fitness Journey Section */
-        .journey-section { padding: 90px 5%; background-color: #0a0a0a; }
-        .journey-section h2 { font-size: clamp(26px, 4vw, 32px); text-transform: uppercase; margin-bottom: 8px; font-weight: 900; }
-        .journey-section > p { color: #777; margin-bottom: 40px; font-size: 12px; }
-        .journey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        /* Training Services Section */
+        .services-section {
+            padding: 90px 5%;
+            background-color: #0a0a0a;
+        }
+        .section-header {
+            margin-bottom: 40px;
+        }
+        .section-title span {
+            color: #777;
+            font-size: 11px;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .section-title h2 {
+            font-size: clamp(26px, 4vw, 32px);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .service-card {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            border: 1px solid #1f1f1f;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0.2) 100%);
+        }
+        .service-card * {
+            position: relative;
+            z-index: 2;
+        }
+        .service-card .num {
+            color: #d9381e;
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .service-card h4 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            color: #999;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* Gym Machines Showcase Section */
+        .machines-section {
+            padding: 90px 5%;
+            background-color: #0d0d0d;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .machines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .machine-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .machine-card:hover {
+            border-color: #d9381e;
+            transform: translateY(-5px);
+        }
+        .machine-img {
+            height: 220px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .machine-info {
+            padding: 20px;
+        }
+        .machine-info span {
+            color: #d9381e;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .machine-info h4 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .machine-info p {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        /* Choose Your Fitness Journey Section (Linked Cards) */
+        .journey-section {
+            padding: 90px 5%;
+            background-color: #0a0a0a;
+        }
+        .journey-section h2 {
+            font-size: clamp(26px, 4vw, 32px);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+        .journey-section > p {
+            color: #777;
+            margin-bottom: 40px;
+            font-size: 12px;
+        }
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
         .journey-card {
-            background-size: cover; background-position: center; height: 420px; border-radius: 6px; overflow: hidden; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; border: 1px solid #222; text-decoration: none; color: inherit; cursor: pointer; transition: 0.4s;
+            background-size: cover;
+            background-position: center;
+            height: 420px;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            border: 1px solid #222;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: 0.4s;
         }
-        .journey-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(10,10,10,0.95) 40%, rgba(10,10,10,0.3) 100%); }
-        .journey-card * { position: relative; z-index: 2; }
-        .journey-card .level-tag { color: #d9381e; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; display: block; }
-        .journey-card h3 { font-size: 20px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; color: #fff; }
-        .journey-card p { color: #999; font-size: 12px; line-height: 1.5; margin-bottom: 20px; }
-        .journey-card .explore-link { color: #fff; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .journey-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(10,10,10,0.95) 40%, rgba(10,10,10,0.3) 100%);
+        }
+        .journey-card:hover {
+            border-color: #d9381e;
+            transform: translateY(-5px);
+        }
+        .journey-card * {
+            position: relative;
+            z-index: 2;
+        }
+        .journey-card .level-tag {
+            color: #d9381e;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .journey-card h3 {
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+        .journey-card p {
+            color: #999;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .journey-card .explore-link {
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        /* Testimonial / Review Section */
-        .testimonial-section {
-            padding: 80px 5%; background-color: #0c0c0c; text-align: center; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a;
+        /* Top 10 Clickable Articles Section */
+        .articles-section {
+            padding: 90px 5%;
+            background-color: #0f0f0f;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
         }
-        .testimonial-box { max-width: 700px; margin: 0 auto; position: relative; }
-        .testi-avatar { width: 75px; height: 75px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px auto; border: 2px solid #d9381e; }
-        .testi-text { color: #bbb; font-size: 14px; line-height: 1.8; margin-bottom: 25px; font-style: italic; }
-        .testi-author { font-size: 16px; font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 5px; }
-        .testi-role { font-size: 11px; color: #777; text-transform: uppercase; letter-spacing: 1px; }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .article-card {
+            background: #141414;
+            border: 1px solid #222;
+            padding: 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+            transition: 0.3s;
+        }
+        .article-card:hover {
+            border-color: #d9381e;
+            transform: translateY(-5px);
+            background: #181212;
+        }
+        .article-card span {
+            color: #d9381e;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .article-card h4 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: #fff;
+        }
+        .article-card p {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            color: #d9381e;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Owner & About Section */
+        .about-section {
+            padding: 90px 5%;
+            background-color: #0a0a0a;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-img-box {
+            position: relative;
+            height: 450px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+        .about-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-content span {
+            color: #d9381e;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .about-content h2 {
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+        .about-content p {
+            color: #888;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .owner-badge {
+            background: #141414;
+            border-left: 3px solid #d9381e;
+            padding: 15px 20px;
+            margin-top: 20px;
+        }
+        .owner-badge h4 {
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+        .owner-badge p {
+            color: #777;
+            font-size: 11px;
+            margin: 0;
+        }
+
+        /* CTA Banner Section */
+        .cta-banner {
+            margin: 60px 5%;
+            background-color: #d9381e;
+            border-radius: 6px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            align-items: center;
+            overflow: hidden;
+        }
+        .cta-left {
+            padding: 50px 40px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .cta-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        .cta-left h2 {
+            font-size: clamp(26px, 4vw, 36px);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .cta-left p {
+            color: rgba(255,255,255,0.9);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .cta-right {
+            background-color: #111;
+            padding: 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cta-right span {
+            color: #d9381e;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .cta-right h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .cta-right p {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        .cta-right a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Location & Map Section */
+        .location-section {
+            padding: 90px 5%;
+            background-color: #070707;
+            border-top: 1px solid #1a1a1a;
+        }
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .location-info h2 {
+            font-size: clamp(28px, 4vw, 34px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .location-info p {
+            color: #888;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .loc-details-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .loc-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .loc-item strong {
+            color: #fff;
+            font-size: 13px;
+            text-transform: uppercase;
+            min-width: 90px;
+        }
+        .loc-item span {
+            color: #888;
+            font-size: 13px;
+        }
+        .map-box {
+            width: 100%;
+            height: 380px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(100%) invert(92%) contrast(85%);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 60px 5% 30px 5%;
+            border-top: 1px solid #1a1a1a;
+        }
+        .footer-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #1a1a1a;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .f-stat h4 {
+            font-size: 32px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .f-stat p {
+            color: #777;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .footer-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #141414;
+        }
+        .footer-highlight-col h5 {
+            color: #fff;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        .footer-highlight-col ul {
+            list-style: none;
+        }
+        .footer-highlight-col ul li {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 15px;
+        }
+        .footer-highlight-col ul li::before {
+            content: '•';
+            color: #d9381e;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-top: 10px;
+            color: #555;
+            font-size: 11px;
+        }
+
+        @media(max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                justify-content: center;
+                height: auto;
+                padding: 100px 5%;
+            }
+            .hero-stats {
+                margin-top: 30px;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .about-section, .location-grid, .cta-banner {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <div class="logo">Maruti <span>Muscle Memory</span></div>
         <nav>
             <ul>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#machines">Machines</a></li>
                 <li><a href="#journey">Journey</a></li>
-                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#articles">Guides</a></li>
                 <li><a href="#location">Location</a></li>
             </ul>
@@ -191,40 +821,89 @@
                 <a href="#location" class="btn-red" onclick="openRegisterModal(event)">Register Now</a>
             </div>
         </div>
-    </section>
 
-    <!-- Achieve Amazing Results Section ("Our Tasks" replacing swimming) -->
-    <section class="achieve-section">
-        <span class="achieve-top-span">WHAT WE OFFER</span>
-        <h2>Achieve amazing results with our services</h2>
-        <div class="achieve-grid">
-            <div class="achieve-item">
-                <div class="icon">🏋️‍♂️</div>
-                <h4>Best equipment</h4>
-                <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <h3 class="counter" data-target="100">0</h3>
+                <p>Client Satisfaction Guaranteed</p>
             </div>
-            <div class="achieve-item">
-                <div class="icon">💪</div>
-                <h4>Training plan</h4>
-                <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
-            </div>
-            <div class="achieve-item">
-                <div class="icon">🥤</div>
-                <h4>Nutrition plan</h4>
-                <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
-            </div>
-            <div class="achieve-item">
-                <div class="icon">📋</div>
-                <h4>Our Tasks</h4>
-                <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            <div class="stat-card">
+                <h3 class="counter" data-target="500">0</h3>
+                <p>Clients Trained Real Results</p>
             </div>
         </div>
     </section>
 
-    <!-- Choose Your Fitness Journey Section -->
+    <!-- Training Services Section -->
+    <section class="services-section reveal" id="services">
+        <div class="section-header">
+            <div class="section-title">
+                <span>What We Offer</span>
+                <h2>Training Services</h2>
+            </div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800');">
+                <span class="num">01</span>
+                <h4>1:1 Personal Training</h4>
+                <p>Tailored sessions designed around your goals with full coach attention.</p>
+            </div>
+            <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800');">
+                <span class="num">02</span>
+                <h4>Group Bootcamp</h4>
+                <p>High-energy group training that pushes limits and builds community.</p>
+            </div>
+            <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800');">
+                <span class="num">03</span>
+                <h4>Online Coaching</h4>
+                <p>Remote programming and weekly check-ins — train anywhere, anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gym Machines Showcase Section -->
+    <section class="machines-section reveal" id="machines">
+        <div class="section-header">
+            <div class="section-title">
+                <span>World-Class Infrastructure</span>
+                <h2>Professional Gym Machines & Setup</h2>
+            </div>
+        </div>
+
+        <div class="machines-grid">
+            <div class="machine-card">
+                <div class="machine-img" style="background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="machine-info">
+                    <span>Zone 01 • Strength</span>
+                    <h4>Heavy Duty Power Racks</h4>
+                    <p>Safe and sturdy squat racks equipped with olympic bars and bumper plates.</p>
+                </div>
+            </div>
+            <div class="machine-card">
+                <div class="machine-img" style="background-image: url('https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="machine-info">
+                    <span>Zone 02 • Isolation</span>
+                    <h4>Pin-Selected Weight Stacks</h4>
+                    <p>Ergonomically designed cable crossover and lat pulldown isolation machines.</p>
+                </div>
+            </div>
+            <div class="machine-card">
+                <div class="machine-img" style="background-image: url('https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="machine-info">
+                    <span>Zone 03 • Cardio</span>
+                    <h4>Pro Treadmills & Rowers</h4>
+                    <p>High-end cardio equipment with digital tracking for endurance training.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Choose Your Fitness Journey Section (Linked to Beginner, Intermediate, Advanced pages) -->
     <section class="journey-section reveal" id="journey">
         <h2>Choose Your Fitness Journey</h2>
         <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
+
         <div class="journey-grid">
             <a href="beginner.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 01</span>
@@ -232,12 +911,14 @@
                 <p>Zero se shuruat karne walon ke liye proper form aur foundational strength training.</p>
                 <span class="explore-link">Explore Plan &rarr;</span>
             </a>
+
             <a href="intermediate.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 02</span>
                 <h3>Restart / Intermediate</h3>
                 <p>Gym chhodne ke baad wapas muscle memory regain karne aur stamina build karne ke liye.</p>
                 <span class="explore-link">Explore Plan &rarr;</span>
             </a>
+
             <a href="advanced.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 03</span>
                 <h3>Advanced (1-2 Yrs)</h3>
@@ -247,231 +928,201 @@
         </div>
     </section>
 
-    <!-- Testimonial / Review Section -->
-    <section class="testimonial-section">
-        <div class="testimonial-box">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Reviewer" class="testi-avatar" id="testiImg">
-            <p class="testi-text" id="testiText">"Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing elit, sed do eiusmod tempor ut labore."</p>
-            <h4 class="testi-author" id="testiName">Larry Moore</h4>
-            <span class="testi-role" id="testiRole">Bodybuilder</span>
-        </div>
-    </section
-        <!-- Pricing Plans Section -->
-    <section class="achieve-section" id="pricing" style="background-color: #0a0a0a;">
-        <span class="achieve-top-span">PERSONAL TRAINING</span>
-        <h2>Pricing plans</h2>
-        <p style="color: #888; font-size: 13px; margin-bottom: 40px;">Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <div class="achieve-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-            <div style="background: #141414; border: 1px solid #222; padding: 35px; border-radius: 6px; text-align: left;">
-                <h4 style="font-size: 18px; margin-bottom: 10px;">Basic</h4>
-                <h3 style="font-size: 32px; color: #ff5722; margin-bottom: 15px;">$55.55</h3>
-                <p style="color: #777; font-size: 11px; text-transform: uppercase; margin-bottom: 20px;">Per month</p>
-                <p style="color: #999; font-size: 12px; margin-bottom: 25px;">Adipiscing elit sed do eiusmod tempor incididunt ut labore et.</p>
-                <button class="book-btn" style="width: 100%; padding: 12px;" onclick="openRegisterModal(event)">Get Now</button>
-            </div>
-            <div style="background: #141414; border: 1px solid #d9381e; padding: 35px; border-radius: 6px; text-align: left;">
-                <h4 style="font-size: 18px; margin-bottom: 10px;">Advanced</h4>
-                <h3 style="font-size: 32px; color: #ff5722; margin-bottom: 15px;">$75.75</h3>
-                <p style="color: #777; font-size: 11px; text-transform: uppercase; margin-bottom: 20px;">Per month</p>
-                <p style="color: #999; font-size: 12px; margin-bottom: 25px;">Adipiscing elit sed do eiusmod tempor incididunt ut labore et.</p>
-                <button class="btn-red" style="width: 100%; text-align: center; border: none; cursor: pointer;" onclick="openRegisterModal(event)">Get Now</button>
-            </div>
-            <div style="background: #141414; border: 1px solid #222; padding: 35px; border-radius: 6px; text-align: left;">
-                <h4 style="font-size: 18px; margin-bottom: 10px;">Strong</h4>
-                <h3 style="font-size: 32px; color: #ff5722; margin-bottom: 15px;">$95.50</h3>
-                <p style="color: #777; font-size: 11px; text-transform: uppercase; margin-bottom: 20px;">Per month</p>
-                <p style="color: #999; font-size: 12px; margin-bottom: 25px;">Adipiscing elit sed do eiusmod tempor incididunt ut labore et.</p>
-                <button class="book-btn" style="width: 100%; padding: 12px;" onclick="openRegisterModal(event)">Get Now</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Top 10 Diet & Workout Blogs Section -->
+    <!-- Top 10 Clickable Articles Section -->
     <section class="articles-section reveal" id="articles">
-        <div class="section-header" style="text-align: center;">
-            <span style="color: #888; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">OUR BLOG</span>
-            <h2 style="font-size: clamp(26px, 4vw, 36px); font-weight: 900; text-transform: uppercase;">Latest new & updates</h2>
+        <div class="section-header">
+            <div class="section-title">
+                <span>Expert Guidance</span>
+                <h2>Top 10 Workout & Diet Guides</h2>
+            </div>
         </div>
-        <div class="articles-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-            <a href="article-beginner-rules.html" class="article-card" style="padding: 0; overflow: hidden; background: #141414;">
-                <div style="height: 180px; background-image: url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=500'); background-size: cover; background-position: center;"></div>
-                <div style="padding: 20px;">
-                    <span style="color: #d9381e; font-size: 10px; font-weight: 800; text-transform: uppercase;">TRAINING</span>
-                    <h4 style="font-size: 14px; font-weight: 800; margin: 8px 0; color: #fff;">That's why stretching is worth trying</h4>
-                    <p style="color: #777; font-size: 11px;">Apr 21, 2020 • 0 Comments</p>
-                </div>
+
+        <div class="articles-grid">
+            <a href="article-beginner-rules.html" class="article-card">
+                <span>Guide 01 • Beginner</span>
+                <h4>Pehli Baar Gym Ja Rahe Hain? Yeh Basic Rules Follow Karein</h4>
+                <p>Proper posture, breathing technique aur zero injury ke sath gym start karne ka complete tarika.</p>
+                <span class="read-more">Read Full Article &rarr;</span>
             </a>
-            <a href="article-protein-diet.html" class="article-card" style="padding: 0; overflow: hidden; background: #141414;">
-                <div style="height: 180px; background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=500'); background-size: cover; background-position: center;"></div>
-                <div style="padding: 20px;">
-                    <span style="color: #d9381e; font-size: 10px; font-weight: 800; text-transform: uppercase;">TRAINING</span>
-                    <h4 style="font-size: 14px; font-weight: 800; margin: 8px 0; color: #fff;">10 strength exercises to improve your running</h4>
-                    <p style="color: #777; font-size: 11px;">Apr 21, 2020 • 1 Comment</p>
-                </div>
+            <a href="article-protein-diet.html" class="article-card">
+                <span>Guide 02 • Diet</span>
+                <h4>Muscle Gain Ke Liye Best High-Protein Indian Diet Plan</h4>
+                <p>Paneer, daal, eggs aur oats ke sath daily protein goals poore karne ke aasan nuskhe.</p>
+                <span class="read-more">Read Full Article &rarr;</span>
             </a>
-            <a href="article-muscle-memory.html" class="article-card" style="padding: 0; overflow: hidden; background: #141414;">
-                <div style="height: 180px; background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=500'); background-size: cover; background-position: center;"></div>
-                <div style="padding: 20px;">
-                    <span style="color: #d9381e; font-size: 10px; font-weight: 800; text-transform: uppercase;">TRAINING</span>
-                    <h4 style="font-size: 14px; font-weight: 800; margin: 8px 0; color: #fff;">How to choose the right workout strategy</h4>
-                    <p style="color: #777; font-size: 11px;">Apr 21, 2020 • 0 Comments</p>
-                </div>
+            <a href="article-muscle-memory.html" class="article-card">
+                <span>Guide 03 • Workout</span>
+                <h4>Muscle Memory Kya Hai? Jaldi Growth Kaise Payein</h4>
+                <p>Samjhein ki kaise aapke purane muscle gains gap ke baad bhi jaldi wapas aate hain.</p>
+                <span class="read-more">Read Full Article &rarr;</span>
             </a>
-            <a href="article-fat-loss.html" class="article-card" style="padding: 0; overflow: hidden; background: #141414;">
-                <div style="height: 180px; background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=500'); background-size: cover; background-position: center;"></div>
-                <div style="padding: 20px;">
-                    <span style="color: #d9381e; font-size: 10px; font-weight: 800; text-transform: uppercase;">TRAINING</span>
-                    <h4 style="font-size: 14px; font-weight: 800; margin: 8px 0; color: #fff;">Top 5 workout locations to vary your daily routine</h4>
-                    <p style="color: #777; font-size: 11px;">Apr 21, 2020 • 0 Comments</p>
-                </div>
+            <a href="article-fat-loss.html" class="article-card">
+                <span>Guide 04 • Fat Loss</span>
+                <h4>Fat Loss vs Muscle Building: Dono Ek Sath Kaise Karein?</h4>
+                <p>Body recomposition ka sahi formula jo aapke fat ko burn aur muscle ko tone kare.</p>
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-recovery.html" class="article-card">
+                <span>Guide 05 • Recovery</span>
+                <h4>Rest Days Aur Sleep Kyun Zaroori Hain Growth Ke Liye?</h4>
+                <p>Gym mein sirf workout nahi hota, asli muscle recovery ghar par rest ke dauran banti hai.</p>
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-supplements.html" class="article-card">
+                <span>Guide 06 • Supplements</span>
+                <h4>Kya Whey Protein Lena Safe Hai? Sahi Jankari</h4>
+                <p>Beginners ke liye protein supplements aur hydration ke bare mein saari clear baatein.</p>
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-compound.html" class="article-card">
+                <span>Guide 07 • Workout</span>
+                <h4>Chest aur Biceps Growth Ke Liye Top 5 Compound Exercises</h4>
+                <p>Kam samay mein maximum muscle activation hasil karne ke powerful movements.</p>
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-meal-timing.html" class="article-card">
+                <span>Guide 08 • Diet</span>
+                <h4>Pre-Workout aur Post-Workout Meal Mein Kya Khana Chahiye?</h4>
+                <p>Workout se pehle energy boost aur baad mein muscle recovery ke liye perfect foods.</p>
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-consistency.html" class="article-card">
+                <span>Guide 09 • Mindset</span>
+                <h4>Gym Mein Consistency Kaise Banayein (Long-Term Motivation)</h4>
+                <p>Jab laziness aaye tab apne aapko push karke discipline kaise establish karein.</p>
+                <span class="read-more">Read Full Article &rarr;</span>
+            </a>
+            <a href="article-injury-prevention.html" class="article-card">
+                <span>Guide 10 • Safety</span>
+                <h4>Gym Injuries Se Kaise Bachen: Proper Warm-up Routine</h4>
+                <p>Stretching aur mobility exercises jo aapko severe joint pain aur injuries se bachayein.</p>
+                <span class="read-more">Read Full Article &rarr;</span>
             </a>
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="location-section reveal" id="location">
-        <div class="location-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; padding: 90px 5%;">
-            <div class="location-info">
-                <h2>Visit Our Gym Location</h2>
-                <p style="color: #888; font-size: 13px; line-height: 1.6; margin-bottom: 25px;">First Floor, Above Balaji lights and decor, BSF Colony, Chenar, Rajasthan 341001</p>
-                <div class="loc-details-box" style="margin-bottom: 25px;">
-                    <p style="color: #fff; font-size: 13px; margin-bottom: 8px;"><strong>Contact:</strong> +91 89470 12333</p>
-                    <p style="color: #fff; font-size: 13px;"><strong>Timing:</strong> Mon - Sat: 5:30 AM – 10:30 PM</p>
-                </div>
-                <a href="tel:8947012333" class="btn-red" style="display: inline-block;">Call Now To Join</a>
-            </div>
-            <div class="map-box" style="width: 100%; height: 380px; border-radius: 6px; overflow: hidden;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.123!2d73.712!3d27.204!2m3!1f0!2f0!3f0!3m2!1f1024!2f768!4f13.1!3m3!1m2!1s0x396bc6!2sBSF%20Colony%2C%20Chenar%2C%20Rajasthan%20341001!5e0!3m2!1sen!2sin!4v1650000000000" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(92%) contrast(85%);" allowfullscreen="" loading="lazy"></iframe>
+    <!-- Owner & About Section -->
+    <section class="about-section reveal" id="about">
+        <div class="about-img-box">
+            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=800" alt="Owner Trainer">
+        </div>
+        <div class="about-content">
+            <span>About The Gym</span>
+            <h2>Built For Serious Muscle & True Strength</h2>
+            <p>Maruti Muscle Memory GYM mein hum sirf workout nahi karate, balki aapke body ke neuromuscular connection aur muscle memory ko scientifically activate karte hain. Professional lighting aur premium environment aapko har din behtar perform karne ke liye inspire karta hai.</p>
+            <div class="owner-badge">
+                <h4>Jitendra Soni / Head Coach</h4>
+                <p>Certified Fitness Expert & Professional Trainer</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer matching image layout with "Your Review" in Quick Links -->
-    <footer style="background-color: #050505; padding: 70px 5% 40px 5%; border-top: 1px solid #1a1a1a;">
-        <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px;" class="footer-grid">
+    <!-- CTA Banner Section -->
+    <div class="cta-banner reveal">
+        <div class="cta-left">
+            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=300" alt="Trainer" class="cta-avatar">
             <div>
-                <h2 style="font-size: 24px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">GYM</h2>
-                <h3 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 25px; line-height: 1.4;">Transform your body, transform your life</h3>
-                <p style="color: #888; font-size: 11px; text-transform: uppercase; margin-bottom: 10px; font-weight: 800;">Newsletter Signup</p>
-                <div style="display: flex; align-items: center; border-bottom: 1px solid #444; padding-bottom: 8px; max-width: 300px;">
-                    <input type="email" placeholder="Enter your email address" style="background: transparent; border: none; color: #fff; font-size: 12px; outline: none; width: 100%;">
-                    <span style="color: #fff; cursor: pointer; font-size: 16px;">&rarr;</span>
-                </div>
-                <div style="margin-top: 12px;">
-                    <label style="color: #777; font-size: 11px; display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                        <input type="checkbox" style="accent-color: #d9381e;"> I agree to the Privacy Policy.
-                    </label>
-                </div>
-            </div>
-            <div>
-                <h5 style="color: #fff; font-size: 13px; text-transform: uppercase; margin-bottom: 20px; font-weight: 800;">Socials</h5>
-                <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
-                    <li><a href="#" style="color: #888; text-decoration: none; font-size: 12px;">Facebook</a></li>
-                    <li><a href="#" style="color: #888; text-decoration: none; font-size: 12px;">Twitter</a></li>
-                    <li><a href="#" style="color: #888; text-decoration: none; font-size: 12px;">Dribbble</a></li>
-                    <li><a href="#" style="color: #888; text-decoration: none; font-size: 12px;">Instagram</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 style="color: #fff; font-size: 13px; text-transform: uppercase; margin-bottom: 20px; font-weight: 800;">Menu</h5>
-                <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
-                    <li><a href="#home" style="color: #888; text-decoration: none; font-size: 12px;">Home</a></li>
-                    <li><a href="#services" style="color: #888; text-decoration: none; font-size: 12px;">Services</a></li>
-                    <li><a href="#about" style="color: #888; text-decoration: none; font-size: 12px;">About Us</a></li>
-                    <li><a href="#pricing" style="color: #888; text-decoration: none; font-size: 12px;">Shop</a></li>
-                    <li><a href="#location" style="color: #888; text-decoration: none; font-size: 12px;">Contacts</a></li>
-                    <!-- Your Review Option added here as requested -->
-                    <li><a href="#" onclick="openReviewModal(event)" style="color: #d9381e; text-decoration: none; font-size: 12px; font-weight: 800;">Your Review</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 style="color: #fff; font-size: 13px; text-transform: uppercase; margin-bottom: 20px; font-weight: 800;">Say Hello</h5>
-                <p style="color: #888; font-size: 12px;">info@email.com</p>
+                <h2>Ready To Forge Your Best Self?</h2>
+                <p>Take the first step. Book a free consultation and get a training plan built around your goals.</p>
             </div>
         </div>
-        <div style="border-top: 1px solid #1a1a1a; padding-top: 25px; text-align: center; color: #555; font-size: 11px;">
-            <p>&copy; 2026 Maruti Muscle Memory GYM. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Review Modal Popup for Submitting New Review -->
-    <div class="modal-overlay" id="reviewModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeReviewModal()">&times;</span>
-            <div class="modal-title">Submit Your Review</div>
-            <form id="reviewForm" onsubmit="submitReview(event)">
-                <div class="form-group">
-                    <label>Your Name</label>
-                    <input type="text" id="revName" required placeholder="Apna naam likhein">
-                </div>
-                <div class="form-group">
-                    <label>Role / Profession</label>
-                    <input type="text" id="revRole" required placeholder="Jaise: Bodybuilder / Fitness Enthusiast">
-                </div>
-                <div class="form-group">
-                    <label>Your Review Message</label>
-                    <textarea id="revText" required rows="4" placeholder="Apna anubhav share karein..." style="width: 100%; padding: 12px; background: #1c1c1c; border: 1px solid #333; color: #fff; border-radius: 4px; font-size: 13px;"></textarea>
-                </div>
-                <button type="submit" class="submit-reg-btn">Submit Review</button>
-            </form>
+        <div class="cta-right">
+            <span>Free Consultation</span>
+            <h3>Your First Session Is On Us</h3>
+            <p>No commitment. No pressure. Just a real conversation.</p>
+            <a href="#location">Claim Your Free Session &rarr;</a>
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Location & Map Section -->
+    <section class="location-section reveal" id="location">
+        <div class="location-grid">
+            <div class="location-info">
+                <h2>Visit Our Gym Location</h2>
+                <p>Aaiye aur hamare premium setup ko experience kijiye. Hamari location asani se pahuchne yogya hai.</p>
+                
+                <div class="loc-details-box">
+                    <div class="loc-item">
+                        <strong>Address:</strong>
+                        <span>First Floor, Above Balaji lights and decor, BSF Colony, Chenar, Rajasthan 341001</span>
+                    </div>
+                    <div class="loc-item">
+                        <strong>Contact:</strong>
+                        <span>+91 89470 12333</span>
+                    </div>
+                    <div class="loc-item">
+                        <strong>Timing:</strong>
+                        <span>Mon - Sat: 5:30 AM – 10:30 PM</span>
+                    </div>
+                </div>
+                <a href="tel:8947012333" class="btn-red" style="display: inline-block;">Call Now To Join</a>
+            </div>
+
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.123!2d73.712!3d27.204!2m3!1f0!2f0!3f0!3m2!1f1024!2f768!4f13.1!3m3!1m2!1s0x396bc6!2sBSF%20Colony%2C%20Chenar%2C%20Rajasthan%20341001!5e0!3m2!1sen!2sin!4v1650000000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Stats & Highlights Points -->
+    <footer>
+        <div class="footer-stats-grid">
+            <div class="f-stat">
+                <h4 class="counter" data-target="100">0</h4>
+                <p>Client Satisfaction</p>
+            </div>
+            <div class="f-stat">
+                <h4 class="counter" data-target="500">0</h4>
+                <p>Clients Trained</p>
+            </div>
+            <div class="f-stat">
+                <h4 class="counter" data-target="8">0</h4>
+                <p>Years Experience</p>
+            </div>
+            <div class="f-stat">
+                <h4 class="counter" data-target="200">0</h4>
+                <p>Programs Created</p>
+            </div>
+        </div>
+
+        <div class="footer-highlights">
+            <div class="footer-highlight-col">
+                <h5>Training Programs</h5>
+                <ul>
+                    <li>1:1 Personalized Coaching</li>
+                    <li>Muscle Hypertrophy & Bulk</li>
+                    <li>Fat Loss & Shredding</li>
+                    <li>Beginner Form Correction</li>
+                </ul>
+            </div>
+            <div class="footer-highlight-col">
+                <h5>GymFacilities</h5>
+                <ul>
+                    <li>Modern Heavy Duty Machines</li>
+                    <li>Air-Conditioned Workout Floor</li>
+                    <li>Certified Trainer Support</li>
+                    <li>Clean & Hygienic Environment</li>
+                </ul>
+            </div>
+            <div class="footer-highlight-col">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#home" style="color:inherit; text-decoration:none;">Back to Top</a></li>
+                    <li><a href="#machines" style="color:inherit; text-decoration:none;">View Equipment</a></li>
+                    <li><a href="#articles" style="color:inherit; text-decoration:none;">Fitness Articles</a></li>
+                    <li><a href="#location" style="color:inherit; text-decoration:none;">Get Directions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Maruti Muscle Memory GYM. All rights reserved.</p>
+            <p>Designed for Ultimate Fitness & Strength & Strength</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Instant Counter, Scroll Reveal & Dynamic Profile Icon -->
     <script>
-        function openRegisterModal(e) {
-            e.preventDefault();
-            document.getElementById('regModal').style.display = 'flex';
-        }
-        function closeRegisterModal() {
-            document.getElementById('regModal').style.display = 'none';
-        }
-        function openReviewModal(e) {
-            e.preventDefault();
-            document.getElementById('reviewModal').style.display = 'flex';
-        }
-        function closeReviewModal() {
-            document.getElementById('reviewModal').style.display = 'none';
-        }
-
-        function submitReview(e) {
-            e.preventDefault();
-            const name = document.getElementById('revName').value;
-            const role = document.getElementById('revRole').value;
-            const text = document.getElementById('revText').value;
-
-            document.getElementById('testiName').innerText = name;
-            document.getElementById('testiRole').innerText = role;
-            document.getElementById('testiText').innerText = `"${text}"`;
-
-            alert('Aapka review safalpurvak save ho gaya hai!');
-            closeReviewModal();
-            document.getElementById('reviewForm').reset();
-        }
-
-        document.getElementById('regForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('fullName').value.trim();
-            const mobile = document.getElementById('mobileNumber').value.trim();
-            const age = document.getElementById('age').value.trim();
-            const level = document.getElementById('fitnessLevel').value;
-
-            const nameParts = name.split(' ');
-            let initials = nameParts[0].charAt(0);
-            if (nameParts.length > 1) initials += nameParts[nameParts.length - 1].charAt(0);
-            initials = initials.toUpperCase();
-
-            const userData = {
-                name: name, mobile: mobile, age: age, level: level, initials: initials, streak: 1, tasksCompleted: 4, totalTasks: 6, startDate: new Date().toISOString()
-            };
-
-            localStorage.setItem('gymUser', JSON.stringify(userData));
-            const coachWhatsAppNumber = "918947012333";
-            const message = `New Gym Registration:%0A- Name: ${name}%0A- Mobile: ${mobile}%0A- Age: ${age}%0A- Level: ${level}`;
-            window.open(`https://wa.me/${coachWhatsAppNumber}?text=${message}`, '_blank');
-            window.location.href = 'profile.html';
-        });
-
         window.addEventListener('DOMContentLoaded', () => {
             const savedUser = localStorage.getItem('gymUser');
             if(savedUser) {
@@ -485,7 +1136,42 @@
                     profileBtn.href = 'profile.html';
                 }
             }
+
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const increment = target / 20;
+
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count) + (target > 10 ? "+" : "%");
+                        setTimeout(updateCount, 25);
+                    } else {
+                        counter.innerText = target + (target > 10 ? "+" : "%");
+                    }
+                };
+                updateCount();
+            });
         });
+
+        window.addEventListener('scroll', revealOnScroll);
+
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        revealOnScroll();
     </script>
 </body>
 </html>
