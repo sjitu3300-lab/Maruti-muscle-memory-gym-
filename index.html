@@ -208,6 +208,58 @@
             line-height: 1.3;
         }
 
+        /* Achieve Services Section (Matching Design Style) */
+        .achieve-section {
+            padding: 90px 5%;
+            background-color: #0d0d0d;
+            text-align: center;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .achieve-top-span {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .achieve-section h2 {
+            font-size: clamp(26px, 4vw, 36px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+        .achieve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .achieve-item {
+            padding: 20px;
+        }
+        .achieve-item .icon {
+            font-size: 32px;
+            color: #d9381e;
+            margin-bottom: 15px;
+        }
+        .achieve-item h4 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .achieve-item p {
+            color: #777;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
         /* Training Services Section */
         .services-section {
             padding: 90px 5%;
@@ -804,6 +856,34 @@
         </div>
     </section>
 
+    <!-- Achieve Amazing Results Section (With "Our Tasks" & Achievement Icon) -->
+    <section class="achieve-section">
+        <span class="achieve-top-span">WHAT WE OFFER</span>
+        <h2>Achieve amazing results with our services</h2>
+        <div class="achieve-grid">
+            <div class="achieve-item">
+                <div class="icon">🏋️‍♂️</div>
+                <h4>Best equipment</h4>
+                <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </div>
+            <div class="achieve-item">
+                <div class="icon">💪</div>
+                <h4>Training plan</h4>
+                <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </div>
+            <div class="achieve-item">
+                <div class="icon">🥤</div>
+                <h4>Nutrition plan</h4>
+                <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </div>
+            <div class="achieve-item">
+                <div class="icon">🏆</div>
+                <h4>Our Tasks</h4>
+                <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Training Services Section -->
     <section class="services-section reveal" id="services">
         <div class="section-header">
@@ -1017,15 +1097,15 @@
                 <div class="loc-details-box">
                     <div class="loc-item">
                         <strong>Address:</strong>
-                        <span>First Floor, Above Balaji lights and decor, BSF Colony, Chenar, Rajasthan 341001 [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]</span>
+                        <span>First Floor, Above Balaji lights and decor, BSF Colony, Chenar, Rajasthan 341001</span>
                     </div>
                     <div class="loc-item">
                         <strong>Contact:</strong>
-                        <span>+91 89470 12333 [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]</span>
+                        <span>+91 89470 12333</span>
                     </div>
                     <div class="loc-item">
                         <strong>Timing:</strong>
-                        <span>Mon - Sat: 5:30 AM – 10:30 PM [cite: link{place_id:ChIJK2BZfmaTajkR6-r0dIdmKLk}]</span>
+                        <span>Mon - Sat: 5:30 AM – 10:30 PM</span>
                     </div>
                 </div>
                 <a href="tel:8947012333" class="btn-red" style="display: inline-block;">Call Now To Join</a>
@@ -1096,7 +1176,6 @@
 
     <!-- JavaScript for Instant Counter, Scroll Reveal & Dynamic Profile Icon -->
     <script>
-        // Check if user is registered, update profile icon to show user initials if available
         window.addEventListener('DOMContentLoaded', () => {
             const savedUser = localStorage.getItem('gymUser');
             if(savedUser) {
@@ -1111,7 +1190,6 @@
                 }
             }
 
-            // Counter Animation
             const counters = document.querySelectorAll('.counter');
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
@@ -1131,7 +1209,6 @@
             });
         });
 
-        // Scroll Reveal Animation Script
         window.addEventListener('scroll', revealOnScroll);
 
         function revealOnScroll() {
@@ -1147,7 +1224,6 @@
             });
         }
         
-        // Trigger once on load
         revealOnScroll();
     </script>
 </body>
