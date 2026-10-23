@@ -18,7 +18,6 @@
             width: 100vw;
         }
 
-        /* Scroll Animation Initial State */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -29,7 +28,6 @@
             transform: translateY(0);
         }
 
-        /* Unique Mobile-Friendly Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -91,7 +89,6 @@
         .book-btn:hover {
             background-color: #b52d16;
         }
-        /* Profile Icon Styling near Join Button */
         .profile-icon-btn {
             width: 36px;
             height: 36px;
@@ -112,6 +109,50 @@
             border-color: #d9381e;
             color: #d9381e;
         }
+
+        /* Modal Popup for Registration (Hidden by default using display: none) */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: #141414;
+            border: 1px solid #262626;
+            border-top: 4px solid #d9381e;
+            padding: 35px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 20px;
+            color: #888; font-size: 20px;
+            cursor: pointer; font-weight: bold;
+        }
+        .modal-close:hover { color: #fff; }
+        .modal-title {
+            font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; color: #fff; text-align: center;
+        }
+        .form-group { margin-bottom: 18px; }
+        .form-group label {
+            display: block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-bottom: 6px;
+        }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px; background: #1c1c1c; border: 1px solid #333; color: #fff; border-radius: 4px; font-size: 13px;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: #d9381e; outline: none; }
+        .submit-reg-btn {
+            width: 100%; background-color: #d9381e; color: white; padding: 12px; border: none; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; border-radius: 4px; transition: 0.3s; margin-top: 10px;
+        }
+        .submit-reg-btn:hover { background-color: #b52d16; }
 
         /* Hero Section */
         .hero {
@@ -208,7 +249,7 @@
             line-height: 1.3;
         }
 
-        /* Achieve Services Section (Matching Reference Image Style with Red Line Icons)[cite: 12] */
+        /* Achieve Services Section */
         .achieve-section {
             padding: 90px 5%;
             background-color: #0d0d0d;
@@ -388,7 +429,7 @@
             line-height: 1.4;
         }
 
-        /* Choose Your Fitness Journey Section (Linked Cards) */
+        /* Choose Your Fitness Journey Section */
         .journey-section {
             padding: 90px 5%;
             background-color: #0a0a0a;
@@ -836,7 +877,7 @@
         </div>
     </header>
 
-    <!-- Registration Modal Popup -->
+    <!-- Registration Modal Popup (Fixed: hidden by default) -->
     <div class="modal-overlay" id="regModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeRegisterModal()">&times;</span>
@@ -875,7 +916,7 @@
             <h1>Forge Your Best Self</h1>
             <p>Personal training designed around your goals — specialized strength & muscle memory conditioning.</p>
             <div class="hero-buttons">
-                <a href="#location" class="btn-red">Book A Free Session</a>
+                <a href="#location" class="btn-red" onclick="openRegisterModal(event)">Book A Free Session</a>
                 <a href="#services" class="link-text">View Programs &rarr;</a>
             </div>
         </div>
@@ -892,7 +933,7 @@
         </div>
     </section>
 
-    <!-- Achieve Amazing Results Section (Exact Red Outline Icons & Our Tasks)[cite: 12] -->
+    <!-- Achieve Amazing Results Section -->
     <section class="achieve-section">
         <span class="achieve-top-span">WHAT WE OFFER</span>
         <h2>Achieve amazing results with our services</h2>
@@ -985,7 +1026,7 @@
         </div>
     </section>
 
-    <!-- Choose Your Fitness Journey Section (Linked to Beginner, Intermediate, Advanced pages) -->
+    <!-- Choose Your Fitness Journey Section -->
     <section class="journey-section reveal" id="journey">
         <h2>Choose Your Fitness Journey</h2>
         <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
@@ -1207,8 +1248,16 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Instant Counter, Scroll Reveal & Dynamic Profile Icon -->
+    <!-- JavaScript -->
     <script>
+        function openRegisterModal(e) {
+            e.preventDefault();
+            document.getElementById('regModal').style.display = 'flex';
+        }
+        function closeRegisterModal() {
+            document.getElementById('regModal').style.display = 'none';
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             const savedUser = localStorage.getItem('gymUser');
             if(savedUser) {
