@@ -110,7 +110,6 @@
             color: #d9381e;
         }
 
-        /* Modal Popup for Registration (Hidden by default using display: none) */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -154,7 +153,6 @@
         }
         .submit-reg-btn:hover { background-color: #b52d16; }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             width: 100%;
@@ -222,7 +220,6 @@
             letter-spacing: 1px;
         }
 
-        /* Hero Stats Cards */
         .hero-stats {
             display: flex;
             gap: 15px;
@@ -249,7 +246,6 @@
             line-height: 1.3;
         }
 
-        /* Achieve Services Section */
         .achieve-section {
             padding: 90px 5%;
             background-color: #0d0d0d;
@@ -306,7 +302,6 @@
             line-height: 1.6;
         }
 
-        /* Training Services Section */
         .services-section {
             padding: 90px 5%;
             background-color: #0a0a0a;
@@ -375,7 +370,6 @@
             line-height: 1.5;
         }
 
-        /* Gym Machines Showcase Section */
         .machines-section {
             padding: 90px 5%;
             background-color: #0d0d0d;
@@ -429,7 +423,6 @@
             line-height: 1.4;
         }
 
-        /* Choose Your Fitness Journey Section */
         .journey-section {
             padding: 90px 5%;
             background-color: #0a0a0a;
@@ -511,65 +504,127 @@
             letter-spacing: 1px;
         }
 
-        /* Top 10 Clickable Articles Section */
-        .articles-section {
+        /* Updated Blog Slider Section (Matching image style with horizontal scroll & touch swipe)[cite: 14] */
+        .blog-slider-section {
             padding: 90px 5%;
-            background-color: #0f0f0f;
+            background-color: #0c0c0c;
             border-top: 1px solid #1a1a1a;
             border-bottom: 1px solid #1a1a1a;
+            position: relative;
         }
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+        .blog-slider-header {
+            text-align: center;
+            margin-bottom: 45px;
         }
-        .article-card {
-            background: #141414;
-            border: 1px solid #222;
-            padding: 25px;
-            border-radius: 6px;
-            text-decoration: none;
-            display: block;
-            color: inherit;
-            transition: 0.3s;
-        }
-        .article-card:hover {
-            border-color: #d9381e;
-            transform: translateY(-5px);
-            background: #181212;
-        }
-        .article-card span {
-            color: #d9381e;
+        .blog-slider-header span {
             font-size: 10px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .article-card h4 {
-            font-size: 16px;
-            font-weight: 800;
-            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
             margin-bottom: 10px;
-            line-height: 1.4;
+            display: block;
+        }
+        .blog-slider-header h2 {
+            font-size: clamp(26px, 4vw, 36px);
+            font-weight: 900;
+            text-transform: uppercase;
             color: #fff;
         }
-        .article-card p {
-            color: #888;
-            font-size: 12px;
-            line-height: 1.5;
-            margin-bottom: 15px;
+        .blog-container-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .read-more {
+        .blog-slider-track {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 20px;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        .blog-slider-track::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
+        }
+        .blog-card {
+            flex: 0 0 280px;
+            scroll-snap-align: start;
+            background: #141414;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #222;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+        .blog-card:hover {
+            border-color: #d9381e;
+        }
+        .blog-img {
+            height: 180px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .blog-info {
+            padding: 20px;
+        }
+        .blog-cat {
             color: #d9381e;
-            font-size: 11px;
-            font-weight: bold;
+            font-size: 9px;
+            font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .blog-info h4 {
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            color: #fff;
+            line-height: 1.4;
+        }
+        .blog-meta {
+            color: #777;
+            font-size: 11px;
+        }
+        /* Slider Navigation Arrows */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid #444;
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+        .slider-arrow:hover {
+            background: #d9381e;
+            border-color: #d9381e;
+        }
+        .arrow-left { left: -25px; }
+        .arrow-right { right: -25px; }
+
+        @media(max-width: 768px) {
+            .slider-arrow { display: none; }
         }
 
-        /* Owner & About Section */
         .about-section {
             padding: 90px 5%;
             background-color: #0a0a0a;
@@ -630,7 +685,6 @@
             margin: 0;
         }
 
-        /* CTA Banner Section */
         .cta-banner {
             margin: 60px 5%;
             background-color: #d9381e;
@@ -704,7 +758,6 @@
             letter-spacing: 1px;
         }
 
-        /* Location & Map Section */
         .location-section {
             padding: 90px 5%;
             background-color: #070707;
@@ -763,7 +816,6 @@
             filter: grayscale(100%) invert(92%) contrast(85%);
         }
 
-        /* Footer */
         footer {
             background-color: #050505;
             padding: 60px 5% 30px 5%;
@@ -877,7 +929,7 @@
         </div>
     </header>
 
-    <!-- Registration Modal Popup (Fixed: hidden by default) -->
+    <!-- Registration Modal Popup -->
     <div class="modal-overlay" id="regModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeRegisterModal()">&times;</span>
@@ -916,7 +968,7 @@
             <h1>Forge Your Best Self</h1>
             <p>Personal training designed around your goals — specialized strength & muscle memory conditioning.</p>
             <div class="hero-buttons">
-                <a href="#location" class="btn-red" onclick="openRegisterModal(event)">Book A Free Session</a>
+                <a href="#location" class="btn-red">Book A Free Session</a>
                 <a href="#services" class="link-text">View Programs &rarr;</a>
             </div>
         </div>
@@ -1055,76 +1107,57 @@
         </div>
     </section>
 
-    <!-- Top 10 Clickable Articles Section -->
-    <section class="articles-section reveal" id="articles">
-        <div class="section-header">
-            <div class="section-title">
-                <span>Expert Guidance</span>
-                <h2>Top 10 Workout & Diet Guides</h2>
-            </div>
+    <!-- Updated Blog Slider Section (Arrow & Touch Swipe Slider matching reference image style)[cite: 14] -->
+    <section class="blog-slider-section reveal" id="articles">
+        <div class="blog-slider-header">
+            <span>OUR BLOG</span>
+            <h2>Latest new & updates</h2>
         </div>
-
-        <div class="articles-grid">
-            <a href="article-beginner-rules.html" class="article-card">
-                <span>Guide 01 • Beginner</span>
-                <h4>Pehli Baar Gym Ja Rahe Hain? Yeh Basic Rules Follow Karein</h4>
-                <p>Proper posture, breathing technique aur zero injury ke sath gym start karne ka complete tarika.</p>
-                <span class="read-more">Read Full Article &rarr;</span>
-            </a>
-            <a href="article-protein-diet.html" class="article-card">
-                <span>Guide 02 • Diet</span>
-                <h4>Muscle Gain Ke Liye Best High-Protein Indian Diet Plan</h4>
-                <p>Paneer, daal, eggs aur oats ke sath daily protein goals poore karne ke aasan nuskhe.</p>
-                <span class="read-more">Read Full Article &rarr;</span>
-            </a>
-            <a href="article-muscle-memory.html" class="article-card">
-                <span>Guide 03 • Workout</span>
-                <h4>Muscle Memory Kya Hai? Jaldi Growth Kaise Payein</h4>
-                <p>Samjhein ki kaise aapke purane muscle gains gap ke baad bhi jaldi wapas aate hain.</p>
-                <span class="read-more">Read Full Article &rarr;</span>
-            </a>
-            <a href="article-fat-loss.html" class="article-card">
-                <span>Guide 04 • Fat Loss</span>
-                <h4>Fat Loss vs Muscle Building: Dono Ek Sath Kaise Karein?</h4>
-                <p>Body recomposition ka sahi formula jo aapke fat ko burn aur muscle ko tone kare.</p>
-                <span class="read-more">Read Full Article &rarr;</span>
-            </a>
-            <a href="article-recovery.html" class="article-card">
-                <span>Guide 05 • Recovery</span>
-                <h4>Rest Days Aur Sleep Kyun Zaroori Hain Growth Ke Liye?</h4>
-                <p>Gym mein sirf workout nahi hota, asli muscle recovery ghar par rest ke dauran banti hai.</p>
-                <span class="read-more">Read Full Article &rarr;</span>
-            </a>
-            <a href="article-supplements.html" class="article-card">
-                <span>Guide 06 • Supplements</span>
-                <h4>Kya Whey Protein Lena Safe Hai? Sahi Jankari</h4>
-                <p>Beginners ke liye protein supplements aur hydration ke bare mein saari clear baatein.</p>
-                <span class="read-more">Read Full Article &rarr;</span>
-            </a>
-            <a href="article-compound.html" class="article-card">
-                <span>Guide 07 • Workout</span>
-                <h4>Chest aur Biceps Growth Ke Liye Top 5 Compound Exercises</h4>
-                <p>Kam samay mein maximum muscle activation hasil karne ke powerful movements.</p>
-                <span class="read-more">Read Full Article &rarr;</span>
-            </a>
-            <a href="article-meal-timing.html" class="article-card">
-                <span>Guide 08 • Diet</span>
-                <h4>Pre-Workout aur Post-Workout Meal Mein Kya Khana Chahiye?</h4>
-                <p>Workout se pehle energy boost aur baad mein muscle recovery ke liye perfect foods.</p>
-                <span class="read-more">Read Full Article &rarr;</span>
-            </a>
-            <a href="article-consistency.html" class="article-card">
-                <span>Guide 09 • Mindset</span>
-                <h4>Gym Mein Consistency Kaise Banayein (Long-Term Motivation)</h4>
-                <p>Jab laziness aaye tab apne aapko push karke discipline kaise establish karein.</p>
-                <span class="read-more">Read Full Article &rarr;</span>
-            </a>
-            <a href="article-injury-prevention.html" class="article-card">
-                <span>Guide 10 • Safety</span>
-                <h4>Gym Injuries Se Kaise Bachen: Proper Warm-up Routine</h4>
-                <p>Stretching aur mobility exercises jo aapko severe joint pain aur injuries se bachayein.</p>
-                <span class="read-more">Read Full Article &rarr;</span>
-            </a>
+        <div class="blog-container-wrapper">
+            <button class="slider-arrow arrow-left" onclick="slideBlogs(-1)">&#8592;</button>
+            <div class="blog-slider-track" id="blogTrack">
+                <a href="article-beginner-rules.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Training</span>
+                        <h4>That's why stretching is worth trying</h4>
+                        <p class="blog-meta">Apr 21, 2020 • 0 Comments</p>
+                    </div>
+                </a>
+                <a href="article-protein-diet.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Training</span>
+                        <h4>10 strength exercises to improve your running</h4>
+                        <p class="blog-meta">Apr 21, 2020 • 1 Comment</p>
+                    </div>
+                </a>
+                <a href="article-muscle-memory.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Training</span>
+                        <h4>How to choose the right workout strategy</h4>
+                        <p class="blog-meta">Apr 21, 2020 • 0 Comments</p>
+                    </div>
+                </a>
+                <a href="article-fat-loss.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Training</span>
+                        <h4>Top 5 workout locations to vary your daily routine</h4>
+                        <p class="blog-meta">Apr 21, 2020 • 0 Comments</p>
+                    </div>
+                </a>
+                <a href="article-recovery.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Recovery</span>
+                        <h4>Rest Days And Sleep Essential For Growth</h4>
+                        <p class="blog-meta">Apr 22, 2020 • 2 Comments</p>
+                    </div>
+                </a>
+            </div>
+            <button class="slider-arrow arrow-right" onclick="slideBlogs(1)">&#8594;</button>
         </div>
     </section>
 
@@ -1191,7 +1224,7 @@
         </div>
     </section>
 
-    <!-- Footer Stats & Highlights Points -->
+    <!-- Footer -->
     <footer>
         <div class="footer-stats-grid">
             <div class="f-stat">
@@ -1256,6 +1289,13 @@
         }
         function closeRegisterModal() {
             document.getElementById('regModal').style.display = 'none';
+        }
+
+        // Blog Slider Arrow Navigation Function
+        function slideBlogs(direction) {
+            const track = document.getElementById('blogTrack');
+            const scrollAmount = 305; // Card width + gap
+            track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
         window.addEventListener('DOMContentLoaded', () => {
