@@ -113,6 +113,50 @@
             color: #d9381e;
         }
 
+        /* Modal Popup for Registration */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: #141414;
+            border: 1px solid #262626;
+            border-top: 4px solid #d9381e;
+            padding: 35px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 20px;
+            color: #888; font-size: 20px;
+            cursor: pointer; font-weight: bold;
+        }
+        .modal-close:hover { color: #fff; }
+        .modal-title {
+            font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; color: #fff; text-align: center;
+        }
+        .form-group { margin-bottom: 18px; }
+        .form-group label {
+            display: block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-bottom: 6px;
+        }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px; background: #1c1c1c; border: 1px solid #333; color: #fff; border-radius: 4px; font-size: 13px;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: #d9381e; outline: none; }
+        .submit-reg-btn {
+            width: 100%; background-color: #d9381e; color: white; padding: 12px; border: none; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; border-radius: 4px; transition: 0.3s; margin-top: 10px;
+        }
+        .submit-reg-btn:hover { background-color: #b52d16; }
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -208,7 +252,7 @@
             line-height: 1.3;
         }
 
-        /* Achieve Services Section (Matching Design Style) */
+        /* Achieve Services Section (Matching Reference Image Style with Red Line Icons)[cite: 12] */
         .achieve-section {
             padding: 90px 5%;
             background-color: #0d0d0d;
@@ -228,24 +272,29 @@
             font-size: clamp(26px, 4vw, 36px);
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             color: #fff;
         }
         .achieve-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 50px;
             max-width: 1100px;
             margin: 0 auto;
             text-align: left;
         }
         .achieve-item {
-            padding: 20px;
+            padding: 10px;
         }
-        .achieve-item .icon {
-            font-size: 32px;
-            color: #d9381e;
-            margin-bottom: 15px;
+        .achieve-item .icon-svg {
+            width: 48px;
+            height: 48px;
+            stroke: #d9381e;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            margin-bottom: 20px;
         }
         .achieve-item h4 {
             font-size: 18px;
@@ -257,7 +306,7 @@
         .achieve-item p {
             color: #777;
             font-size: 12px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* Training Services Section */
@@ -826,11 +875,42 @@
             </ul>
         </nav>
         <div class="header-actions">
-            <!-- Profile Icon Button placed near Join Button -->
             <a href="profile.html" class="profile-icon-btn" title="My Profile" id="profileIcon">👤</a>
-            <button class="book-btn" onclick="location.href='#location'">Join Now</button>
+            <button class="book-btn" onclick="openRegisterModal(event)">Join Now</button>
         </div>
     </header>
+
+    <!-- Registration Modal Popup -->
+    <div class="modal-overlay" id="regModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeRegisterModal()">&times;</span>
+            <div class="modal-title">New Member Registration</div>
+            <form id="regForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" required placeholder="Apna pura naam likhein">
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number (Login ID)</label>
+                    <input type="tel" id="mobileNumber" required placeholder="10-digit mobile number">
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" id="age" required placeholder="Aapki umar">
+                </div>
+                <div class="form-group">
+                    <label>Select Fitness Level</label>
+                    <select id="fitnessLevel" required>
+                        <option value="" disabled selected>Level chuniye</option>
+                        <option value="beginner">Absolute Beginner (Zero Experience)</option>
+                        <option value="intermediate">Restart / Intermediate</option>
+                        <option value="advanced">Advanced (1-2 Years)</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-reg-btn">Create Profile & View Task &rarr;</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -856,28 +936,28 @@
         </div>
     </section>
 
-    <!-- Achieve Amazing Results Section (With "Our Tasks" & Achievement Icon) -->
+    <!-- Achieve Amazing Results Section (With Red Line Icons and Our Tasks)[cite: 12] -->
     <section class="achieve-section">
         <span class="achieve-top-span">WHAT WE OFFER</span>
         <h2>Achieve amazing results with our services</h2>
         <div class="achieve-grid">
             <div class="achieve-item">
-                <div class="icon">🏋️‍♂️</div>
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6.5 10v4h3v-4h-3zM14.5 10v4h3v-4h-3zM2 11h3v2H2zM19 11h3v2h-3zM4 8h16v8H4z"/></svg>
                 <h4>Best equipment</h4>
                 <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
             </div>
             <div class="achieve-item">
-                <div class="icon">💪</div>
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18.5 6a2.5 2.5 0 0 1 2.5 2.5c0 1.1-.7 2-1.7 2.3l-1.5 4.5A3 3 0 0 1 15 18H9a3 3 0 0 1-2.8-2.7L4.7 10.8A2.5 2.5 0 0 1 3 8.5C3 7.1 4.1 6 5.5 6c.9 0 1.7.5 2.1 1.2l1.9.9h5l1.9-.9c.4-.7 1.2-1.2 2.1-1.2z"/></svg>
                 <h4>Training plan</h4>
                 <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
             </div>
             <div class="achieve-item">
-                <div class="icon">🥤</div>
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M9 2h6v3H9zM7 5h10v2H7zM6 8h12v13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8zM10 12h4M10 16h4"/></svg>
                 <h4>Nutrition plan</h4>
                 <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
             </div>
             <div class="achieve-item">
-                <div class="icon">🏆</div>
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 <h4>Our Tasks</h4>
                 <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
             </div>
@@ -955,7 +1035,6 @@
         <p>Apne experience level ke anusaar apna sahi training track select karein:</p>
 
         <div class="journey-grid">
-            <!-- Option 1: Beginner Page Link -->
             <a href="beginner.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 01</span>
                 <h3>Absolute Beginner</h3>
@@ -963,7 +1042,6 @@
                 <span class="explore-link">Explore Plan &rarr;</span>
             </a>
 
-            <!-- Option 2: Restart / Intermediate Page Link -->
             <a href="intermediate.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 02</span>
                 <h3>Restart / Intermediate</h3>
@@ -971,7 +1049,6 @@
                 <span class="explore-link">Explore Plan &rarr;</span>
             </a>
 
-            <!-- Option 3: Advanced Page Link -->
             <a href="advanced.html" class="journey-card" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');">
                 <span class="level-tag">Option 03</span>
                 <h3>Advanced (1-2 Yrs)</h3>
