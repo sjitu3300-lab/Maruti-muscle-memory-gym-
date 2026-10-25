@@ -620,121 +620,120 @@
         .arrow-left { left: -25px; }
         .arrow-right { right: -25px; }
 
-        @media(max-width: 768px) {
-            .slider-arrow { display: none; }
+        /* Review Section CSS (Matching Reference Image) */
+        .reviews-section {
+            padding: 90px 5%;
+            background-color: #0b0b0b;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            position: relative;
+            overflow: hidden;
+        }
+        .reviews-container-wrapper {
+            position: relative;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .reviews-track {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+            cursor: grab;
+        }
+        .reviews-track:active {
+            cursor: grabbing;
+        }
+        .review-card {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .review-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 25px;
+            border: 3px solid #d9381e;
+        }
+        .review-text {
+            color: #ddd;
+            font-size: clamp(14px, 2vw, 17px);
+            line-height: 1.8;
+            max-width: 700px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        .quote-icon {
+            color: #d9381e;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .review-author {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .review-role {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .review-arrows {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            background: rgba(25, 25, 25, 0.8);
+            border: 1px solid #333;
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+        .review-arrows:hover {
+            background: #d9381e;
+            border-color: #d9381e;
+        }
+        .rev-arrow-left { left: -20px; }
+        .rev-arrow-right { right: -20px; }
+        
+        .review-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 35px;
+        }
+        .rev-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #444;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .rev-dot.active {
+            background: #d9381e;
+            width: 22px;
+            border-radius: 4px;
+        }
 
-    /* Review Section Styles matching the reference design */
-    .reviews-section {
-        padding: 90px 5%;
-        background-color: #0b0b0b;
-        border-top: 1px solid #1a1a1a;
-        border-bottom: 1px solid #1a1a1a;
-        position: relative;
-        overflow: hidden;
-    }
-    .reviews-container-wrapper {
-        position: relative;
-        max-width: 850px;
-        margin: 0 auto;
-    }
-    .reviews-track {
-        display: flex;
-        transition: transform 0.6s ease-in-out;
-        cursor: grab;
-    }
-    .reviews-track:active {
-        cursor: grabbing;
-    }
-    .review-card {
-        min-width: 100%;
-        box-sizing: border-box;
-        text-align: center;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .review-avatar {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 25px;
-        border: 3px solid #d9381e;
-    }
-    .review-text {
-        color: #ddd;
-        font-size: clamp(14px, 2vw, 17px);
-        line-height: 1.8;
-        max-width: 700px;
-        margin-bottom: 25px;
-        font-style: italic;
-    }
-    .quote-icon {
-        color: #d9381e;
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-    .review-author {
-        font-size: 16px;
-        font-weight: 800;
-        text-transform: uppercase;
-        color: #fff;
-        margin-bottom: 4px;
-    }
-    .review-role {
-        font-size: 11px;
-        color: #888;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    .review-arrows {
-        position: absolute;
-        top: 40%;
-        transform: translateY(-50%);
-        background: rgba(25, 25, 25, 0.8);
-        border: 1px solid #333;
-        color: #fff;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        z-index: 10;
-        transition: 0.3s;
-        font-size: 18px;
-    }
-    .review-arrows:hover {
-        background: #d9381e;
-        border-color: #d9381e;
-    }
-    .rev-arrow-left { left: -20px; }
-    .rev-arrow-right { right: -20px; }
-    
-    .review-dots {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 35px;
-    }
-    .rev-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #444;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    .rev-dot.active {
-        background: #d9381e;
-        width: 22px;
-        border-radius: 4px;
-    }
-    @media(max-width: 768px) {
-        .review-arrows { display: none; }
-    }
+        @media(max-width: 768px) {
+            .slider-arrow, .review-arrows { display: none; }
+        }
+
         .about-section {
             padding: 90px 5%;
             background-color: #0a0a0a;
@@ -1217,7 +1216,7 @@
         </div>
     </section>
 
-    <!-- 10 Articles Horizontal Slider Section (Swipable & Arrow Navigable)[cite: 14] -->
+    <!-- 10 Articles Horizontal Slider Section -->
     <section class="blog-slider-section reveal" id="articles">
         <div class="blog-slider-header">
             <span>OUR BLOG</span>
@@ -1320,7 +1319,8 @@
             <button class="slider-arrow arrow-right" onclick="slideBlogs(1)">&#8594;</button>
         </div>
     </section>
-<!-- 10 Reviews Horizontal Slider Section -->
+
+    <!-- NEW: Top 10 Reviews Section (Placed Directly Below Articles Section as Requested) -->
     <section class="reviews-section reveal" id="reviews">
         <div class="reviews-container-wrapper">
             <button class="review-arrows rev-arrow-left" onclick="moveReview(-1)">&#8592;</button>
@@ -1410,6 +1410,7 @@
             <div class="review-dots" id="reviewDots"></div>
         </div>
     </section>
+
     <!-- Owner & About Section -->
     <section class="about-section reveal" id="about">
         <div class="about-img-box">
@@ -1473,7 +1474,7 @@
         </div>
     </section>
 
-    <!-- Footer Stats & Highlights Points -->
+    <!-- Footer Stats & Quick Links (Includes "Write A Review") -->
     <footer>
         <div class="footer-stats-grid">
             <div class="f-stat">
@@ -1513,7 +1514,7 @@
                     <li>Clean & Hygienic Environment</li>
                 </ul>
             </div>
-           <div class="footer-highlight-col">
+            <div class="footer-highlight-col">
                 <h5>Quick Links</h5>
                 <ul>
                     <li><a href="#home" style="color:inherit; text-decoration:none;">Back to Top</a></li>
@@ -1523,15 +1524,14 @@
                     <li><a href="#location" style="color:inherit; text-decoration:none;">Get Directions</a></li>
                 </ul>
             </div>
+        </div>
 
         <div class="footer-bottom">
             <p>&copy; 2026 Maruti Muscle Memory GYM. All rights reserved.</p>
             <p>Designed for Ultimate Fitness & Strength</p>
         </div>
     </footer>
-
-    <!-- JavaScript -->
-    <script>
+<script>
         function openRegisterModal(e) {
             e.preventDefault();
             document.getElementById('regModal').style.display = 'flex';
@@ -1545,6 +1545,86 @@
             const track = document.getElementById('blogTrack');
             const scrollAmount = 305;
             track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        // Review Slider Auto-Slide (Every 10 Seconds), Arrows & Touch/Finger Swipe Logic
+        let currentReview = 0;
+        const totalReviews = 10;
+        const reviewTrack = document.getElementById('reviewsTrack');
+        const dotsContainer = document.getElementById('reviewDots');
+        let reviewInterval;
+
+        // Create Dots Dynamically
+        for (let i = 0; i < totalReviews; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('rev-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToReview(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const revDots = document.querySelectorAll('.rev-dot');
+
+        function updateReviewSlider() {
+            reviewTrack.style.transform = `translateX(-${currentReview * 100}%)`;
+            revDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentReview);
+            });
+        }
+
+        function moveReview(direction) {
+            currentReview = (currentReview + direction + totalReviews) % totalReviews;
+            updateReviewSlider();
+            resetReviewTimer();
+        }
+
+        function goToReview(index) {
+            currentReview = index;
+            updateReviewSlider();
+            resetReviewTimer();
+        }
+
+        function startReviewTimer() {
+            reviewInterval = setInterval(() => {
+                moveReview(1);
+            }, 10000);
+        }
+
+        function resetReviewTimer() {
+            clearInterval(reviewInterval);
+            startReviewTimer();
+        }
+
+        startReviewTimer();
+
+        // Finger / Touch Swipe Support for Review Slider
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        reviewTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        reviewTrack.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleReviewSwipe();
+        }, {passive: true});
+
+        reviewTrack.addEventListener('mousedown', (e) => {
+            touchStartX = e.clientX;
+        });
+
+        reviewTrack.addEventListener('mouseup', (e) => {
+            touchEndX = e.clientX;
+            handleReviewSwipe();
+        });
+
+        function handleReviewSwipe() {
+            if (touchStartX - touchEndX > 50) {
+                moveReview(1); // Swipe Left -> Next Review
+            } else if (touchEndX - touchStartX > 50) {
+                moveReview(-1); // Swipe Right -> Prev Review
+            }
         }
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -1597,87 +1677,5 @@
         
         revealOnScroll();
     </script>
-    <script>
-    // Review Auto-slider and Touch/Finger Swipe Logic
-    let currentReview = 0;
-    const totalReviews = 10;
-    const track = document.getElementById('reviewsTrack');
-    const dotsContainer = document.getElementById('reviewDots');
-    let reviewInterval;
-
-    // Create pagination dots dynamically
-    for (let i = 0; i < totalReviews; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('rev-dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToReview(i));
-        dotsContainer.appendChild(dot);
-    }
-
-    const dots = document.querySelectorAll('.rev-dot');
-
-    function updateReviewSlider() {
-        track.style.transform = `translateX(-${currentReview * 100}%)`;
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentReview);
-        });
-    }
-
-    function moveReview(direction) {
-        currentReview = (currentReview + direction + totalReviews) % totalReviews;
-        updateReviewSlider();
-        resetReviewTimer();
-    }
-
-    function goToReview(index) {
-        currentReview = index;
-        updateReviewSlider();
-        resetReviewTimer();
-    }
-
-    // Auto slide every 10 seconds (Right to Left)
-    function startReviewTimer() {
-        reviewInterval = setInterval(() => {
-            moveReview(1);
-        }, 10000);
-    }
-
-    function resetReviewTimer() {
-        clearInterval(reviewInterval);
-        startReviewTimer();
-    }
-
-    startReviewTimer();
-
-    // Finger / Touch Swipe Support for Mobile & Desktop
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    track.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, {passive: true});
-
-    track.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, {passive: true});
-
-    track.addEventListener('mousedown', (e) => {
-        touchStartX = e.clientX;
-    });
-
-    track.addEventListener('mouseup', (e) => {
-        touchEndX = e.clientX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        if (touchStartX - touchEndX > 50) {
-            moveReview(1); // Swipe Left -> Next
-        } else if (touchEndX - touchStartX > 50) {
-            moveReview(-1); // Swipe Right -> Prev
-        }
-    }
-</script>
 </body>
 </html>
