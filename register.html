@@ -20,27 +20,24 @@
             min-height: 100vh;
             padding: 20px;
         }
-        .register-container {
+        .reg-container {
             background: #141414;
-            border: 1px solid #222;
+            border: 1px solid #262626;
             border-top: 4px solid #d9381e;
             padding: 40px;
             border-radius: 8px;
             width: 100%;
-            max-width: 450px;
-            box-shadow: 0 10px 30px rgba(217, 56, 30, 0.15);
+            max-width: 480px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
-        .logo {
-            font-size: 16px;
+        .reg-title {
+            font-size: 22px;
             font-weight: 900;
-            color: #fff;
-            letter-spacing: 1.5px;
             text-transform: uppercase;
-            text-align: center;
             margin-bottom: 25px;
-        }
-        .logo span {
-            color: #d9381e;
+            color: #fff;
+            text-align: center;
+            letter-spacing: 1px;
         }
         .form-group {
             margin-bottom: 20px;
@@ -48,7 +45,7 @@
         .form-group label {
             display: block;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #aaa;
@@ -56,7 +53,7 @@
         }
         .form-group input, .form-group select {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px;
             background: #1c1c1c;
             border: 1px solid #333;
             color: #fff;
@@ -67,7 +64,7 @@
             border-color: #d9381e;
             outline: none;
         }
-        .submit-btn {
+        .submit-reg-btn {
             width: 100%;
             background-color: #d9381e;
             color: white;
@@ -80,11 +77,12 @@
             cursor: pointer;
             border-radius: 4px;
             transition: 0.3s;
+            margin-top: 10px;
         }
-        .submit-btn:hover {
+        .submit-reg-btn:hover {
             background-color: #b52d16;
         }
-        .back-link {
+        .back-home {
             display: block;
             text-align: center;
             margin-top: 20px;
@@ -93,17 +91,18 @@
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: 0.3s;
         }
-        .back-link:hover {
+        .back-home:hover {
             color: #fff;
         }
     </style>
 </head>
 <body>
 
-    <div class="register-container">
-        <div class="logo">Maruti <span>Muscle Memory</span></div>
-        <form id="regForm">
+    <div class="reg-container">
+        <div class="reg-title">New Member Registration</div>
+        <form id="standaloneRegForm" onsubmit="handleRegistration(event)">
             <div class="form-group">
                 <label>Full Name</label>
                 <input type="text" id="fullName" required placeholder="Apna pura naam likhein">
@@ -120,59 +119,49 @@
                 <label>Select Fitness Level</label>
                 <select id="fitnessLevel" required>
                     <option value="" disabled selected>Level chuniye</option>
-                    <option value="beginner">Absolute Beginner (Zero Experience)</option>
-                    <option value="intermediate">Restart / Intermediate</option>
-                    <option value="advanced">Advanced (1-2 Years)</option>
+                    <option value="Absolute Beginner">Absolute Beginner (Zero Experience)</option>
+                    <option value="Restart / Intermediate">Restart / Intermediate</option>
+                    <option value="Advanced (1-2 Years)">Advanced (1-2 Years)</option>
                 </select>
             </div>
-            <button type="submit" class="submit-btn">Create Profile & View Task &rarr;</button>
+            <button type="submit" class="submit-reg-btn">Create Profile & View Task &rarr;</button>
         </form>
-        <a href="index.html" class="back-link">&larr; Back to Home</a>
+        <a href="index.html" class="back-home">&larr; Back to Home</a>
     </div>
 
     <script>
-        document.getElementById('regForm').addEventListener('submit', function(e) {
+        function handleRegistration(e) {
             e.preventDefault();
-            
-            const name = document.getElementById('fullName').value.trim();
-            const mobile = document.getElementById('mobileNumber').value.trim();
-            const age = document.getElementById('age').value.trim();
-            const level = document.getElementById('fitnessLevel').value;
 
-            // Auto Initials Generator (Jaise Jitendra Soni -> JS)
-            const nameParts = name.split(' ');
-            let initials = nameParts[0].charAt(0);
+            const fullName = document.getElementById('fullName').value.trim();
+            const mobileNumber = document.getElementById('mobileNumber').value.trim();
+            const age = document.getElementById('age').value.trim();
+            const fitnessLevel = document.getElementById('fitnessLevel').value;
+
+            // Generate user initials for profile icon (e.g., "Rahul Sharma" -> "RS")
+            const nameParts = fullName.split(' ');
+            let initials = nameParts[0][0];
             if (nameParts.length > 1) {
-                initials += nameParts[nameParts.length - 1].charAt(0);
+                initials += nameParts[nameParts.length - 1][0];
             }
             initials = initials.toUpperCase();
 
-            // User Profile Object
+            // Create user profile object
             const userData = {
-                name: name,
-                mobile: mobile,
+                name: fullName,
+                mobile: mobileNumber,
                 age: age,
-                level: level,
+                level: fitnessLevel,
                 initials: initials,
-                currentDay: 1,
-                startDate: new Date().toISOString()
+                registeredDate: new Date().toLocaleDateString()
             };
 
-            // LocalStorage mein save karein
+            // Save data to localStorage
             localStorage.setItem('gymUser', JSON.stringify(userData));
 
-            // WhatsApp Lead Notification to Gym Owner (+91 89470 12333)
-            const coachWhatsAppNumber = "918947012333";
-            const message = `New Gym Member Registration:%0A- Name: ${name}%0A- Mobile: ${mobile}%0A- Age: ${age}%0A- Level: ${level}`;
-            const whatsappUrl = `https://wa.me/${coachWhatsAppNumber}?text=${message}`;
-            
-            alert('Registration Successful! Aapka WhatsApp open ho raha hai aur Profile page load ho raha hai.');
-            
-            // Background mein WhatsApp open karein aur profile.html par redirect karein
-            window.open(whatsappUrl, '_blank');
+            // Redirect instantly to profile page
             window.location.href = 'profile.html';
-        });
+        }
     </script>
-
 </body>
 </html>
