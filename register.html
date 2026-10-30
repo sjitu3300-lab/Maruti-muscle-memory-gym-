@@ -27,7 +27,7 @@
             padding: 40px;
             border-radius: 8px;
             width: 100%;
-            max-width: 480px;
+            max-width: 500px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
         .reg-title {
@@ -39,26 +39,32 @@
             text-align: center;
             letter-spacing: 1px;
         }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
         .form-group label {
             display: block;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #aaa;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .form-group input, .form-group select {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: #1c1c1c;
             border: 1px solid #333;
             color: #fff;
             border-radius: 4px;
-            font-size: 14px;
+            font-size: 13px;
         }
         .form-group input:focus, .form-group select:focus {
             border-color: #d9381e;
@@ -103,19 +109,44 @@
     <div class="reg-container">
         <div class="reg-title">New Member Registration</div>
         <form id="standaloneRegForm" onsubmit="handleRegistration(event)">
-            <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" id="fullName" required placeholder="Apna pura naam likhein">
+            <!-- Name Fields (First, Middle, Last) -->
+            <div class="form-row">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>First Name</label>
+                    <input type="text" id="firstName" required placeholder="First">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Middle Name</label>
+                    <input type="text" id="middleName" placeholder="Middle">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Last Name</label>
+                    <input type="text" id="lastName" required placeholder="Last">
+                </div>
             </div>
+
             <div class="form-group">
                 <label>Mobile Number (Login ID)</label>
                 <input type="tel" id="mobileNumber" required placeholder="10-digit mobile number">
             </div>
-            <div class="form-group">
-                <label>Age</label>
-                <input type="number" id="age" required placeholder="Aapki umar">
+
+            <div class="form-row" style="grid-template-columns: 1fr 1fr;">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Sex / Gender</label>
+                    <select id="gender" required>
+                        <option value="" disabled selected>Chuniye</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Age</label>
+                    <input type="number" id="age" required placeholder="Aapki umar">
+                </div>
             </div>
-            <div class="form-group">
+
+            <div class="form-group" style="margin-top: 18px;">
                 <label>Select Fitness Level</label>
                 <select id="fitnessLevel" required>
                     <option value="" disabled selected>Level chuniye</option>
@@ -124,6 +155,7 @@
                     <option value="Advanced (1-2 Years)">Advanced (1-2 Years)</option>
                 </select>
             </div>
+
             <button type="submit" class="submit-reg-btn">Create Profile & View Task &rarr;</button>
         </form>
         <a href="index.html" class="back-home">&larr; Back to Home</a>
@@ -133,33 +165,39 @@
         function handleRegistration(e) {
             e.preventDefault();
 
-            const fullName = document.getElementById('fullName').value.trim();
+            const firstName = document.getElementById('firstName').value.trim();
+            const middleName = document.getElementById('middleName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
             const mobileNumber = document.getElementById('mobileNumber').value.trim();
+            const gender = document.getElementById('gender').value;
             const age = document.getElementById('age').value.trim();
             const fitnessLevel = document.getElementById('fitnessLevel').value;
 
-            // Generate user initials for profile icon (e.g., "Rahul Sharma" -> "RS")
-            const nameParts = fullName.split(' ');
-            let initials = nameParts[0][0];
-            if (nameParts.length > 1) {
-                initials += nameParts[nameParts.length - 1][0];
-            }
-            initials = initials.toUpperCase();
+            // Full name combine karna
+            const fullName = `${firstName} ${middleName ? middleName + ' ' : ''}${lastName}`;
+            
+            // Initials for avatar fallback
+            const initials = `${firstName[0]}${lastName[0]}`.toUpperCase();
 
-            // Create user profile object
+            // User data object
             const userData = {
+                firstName: firstName,
+                middleName: middleName,
+                lastName: lastName,
                 name: fullName,
                 mobile: mobileNumber,
+                gender: gender,
                 age: age,
                 level: fitnessLevel,
                 initials: initials,
+                profileImage: '', // Gallery upload ke liye
                 registeredDate: new Date().toLocaleDateString()
             };
 
-            // Save data to localStorage
+            // LocalStorage mein save karna
             localStorage.setItem('gymUser', JSON.stringify(userData));
 
-            // Redirect instantly to profile page
+            // Profile page par redirect karna
             window.location.href = 'profile.html';
         }
     </script>
