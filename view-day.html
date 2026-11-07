@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 Workout Details - Maruti Muscle Memory GYM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            padding: 40px 5%;
+        }
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .back-btn {
+            background: #1c1c1c;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            border-color: #d9381e;
+            color: #d9381e;
+        }
+        h1 {
+            font-size: clamp(26px, 4vw, 34px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            color: #fff;
+            text-align: center;
+        }
+        .exercise-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .exercise-detail-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-left: 4px solid #d9381e;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .ex-img-box {
+            width: 160px;
+            height: 160px;
+            border-radius: 6px;
+            background-size: cover;
+            background-position: center;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            flex-shrink: 0;
+        }
+        .ex-info {
+            flex: 1;
+        }
+        .ex-label {
+            color: #d9381e;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .ex-info h4 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+        .ex-info h4 span {
+            color: #d9381e;
+        }
+        .ex-info p {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .ex-info p strong {
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .exercise-detail-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .ex-img-box {
+                width: 100%;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-nav">
+        <a href="beginner.html" class="back-btn">&larr; Back to Schedule</a>
+        <span style="font-size: 11px; color: #d9381e; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Day 01 Detailed Guide</span>
+    </div>
+
+    <h1>Day 1: Cardio, Cycling, Abs & Chest</h1>
+
+    <div class="exercise-list">
+        
+        <!-- 1. Cardio (Jumping Jacks) -->
+        <div class="exercise-detail-card">
+            <div class="ex-img-box" style="background-image: url('watermarked_img_6738993380060215615.png');"></div>
+            <div class="ex-info">
+                <span class="ex-label">Exercise 01</span>
+                <h4><span>CARDIO:</span> Jumping Jacks (3 Sets x 1 Min)</h4>
+                <p><strong>Jumping Jacks</strong> ek behad prabhavshali full-body <strong>warm-up exercise</strong> hai jo aapke <strong>heart rate</strong> ko tezi se badhati hai aur poore sharir mein <strong>blood circulation</strong> ko behtar karti hai. Beginner level par yeh exercise sharir ki stiffness ko door karke aapko aage ke heavy workouts ke liye puri tarah prepare karti hai aur fat burning process ko shuru karti hai.</p>
+            </div>
+        </div>
+
+        <!-- 2. Cycling -->
+        <div class="exercise-detail-card">
+            <div class="ex-img-box" style="background-image: url('watermarked_img_10020826726270359076.png');"></div>
+            <div class="ex-info">
+                <span class="ex-label">Exercise 02</span>
+                <h4><span>CARDIO:</span> Stationary Cycling (5 - 10 Mins)</h4>
+                <p><strong>Stationary Cycling</strong> lower body ki strength aur <strong>cardiovascular endurance</strong> ko sudharne ke liye ek shandar <strong>low-impact cardio</strong> routine hai. Isse ghutno aur joints par excessive pressure nahi padta, jabki thighs aur calves ki muscles active hoti hain. Yeh stamina build karne aur excess calories burn karne ke liye behad upyogi hai.</p>
+            </div>
+        </div>
+
+        <!-- 3. Abs workout (Basic Crunches) -->
+        <div class="exercise-detail-card">
+            <div class="ex-img-box" style="background-image: url('watermarked_img_18296272358850718352.png');"></div>
+            <div class="ex-info">
+                <span class="ex-label">Exercise 03</span>
+                <h4><span>CORE / ABS:</span> Basic Crunches (3 Sets x 15 Reps)</h4>
+                <p><strong>Basic Crunches</strong> core area ki <strong>rectus abdominis</strong> muscles ko target karne wali sabse mukhya exercise hai. Yeh core strength ko mazboot banati hai, body ka <strong>posture</strong> sudhartee hai aur lower back support deti hai. Perform karte samay apni core muscles ko squeeze karein aur slow controlled movement rakhein taaki behtar results mil sakein.</p>
+            </div>
+        </div>
+
+        <!-- 4. Chest workout (Wall Pushups) -->
+        <div class="exercise-detail-card">
+            <div class="ex-img-box" style="background-image: url('watermarked_img_9252927085477517610.png');"></div>
+            <div class="ex-info">
+                <span class="ex-label">Exercise 04</span>
+                <h4><span>CHEST / UPPER BODY:</span> Wall Pushups (3 Sets x 12-15 Reps)</h4>
+                <p><strong>Wall Pushups</strong> beginners ke liye chest, shoulders aur triceps ki <strong>upper body strength</strong> build karne ka ek surakshit aur prabhavshali tarika hai. Floor pushups karne se pehle yeh exercise joints par load ko control karte hue muscles ko correct form sikhati hai. Regular practice se arm strength aur shoulder stability mein tezi se sudhar hota hai.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
