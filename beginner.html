@@ -52,15 +52,15 @@
         }
         .days-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
         .day-card {
             background: #141414;
             border: 1px solid #222;
             border-top: 3px solid #d9381e;
-            border-radius: 6px;
-            padding: 25px;
+            border-radius: 8px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -70,35 +70,45 @@
             border-color: #d9381e;
             transform: translateY(-5px);
         }
+        .exercise-img {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .day-content {
+            padding: 25px;
+        }
         .day-tag {
             color: #d9381e;
             font-size: 10px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             display: block;
         }
         .day-card h3 {
             font-size: 18px;
             font-weight: 800;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: #fff;
         }
         .day-card p {
-            color: #888;
+            color: #999;
             font-size: 12px;
-            line-height: 1.5;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin-bottom: 25px;
         }
         .btn-group {
             display: flex;
-            gap: 10px;
+            gap: 12px;
+            padding: 0 25px 25px 25px;
         }
         .action-btn {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
             font-weight: 800;
             font-size: 11px;
@@ -135,15 +145,18 @@
     </div>
 
     <h1>Beginner Training Schedule</h1>
-    <p class="subtitle">Apne daily workout routine ko select karein aur detailed guide ya live workout session start karein.</p>
+    <p class="subtitle">Apne absolute beginner level ke anusaar apne sessions ko dekhein, details padhein aur workout start karein.</p>
 
     <div class="days-grid">
-        <!-- Day 1 -->
+        <!-- Day 1 Card -->
         <div class="day-card">
             <div>
-                <span class="day-tag">Session 01</span>
-                <h3>Day 1: Full Body Foundations</h3>
-                <p>Learn fundamental movements, posture correction, and light joint activation exercises.</p>
+                <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="day-content">
+                    <span class="day-tag">Session 01</span>
+                    <h3>Day 1: Full Body Foundations & Stretching</h3>
+                    <p>Absolute beginners ke liye yeh session neuromuscular connection aur proper form build karne par focus karta hai. Isme hum body ki stiffness ko door karne ke liye dynamic stretching aur light joint mobility movements shamil karte hain, jo aage ki heavy lifting ke liye base banate hain.</p>
+                </div>
             </div>
             <div class="btn-group">
                 <a href="view-day.html?day=1" class="action-btn btn-view">View Day</a>
@@ -151,12 +164,15 @@
             </div>
         </div>
 
-        <!-- Day 2 -->
+        <!-- Day 2 Card -->
         <div class="day-card">
             <div>
-                <span class="day-tag">Session 02</span>
-                <h3>Day 2: Upper Body Mobility</h3>
-                <p>Focus on chest, shoulders, and back activation with bodyweight and light resistance.</p>
+                <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="day-content">
+                    <span class="day-tag">Session 02</span>
+                    <h3>Day 2: Upper Body Mobility & Posture</h3>
+                    <p>Yeh workout upper body ke major muscles jaise chest, shoulders aur upper back ko activate karne ke liye design kiya gaya hai. Sahi posture maintain karte hue bodyweight aur light resistance movements ki madad se shoulders ki flexibility aur core strength mein sudhar hota hai.</p>
+                </div>
             </div>
             <div class="btn-group">
                 <a href="view-day.html?day=2" class="action-btn btn-view">View Day</a>
@@ -164,12 +180,15 @@
             </div>
         </div>
 
-        <!-- Day 3 -->
+        <!-- Day 3 Card -->
         <div class="day-card">
             <div>
-                <span class="day-tag">Session 03</span>
-                <h3>Day 3: Lower Body Strength</h3>
-                <p>Leg fundamentals, squat form mastery, and core stability conditioning.</p>
+                <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="day-content">
+                    <span class="day-tag">Session 03</span>
+                    <h3>Day 3: Lower Body Strength & Stability</h3>
+                    <p>Lower body ke foundational movements jaise bodyweight squats aur lunges par focus karte hue yeh session leg muscles ko strength deta hai. Isme core stability aur balance ko improve karne ki exercises sikhayi jati hain taaki injury ka risk bilkul khatam ho jaye.</p>
+                </div>
             </div>
             <div class="btn-group">
                 <a href="view-day.html?day=3" class="action-btn btn-view">View Day</a>
