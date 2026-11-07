@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Registration - Maruti Muscle Memory GYM</title>
+    <title>New Account Registration - Maruti Muscle Memory GYM</title>
     <style>
         * {
             margin: 0;
@@ -107,9 +107,9 @@
 <body>
 
     <div class="reg-container">
-        <div class="reg-title">New Member Registration</div>
-        <form id="standaloneRegForm" onsubmit="handleRegistration(event)">
-            <!-- Name Fields (First, Middle, Last) -->
+        <div class="reg-title">Create New Account</div>
+        <form id="newAccountForm" onsubmit="handleNewAccountRegistration(event)">
+            <!-- First Name, Middle Name, Last Name -->
             <div class="form-row">
                 <div class="form-group" style="margin-bottom: 0;">
                     <label>First Name</label>
@@ -125,72 +125,94 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label>Mobile Number (Login ID)</label>
-                <input type="tel" id="mobileNumber" required placeholder="10-digit mobile number">
-            </div>
-
+            <!-- DOB & Mobile Number -->
             <div class="form-row" style="grid-template-columns: 1fr 1fr;">
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label>Sex / Gender</label>
-                    <select id="gender" required>
-                        <option value="" disabled selected>Chuniye</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                    </select>
+                <div class="form-group">
+                    <label>Date of Birth (DOB)</label>
+                    <input type="date" id="dob" required>
                 </div>
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label>Age</label>
-                    <input type="number" id="age" required placeholder="Aapki umar">
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="mobileNumber" required placeholder="10-digit mobile">
                 </div>
             </div>
 
-            <div class="form-group" style="margin-top: 18px;">
-                <label>Select Fitness Level</label>
-                <select id="fitnessLevel" required>
-                    <option value="" disabled selected>Level chuniye</option>
-                    <option value="Absolute Beginner">Absolute Beginner (Zero Experience)</option>
-                    <option value="Restart / Intermediate">Restart / Intermediate</option>
-                    <option value="Advanced (1-2 Years)">Advanced (1-2 Years)</option>
+            <!-- Category (Pricing Setup) -->
+            <div class="form-group">
+                <label>Select Category / Plan</label>
+                <select id="category" required onchange="updatePlanDetails()">
+                    <option value="" disabled selected>Plan Chuniye</option>
+                    <option value="Basic Fitness Track">Basic Fitness Track (Standard)</option>
+                    <option value="Pro Muscle Track">Pro Muscle & Transformation Track</option>
+                    <option value="Elite 1:1 Coaching">Elite 1:1 Personal Coaching</option>
                 </select>
             </div>
 
-            <button type="submit" class="submit-reg-btn">Create Profile & View Task &rarr;</button>
+            <!-- Price (Auto-filled) -->
+            <div class="form-group">
+                <label>Price (Rs.)</label>
+                <input type="text" id="price" readonly placeholder="Plan select karne par price aayega">
+            </div>
+
+            <!-- Trainer Name (Auto-filled) -->
+            <div class="form-group">
+                <label>Assigned Trainer</label>
+                <input type="text" id="trainerName" readonly placeholder="Plan select karne par trainer aayega">
+            </div>
+
+            <button type="submit" class="submit-reg-btn">Save & View Profile &rarr;</button>
         </form>
         <a href="index.html" class="back-home">&larr; Back to Home</a>
     </div>
 
     <script>
-        function handleRegistration(e) {
+        // Category select karne par Price aur Trainer auto-fill karne ka logic
+        function updatePlanDetails() {
+            const category = document.getElementById('category').value;
+            const priceInput = document.getElementById('price');
+            const trainerInput = document.getElementById('trainerName');
+
+            if (category === "Basic Fitness Track") {
+                priceInput.value = "Rs. 800 / month";
+                trainerInput.value = "Floor Supervisor / Assistant Coach";
+            } else if (category === "Pro Muscle Track") {
+                priceInput.value = "Rs. 1,200 / month";
+                trainerInput.value = "Jitendra Soni (Head Coach)";
+            } else if (category === "Elite 1:1 Coaching") {
+                priceInput.value = "Rs. 2,500 / month";
+                trainerInput.value = "Jitendra Soni (Personal 1:1 Trainer)";
+            }
+        }
+
+        function handleNewAccountRegistration(e) {
             e.preventDefault();
 
             const firstName = document.getElementById('firstName').value.trim();
             const middleName = document.getElementById('middleName').value.trim();
             const lastName = document.getElementById('lastName').value.trim();
+            const dob = document.getElementById('dob').value;
             const mobileNumber = document.getElementById('mobileNumber').value.trim();
-            const gender = document.getElementById('gender').value;
-            const age = document.getElementById('age').value.trim();
-            const fitnessLevel = document.getElementById('fitnessLevel').value;
+            const category = document.getElementById('category').value;
+            const price = document.getElementById('price').value;
+            const trainerName = document.getElementById('trainerName').value;
 
             // Full name combine karna
             const fullName = `${firstName} ${middleName ? middleName + ' ' : ''}${lastName}`;
-            
-            // Initials for avatar fallback
             const initials = `${firstName[0]}${lastName[0]}`.toUpperCase();
 
-            // User data object
+            // User Profile Data Object
             const userData = {
                 firstName: firstName,
                 middleName: middleName,
                 lastName: lastName,
                 name: fullName,
+                dob: dob,
                 mobile: mobileNumber,
-                gender: gender,
-                age: age,
-                level: fitnessLevel,
+                category: category,
+                price: price,
+                trainer: trainerName,
                 initials: initials,
-                profileImage: '', // Gallery upload ke liye
+                profileImage: '',
                 registeredDate: new Date().toLocaleDateString()
             };
 
