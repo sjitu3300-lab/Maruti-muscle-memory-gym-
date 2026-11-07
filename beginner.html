@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beginner Level Fat Loss Workout - Maruti Muscle Memory GYM</title>
+    <title>Absolute Beginner Track - Maruti Muscle Memory GYM</title>
     <style>
         * {
             margin: 0;
@@ -14,314 +14,169 @@
         body {
             background-color: #0a0a0a;
             color: #ffffff;
-            overflow-x: hidden;
-            width: 100vw;
+            padding: 40px 5%;
         }
-        header {
+        .header-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
-            background: rgba(10, 10, 10, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(217, 56, 30, 0.2);
-            backdrop-filter: blur(10px);
-        }
-        .logo {
-            font-size: 13px;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-        .logo span {
-            color: #d9381e;
+            margin-bottom: 40px;
         }
         .back-btn {
-            background-color: #d9381e;
-            color: white;
-            padding: 8px 18px;
+            background: #1c1c1c;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
             text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            border-color: #d9381e;
+            color: #d9381e;
+        }
+        h1 {
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .subtitle {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 40px;
+        }
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .day-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-top: 3px solid #d9381e;
+            border-radius: 6px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+        .day-card:hover {
+            border-color: #d9381e;
+            transform: translateY(-5px);
+        }
+        .day-tag {
+            color: #d9381e;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .day-card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .day-card p {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .action-btn {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
             font-weight: 800;
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-        .back-btn:hover {
-            background-color: #b52d16;
-        }
-
-        .page-hero {
-            padding: 140px 5% 50px 5%;
-            background: linear-gradient(180deg, rgba(217, 56, 30, 0.15) 0%, rgba(10,10,10,1) 100%);
-            text-align: center;
-        }
-        .page-hero span {
-            color: #d9381e;
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 10px;
-        }
-        .page-hero h1 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-        .page-hero p {
-            color: #999;
-            font-size: 14px;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Schedule Container */
-        .schedule-container {
-            padding: 40px 5% 90px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .day-block {
-            background: #141414;
-            border: 1px solid #222;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            transition: 0.3s;
-        }
-        .day-block:hover {
-            border-color: #d9381e;
-        }
-        .day-img {
-            width: 100%;
-            height: 100%;
-            min-height: 300px;
-            background-size: cover;
-            background-position: center;
+            border-radius: 4px;
+            text-decoration: none;
             cursor: pointer;
-            position: relative;
-        }
-        .day-img::after {
-            content: 'Click to View Full Workout';
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            background: rgba(0,0,0,0.85);
-            color: #d9381e;
-            padding: 6px 12px;
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            border-radius: 3px;
-        }
-        .day-content {
-            padding: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .day-badge {
-            color: #d9381e;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-        .day-content h3 {
-            font-size: 22px;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-        .day-content p {
-            color: #aaa;
-            font-size: 13px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        .view-detail-btn {
-            background: none;
-            border: 1px solid #d9381e;
-            color: #d9381e;
-            padding: 9px 18px;
-            margin-top: 15px;
-            font-weight: 800;
-            font-size: 11px;
-            text-transform: uppercase;
-            cursor: pointer;
-            border-radius: 3px;
             transition: 0.3s;
-            align-self: flex-start;
         }
-        .view-detail-btn:hover {
+        .btn-view {
+            background: #1c1c1c;
+            color: #fff;
+            border: 1px solid #333;
+        }
+        .btn-view:hover {
+            border-color: #fff;
+        }
+        .btn-start {
             background: #d9381e;
             color: #fff;
+            border: none;
         }
-
-        /* Modal Popup Box */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.88);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            backdrop-filter: blur(5px);
-            padding: 20px;
-        }
-        .modal-box {
-            background: #141414;
-            border: 1px solid #333;
-            border-top: 4px solid #d9381e;
-            max-width: 650px;
-            width: 100%;
-            padding: 35px;
-            border-radius: 8px;
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        .modal-close {
-            position: absolute;
-            top: 15px; right: 20px;
-            color: #888; font-size: 24px;
-            cursor: pointer; font-weight: bold;
-        }
-        .modal-close:hover { color: #fff; }
-        .modal-img {
-            width: 100%; height: 260px;
-            background-size: cover; background-position: center;
-            border-radius: 6px; margin-bottom: 20px;
-            border: 1px solid #222;
-        }
-        .modal-box h2 {
-            font-size: 24px; font-weight: 900; text-transform: uppercase; margin-bottom: 12px; color: #fff;
-        }
-        .modal-box p {
-            color: #bbb; font-size: 13px; line-height: 1.7; margin-bottom: 15px;
-        }
-        .exercise-step {
-            background: #1c1c1c;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 12px;
-            border-left: 3px solid #d9381e;
-        }
-        .exercise-step strong {
-            color: #fff; display: block; margin-bottom: 10px; text-transform: uppercase; font-size: 12px;
-        }
-        .exercise-step span {
-            color: #999; font-size: 12px; display: block;
-        }
-
-        @media(max-width: 900px) {
-            .day-block { grid-template-columns: 1fr; }
-            .day-img { min-height: 220px; }
-            .day-content { padding: 25px; }
+        .btn-start:hover {
+            background: #b52d16;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Maruti <span>Muscle Memory</span></div>
+    <div class="header-nav">
         <a href="index.html" class="back-btn">&larr; Back to Home</a>
-    </header>
-
-    <section class="page-hero">
-        <span>Beginner Level • Fat Loss Workout</span>
-        <h1>4-Day Beginner Training Blueprint</h1>
-        <p>Aapke notes ke anusaar 4 din ka complete fat loss aur beginner routine. Har day par click karke detailed exercise guide dekhein.</p>
-    </section>
-
-    <div class="schedule-container">
-
-        <!-- Day 1: Cardio & Chest Ignition -->
-        <div class="day-block">
-            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800');" onclick="openDayModal('Day 1: Cardio & Chest Ignition', 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800', 'Yeh session fat burning aur upper body activation ke liye design kiya gaya hai.', '<b>1. Cardio (Jumping Jacks):</b> 3 Sets x 1 Minute. Haath aur pair kholte hue jump karein taaki heart rate badhe.<br><br><b>2. Cycling:</b> 5-10 Minutes. Moderate speed par pedaling karein.<br><br><b>3. Abs Workout:</b> Basic crunches (3 Sets x 15 Reps).<br><br><b>4. Chest Workout:</b> Light bench press ya push-ups (3 Sets x 12 Reps).')"></div>
-            <div class="day-content">
-                <span class="day-badge">Day 1</span>
-                <h3>Cardio & Chest Ignition</h3>
-                <p>Cardio [Jumping Jack] + Cycling + Abs + Chest workout. Shuruat karne ke liye best fat-burning combination.</p>
-                <button class="view-detail-btn" onclick="openDayModal('Day 1: Cardio & Chest Ignition', 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800', 'Yeh session fat burning aur upper body activation ke liye design kiya gaya hai.', '<b>1. Cardio (Jumping Jacks):</b> 3 Sets x 1 Minute.<br><br><b>2. Cycling:</b> 5-10 Minutes.<br><br><b>3. Abs Workout:</b> 3 Sets x 15 Reps.<br><br><b>4. Chest Workout:</b> 3 Sets x 12 Reps.')">View Day 1 Details</button>
-            </div>
-        </div>
-
-        <!-- Day 2: Lower Body & Back Power -->
-        <div class="day-block">
-            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');" onclick="openDayModal('Day 2: Lower Body & Back Power', 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800', 'Lower body strength aur back posture sudharne ke liye.', '<b>1. Jumping Jack:</b> 3 Sets x 1 Minute.<br><br><b>2. Cycling:</b> 5-10 Minutes.<br><br><b>3. Abs & Back Workout:</b> Core tightening aur lat pulldown.<br><br><b>4. Normal Squats & Calves:</b> 3 Sets x 15 Reps.')"></div>
-            <div class="day-content">
-                <span class="day-badge">Day 2</span>
-                <h3>Lower Body & Back Power</h3>
-                <p>Jumping Jack (3 sets x 1 min) + Cycling (5-10 min) + Abs + Back workout + Normal Squats (3 sets x 15 reps) + Calves.</p>
-                <button class="view-detail-btn" onclick="openDayModal('Day 2: Lower Body & Back Power', 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800', 'Lower body strength aur back posture sudharne ke liye.', '<b>1. Jumping Jack:</b> 3 Sets x 1 Minute.<br><br><b>2. Cycling:</b> 5-10 Minutes.<br><br><b>3. Abs & Back Workout:</b> Core tightening aur lat pulldown.<br><br><b>4. Normal Squats & Calves:</b> 3 Sets x 15 Reps.')">View Day 2 Details</button>
-            </div>
-        </div>
-
-        <!-- Day 3: Core & Shoulder Sculpting -->
-        <div class="day-block">
-            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');" onclick="openDayModal('Day 3: Core & Shoulder Sculpting', 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800', 'Shoulder mobility aur abs definition ke liye.', '<b>1. Cycling:</b> 5-10 Minutes.<br><br><b>2. Jumping Jack:</b> 3 Sets x 1 Minute.<br><br><b>3. Abs Workout:</b> Crunches and leg raises.<br><br><b>4. Shoulder Workout:</b> Lightweight dumbbell presses (3 Sets x 12 Reps).')"></div>
-            <div class="day-content">
-                <span class="day-badge">Day 3</span>
-                <h3>Core & Shoulder Sculpting</h3>
-                <p>Cycling (5-10 min) + Jumping Jack (3 sets x 1 min) + Abs + Shoulder.</p>
-                <button class="view-detail-btn" onclick="openDayModal('Day 3: Core & Shoulder Sculpting', 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800', 'Shoulder mobility aur abs definition ke liye.', '<b>1. Cycling:</b> 5-10 Minutes.<br><br><b>2. Jumping Jack:</b> 3 Sets x 1 Minute.<br><br><b>3. Abs Workout:</b> Crunches and leg raises.<br><br><b>4. Shoulder Workout:</b> Lightweight dumbbell presses (3 Sets x 12 Reps).')">View Day 3 Details</button>
-            </div>
-        </div>
-
-        <!-- Day 4: Full Body Endurance & Arms -->
-        <div class="day-block">
-            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');" onclick="openDayModal('Day 4: Full Body Endurance & Arms', 'https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800', 'Biceps, triceps aur complete body toning ke liye.', '<b>1. Cycling & Jumping Jacks:</b> Warm-up cardio.<br><br><b>2. Abs, Biceps, Triceps & Forearm:</b> Complete arm toning routine.<br><br><b>3. Normal Squats & Calves:</b> 3 Sets x 15 Reps.')"></div>
-            <div class="day-content">
-                <span class="day-badge">Day 4</span>
-                <h3>Full Body Endurance & Arms</h3>
-                <p>Cycling (5-10 min) + Jumping Jack (3 sets x 1 min) + Abs + Biceps + Triceps + Forearm + Normal Squats (3 sets x 15 reps) + Calves.</p>
-                <button class="view-detail-btn" onclick="openDayModal('Day 4: Full Body Endurance & Arms', 'https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800', 'Biceps, triceps aur complete body toning ke liye.', '<b>1. Cycling & Jumping Jacks:</b> Warm-up cardio.<br><br><b>2. Abs, Biceps, Triceps & Forearm:</b> Complete arm toning routine.<br><br><b>3. Normal Squats & Calves:</b> 3 Sets x 15 Reps.')">View Day 4 Details</button>
-            </div>
-        </div>
-
+        <span style="font-size: 11px; color: #d9381e; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Absolute Beginner Track</span>
     </div>
 
-    <!-- Modal Popup Box -->
-    <div class="modal-overlay" id="exerciseModal">
-        <div class="modal-box">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <div class="modal-img" id="modalImg" style="background-image: url('');"></div>
-            <h2 id="modalTitle">Day Workout Guide</h2>
-            <p id="modalIntro">Introduction...</p>
-            <div class="exercise-step">
-                <strong>Routine Breakdown & Instructions</strong>
-                <span id="modalDetails">Details here...</span>
+    <h1>Beginner Training Schedule</h1>
+    <p class="subtitle">Apne daily workout routine ko select karein aur detailed guide ya live workout session start karein.</p>
+
+    <div class="days-grid">
+        <!-- Day 1 -->
+        <div class="day-card">
+            <div>
+                <span class="day-tag">Session 01</span>
+                <h3>Day 1: Full Body Foundations</h3>
+                <p>Learn fundamental movements, posture correction, and light joint activation exercises.</p>
+            </div>
+            <div class="btn-group">
+                <a href="view-day.html?day=1" class="action-btn btn-view">View Day</a>
+                <a href="workout-session.html?day=1" class="action-btn btn-start">Start Day</a>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+            <div>
+                <span class="day-tag">Session 02</span>
+                <h3>Day 2: Upper Body Mobility</h3>
+                <p>Focus on chest, shoulders, and back activation with bodyweight and light resistance.</p>
+            </div>
+            <div class="btn-group">
+                <a href="view-day.html?day=2" class="action-btn btn-view">View Day</a>
+                <a href="workout-session.html?day=2" class="action-btn btn-start">Start Day</a>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <div>
+                <span class="day-tag">Session 03</span>
+                <h3>Day 3: Lower Body Strength</h3>
+                <p>Leg fundamentals, squat form mastery, and core stability conditioning.</p>
+            </div>
+            <div class="btn-group">
+                <a href="view-day.html?day=3" class="action-btn btn-view">View Day</a>
+                <a href="workout-session.html?day=3" class="action-btn btn-start">Start Day</a>
             </div>
         </div>
     </div>
-
-    <script>
-        function openDayModal(title, img, intro, details) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalIntro').innerText = intro;
-            document.getElementById('modalDetails').innerHTML = details;
-            document.getElementById('modalImg').style.backgroundImage = `url('${img}')`;
-            document.getElementById('exerciseModal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('exerciseModal').style.display = 'none';
-        }
-    </script>
 
 </body>
 </html>
