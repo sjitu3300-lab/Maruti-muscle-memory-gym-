@@ -91,7 +91,7 @@
             background-color: #b52d16;
         }
 
-        /* Profile Dropdown Menu Styling */
+        /* Profile Dropdown Container & Menu Styles */
         .profile-dropdown-container {
             position: relative;
             display: inline-block;
@@ -547,6 +547,7 @@
             letter-spacing: 1px;
         }
 
+        /* 10 Articles Horizontal Slider Section */
         .blog-slider-section {
             padding: 90px 5%;
             background-color: #0c0c0c;
@@ -662,6 +663,7 @@
         .arrow-left { left: -25px; }
         .arrow-right { right: -25px; }
 
+        /* Clean Review Section CSS (Photos removed as requested) */
         .reviews-section {
             padding: 90px 5%;
             background-color: #0b0b0b;
@@ -1053,7 +1055,7 @@
 </head>
 <body>
 
-    <!-- Header with Profile Dropdown -->
+    <!-- Header -->
     <header>
         <div class="logo">Maruti <span>Muscle Memory</span></div>
         <nav>
@@ -1066,7 +1068,7 @@
             </ul>
         </nav>
         <div class="header-actions">
-            <!-- Profile Dropdown Container -->
+            <!-- Profile Dropdown Menu Added Here -->
             <div class="profile-dropdown-container">
                 <div class="profile-icon-btn" id="profileToggle" title="Profile Menu">👤</div>
                 <div class="dropdown-menu" id="profileDropdown">
@@ -1074,9 +1076,41 @@
                     <a href="register.html">New Account</a>
                 </div>
             </div>
-            <button class="book-btn" onclick="window.location.href='register.html'">Join Now</button>
+            <button class="book-btn" onclick="openRegisterModal(event)">Join Now</button>
         </div>
     </header>
+
+    <!-- Registration Modal Popup -->
+    <div class="modal-overlay" id="regModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeRegisterModal()">&times;</span>
+            <div class="modal-title">New Member Registration</div>
+            <form id="regForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" required placeholder="Apna pura naam likhein">
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number (Login ID)</label>
+                    <input type="tel" id="mobileNumber" required placeholder="10-digit mobile number">
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" id="age" required placeholder="Aapki umar">
+                </div>
+                <div class="form-group">
+                    <label>Select Fitness Level</label>
+                    <select id="fitnessLevel" required>
+                        <option value="" disabled selected>Level chuniye</option>
+                        <option value="beginner">Absolute Beginner (Zero Experience)</option>
+                        <option value="intermediate">Restart / Intermediate</option>
+                        <option value="advanced">Advanced (1-2 Years)</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-reg-btn">Create Profile & View Task &rarr;</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1233,7 +1267,96 @@
         <div class="blog-container-wrapper">
             <button class="slider-arrow arrow-left" onclick="slideBlogs(-1)">&#8592;</button>
             <div class="blog-slider-track" id="blogTrack">
-                <!-- 10 Articles omitted for brevity, keeping track intact -->
+                <!-- Article 1 -->
+                <a href="article-beginner-rules.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Training</span>
+                        <h4>That's why stretching is worth trying</h4>
+                        <p class="blog-meta">Apr 21, 2020 • 0 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 2 -->
+                <a href="article-protein-diet.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Diet</span>
+                        <h4>10 strength exercises to improve your running</h4>
+                        <p class="blog-meta">Apr 21, 2020 • 1 Comment</p>
+                    </div>
+                </a>
+                <!-- Article 3 -->
+                <a href="article-muscle-memory.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Workout</span>
+                        <h4>How to choose the right workout strategy</h4>
+                        <p class="blog-meta">Apr 21, 2020 • 0 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 4 -->
+                <a href="article-fat-loss.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Fat Loss</span>
+                        <h4>Top 5 workout locations to vary your daily routine</h4>
+                        <p class="blog-meta">Apr 21, 2020 • 0 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 5 -->
+                <a href="article-recovery.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Recovery</span>
+                        <h4>Rest Days And Sleep Essential For Growth</h4>
+                        <p class="blog-meta">Apr 22, 2020 • 2 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 6 -->
+                <a href="article-supplements.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Supplements</span>
+                        <h4>Is Whey Protein Safe For Beginners?</h4>
+                        <p class="blog-meta">Apr 23, 2020 • 3 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 7 -->
+                <a href="article-compound.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Workout</span>
+                        <h4>Top 5 Compound Exercises For Chest & Biceps</h4>
+                        <p class="blog-meta">Apr 24, 2020 • 1 Comment</p>
+                    </div>
+                </a>
+                <!-- Article 8 -->
+                <a href="article-meal-timing.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Diet</span>
+                        <h4>Pre-Workout And Post-Workout Meal Guide</h4>
+                        <p class="blog-meta">Apr 25, 2020 • 0 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 9 -->
+                <a href="article-consistency.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Mindset</span>
+                        <h4>How To Build Long-Term Gym Consistency</h4>
+                        <p class="blog-meta">Apr 26, 2020 • 4 Comments</p>
+                    </div>
+                </a>
+                <!-- Article 10 -->
+                <a href="article-injury-prevention.html" class="blog-card">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=500');"></div>
+                    <div class="blog-info">
+                        <span class="blog-cat">Safety</span>
+                        <h4>Avoid Gym Injuries With Proper Warm-up Routine</h4>
+                        <p class="blog-meta">Apr 27, 2020 • 2 Comments</p>
+                    </div>
+                </a>
             </div>
             <button class="slider-arrow arrow-right" onclick="slideBlogs(1)">&#8594;</button>
         </div>
@@ -1244,12 +1367,75 @@
         <div class="reviews-container-wrapper">
             <button class="review-arrows rev-arrow-left" onclick="moveReview(-1)">&#8592;</button>
             <div class="reviews-track" id="reviewsTrack">
-                <!-- Review 1 to 10 -->
+                <!-- Review 1 -->
                 <div class="review-card">
                     <p class="review-text">"Maruti Muscle Memory GYM has completely transformed my physical strength. The coaches focus heavily on proper form and neuromuscular conditioning."</p>
                     <div class="quote-icon">❞</div>
                     <h4 class="review-author">Rahul Sharma</h4>
                     <span class="review-role">Software Engineer</span>
+                </div>
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <p class="review-text">"The best gym setup in Nagaur! Heavy duty equipment and expert guidance from Jitendra sir make every workout session intense and rewarding."</p>
+                    <div class="quote-icon">❞</div>
+                    <h4 class="review-author">Amit Prajapat</h4>
+                    <span class="review-role">Fitness Enthusiast</span>
+                </div>
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <p class="review-text">"Returning to the gym after a long gap was tough, but their customized muscle memory programs got me back in shape faster than I expected."</p>
+                    <div class="quote-icon">❞</div>
+                    <h4 class="review-author">Vikram Singh</h4>
+                    <span class="review-role">Business Owner</span>
+                </div>
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <p class="review-text">"Clean environment, air-conditioned floor, and incredible community support. Highly recommended for anyone serious about real fitness results."</p>
+                    <div class="quote-icon">❞</div>
+                    <h4 class="review-author">Pooja Choudhary</h4>
+                    <span class="review-role">Teacher</span>
+                </div>
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <p class="review-text">"The 1:1 personal training sessions are top-notch. Every routine is planned scientifically around strength progression and muscle hypertrophy."</p>
+                    <div class="quote-icon">❞</div>
+                    <h4 class="review-author">Manish Kumawat</h4>
+                    <span class="review-role">College Student</span>
+                </div>
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <p class="review-text">"Amazing nutrition plans and constant tracking by the head coach. I lost 8kgs of fat while building clean muscle mass smoothly."</p>
+                    <div class="quote-icon">❞</div>
+                    <h4 class="review-author">Sunil Meghwal</h4>
+                    <span class="review-role">Bank Employee</span>
+                </div>
+                <!-- Review 7 -->
+                <div class="review-card">
+                    <p class="review-text">"The power racks and olympic bumper plates are of premium quality. Perfect place for heavy lifting and advanced split routines."</p>
+                    <div class="quote-icon">❞</div>
+                    <h4 class="review-author">Deepak Soni</h4>
+                    <span class="review-role">Powerlifter</span>
+                </div>
+                <!-- Review 8 -->
+                <div class="review-card">
+                    <p class="review-text">"Friendly trainers who pay attention to beginners to avoid injuries. The warm-up routines taught here are extremely helpful."</p>
+                    <div class="quote-icon">❞</div>
+                    <h4 class="review-author">Ritu Verma</h4>
+                    <span class="review-role">Designer</span>
+                </div>
+                <!-- Review 9 -->
+                <div class="review-card">
+                    <p class="review-text">"Online coaching guidelines are very clear and easy to follow. Even while traveling, I never miss my scheduled workouts."</p>
+                    <div class="quote-icon">❞</div>
+                    <h4 class="review-author">Ankit Joshi</h4>
+                    <span class="review-role">Marketing Manager</span>
+                </div>
+                <!-- Review 10 -->
+                <div class="review-card">
+                    <p class="review-text">"True strength training environment with zero distractions. Joining Maruti Muscle Memory GYM was the best decision of my life."</p>
+                    <div class="quote-icon">❞</div>
+                    <h4 class="review-author">Manoj Gehlot</h4>
+                    <span class="review-role">Entrepreneur</span>
                 </div>
             </div>
             <button class="review-arrows rev-arrow-right" onclick="moveReview(1)">&#8594;</button>
@@ -1273,38 +1459,136 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- CTA Banner Section -->
+    <div class="cta-banner reveal">
+        <div class="cta-left">
+            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=300" alt="Trainer" class="cta-avatar">
+            <div>
+                <h2>Ready To Forge Your Best Self?</h2>
+                <p>Take the first step. Book a free consultation and get a training plan built around your goals.</p>
+            </div>
+        </div>
+        <div class="cta-right">
+            <span>Free Consultation</span>
+            <h3>Your First Session Is On Us</h3>
+            <p>No commitment. No pressure. Just a real conversation.</p>
+            <a href="#location">Claim Your Free Session &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Location & Map Section -->
+    <section class="location-section reveal" id="location">
+        <div class="location-grid">
+            <div class="location-info">
+                <h2>Visit Our Gym Location</h2>
+                <p>Aaiye aur hamare premium setup ko experience kijiye. Hamari location asani se pahuchne yogya hai.</p>
+                
+                <div class="loc-details-box">
+                    <div class="loc-item">
+                        <strong>Address:</strong>
+                        <span>First Floor, Above Balaji lights and decor, BSF Colony, Chenar, Rajasthan 341001</span>
+                    </div>
+                    <div class="loc-item">
+                        <strong>Contact:</strong>
+                        <span>+91 89470 12333</span>
+                    </div>
+                    <div class="loc-item">
+                        <strong>Timing:</strong>
+                        <span>Mon - Sat: 5:30 AM – 10:30 PM</span>
+                    </div>
+                </div>
+                <a href="tel:8947012333" class="btn-red" style="display: inline-block;">Call Now To Join</a>
+            </div>
+
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.123!2d73.712!3d27.204!2m3!1f0!2f0!3f0!3m2!1f1024!2f768!4f13.1!3m3!1m2!1s0x396bc6!2sBSF%20Colony%2C%20Chenar%2C%20Rajasthan%20341001!5e0!3m2!1sen!2sin!4v1650000000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Stats & Quick Links -->
     <footer>
+        <div class="footer-stats-grid">
+            <div class="f-stat">
+                <h4 class="counter" data-target="100">0</h4>
+                <p>Client Satisfaction</p>
+            </div>
+            <div class="f-stat">
+                <h4 class="counter" data-target="500">0</h4>
+                <p>Clients Trained</p>
+            </div>
+            <div class="f-stat">
+                <h4 class="counter" data-target="8">0</h4>
+                <p>Years Experience</p>
+            </div>
+            <div class="f-stat">
+                <h4 class="counter" data-target="200">0</h4>
+                <p>Programs Created</p>
+            </div>
+        </div>
+
         <div class="footer-highlights">
+            <div class="footer-highlight-col">
+                <h5>Training Programs</h5>
+                <ul>
+                    <li>1:1 Personalized Coaching</li>
+                    <li>Muscle Hypertrophy & Bulk</li>
+                    <li>Fat Loss & Shredding</li>
+                    <li>Beginner Form Correction</li>
+                </ul>
+            </div>
+            <div class="footer-highlight-col">
+                <h5>Gym Facilities</h5>
+                <ul>
+                    <li>Modern Heavy Duty Machines</li>
+                    <li>Air-Conditioned Workout Floor</li>
+                    <li>Certified Trainer Support</li>
+                    <li>Clean & Hygienic Environment</li>
+                </ul>
+            </div>
             <div class="footer-highlight-col">
                 <h5>Quick Links</h5>
                 <ul>
                     <li><a href="#home" style="color:inherit; text-decoration:none;">Back to Top</a></li>
-                    <li><a href="register.html" style="color:inherit; text-decoration:none;">New Account / Register</a></li>
-                    <li><a href="#reviews" style="color:inherit; text-decoration:none;">Write A Review</a></li>
+                    <li><a href="#machines" style="color:inherit; text-decoration:none;">View Equipment</a></li>
+                    <li><a href="#articles" style="color:inherit; text-decoration:none;">Fitness Articles</a></li>
+                    <li><a href="#location" style="color:inherit; text-decoration:none;">Get Directions</a></li>
                 </ul>
             </div>
         </div>
+
         <div class="footer-bottom">
             <p>&copy; 2026 Maruti Muscle Memory GYM. All rights reserved.</p>
+            <p>Designed for Ultimate Fitness & Strength</p>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
+        function openRegisterModal(e) {
+            e.preventDefault();
+            document.getElementById('regModal').style.display = 'flex';
+        }
+        function closeRegisterModal() {
+            document.getElementById('regModal').style.display = 'none';
+        }
+
         // Profile Dropdown Toggle Logic
         const profileToggle = document.getElementById('profileToggle');
         const profileDropdown = document.getElementById('profileDropdown');
 
-        profileToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            profileDropdown.classList.toggle('show');
-        });
+        if(profileToggle && profileDropdown) {
+            profileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                profileDropdown.classList.toggle('show');
+            });
 
-        window.addEventListener('click', () => {
-            if(profileDropdown.classList.contains('show')) {
-                profileDropdown.classList.remove('show');
-            }
-        });
+            window.addEventListener('click', () => {
+                if(profileDropdown.classList.contains('show')) {
+                    profileDropdown.classList.remove('show');
+                }
+            });
+        }
 
         function handleLoginClick(e) {
             e.preventDefault();
@@ -1316,6 +1600,150 @@
                 window.location.href = 'register.html';
             }
         }
+
+        // Blog Slider Arrow Navigation Function
+        function slideBlogs(direction) {
+            const track = document.getElementById('blogTrack');
+            const scrollAmount = 305;
+            track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        // Review Slider Auto-Slide (Every 10 Seconds), Arrows & Touch/Finger Swipe Logic
+        let currentReview = 0;
+        const totalReviews = 10;
+        const reviewTrack = document.getElementById('reviewsTrack');
+        const dotsContainer = document.getElementById('reviewDots');
+        let reviewInterval;
+
+        // Create Dots Dynamically
+        if(dotsContainer) {
+            for (let i = 0; i < totalReviews; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('rev-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToReview(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        const revDots = document.querySelectorAll('.rev-dot');
+
+        function updateReviewSlider() {
+            if(reviewTrack) {
+                reviewTrack.style.transform = `translateX(-${currentReview * 100}%)`;
+                revDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentReview);
+                });
+            }
+        }
+
+        function moveReview(direction) {
+            currentReview = (currentReview + direction + totalReviews) % totalReviews;
+            updateReviewSlider();
+            resetReviewTimer();
+        }
+
+        function goToReview(index) {
+            currentReview = index;
+            updateReviewSlider();
+            resetReviewTimer();
+        }
+
+        function startReviewTimer() {
+            reviewInterval = setInterval(() => {
+                moveReview(1);
+            }, 10000);
+        }
+
+        function resetReviewTimer() {
+            clearInterval(reviewInterval);
+            startReviewTimer();
+        }
+
+        startReviewTimer();
+
+        // Finger / Touch Swipe Support for Review Slider
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        if(reviewTrack) {
+            reviewTrack.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            reviewTrack.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleReviewSwipe();
+            }, {passive: true});
+
+            reviewTrack.addEventListener('mousedown', (e) => {
+                touchStartX = e.clientX;
+            });
+
+            reviewTrack.addEventListener('mouseup', (e) => {
+                touchEndX = e.clientX;
+                handleReviewSwipe();
+            });
+        }
+
+        function handleReviewSwipe() {
+            if (touchStartX - touchEndX > 50) {
+                moveReview(1); // Swipe Left -> Next Review
+            } else if (touchEndX - touchStartX > 50) {
+                moveReview(-1); // Swipe Right -> Prev Review
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedUser = localStorage.getItem('gymUser');
+            if(savedUser) {
+                const user = JSON.parse(savedUser);
+                if(user.initials) {
+                    const profileBtn = document.getElementById('profileToggle');
+                    if(profileBtn) {
+                        profileBtn.innerText = user.initials;
+                        profileBtn.style.background = '#d9381e';
+                        profileBtn.style.color = '#fff';
+                        profileBtn.title = `${user.name} (View Profile)`;
+                    }
+                }
+            }
+
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const increment = target / 20;
+
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count) + (target > 10 ? "+" : "%");
+                        setTimeout(updateCount, 25);
+                    } else {
+                        counter.innerText = target + (target > 10 ? "+" : "%");
+                    }
+                };
+                updateCount();
+            });
+        });
+
+        window.addEventListener('scroll', revealOnScroll);
+
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        revealOnScroll();
     </script>
 </body>
 </html>
