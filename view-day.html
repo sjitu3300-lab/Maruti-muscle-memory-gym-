@@ -63,12 +63,14 @@
             align-items: center;
             gap: 25px;
         }
+        /* Image Box Size & Clean Cover Setting */
         .ex-img-box {
             width: 160px;
             height: 160px;
             border-radius: 6px;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             background-color: #1a1a1a;
             border: 1px solid #333;
             flex-shrink: 0;
@@ -105,6 +107,7 @@
             color: #fff;
         }
 
+        /* Mobile View Optimization */
         @media(max-width: 768px) {
             .exercise-detail-card {
                 flex-direction: column;
