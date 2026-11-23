@@ -131,7 +131,7 @@
             color: #aaa;
             font-size: 13px;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
         .exercise-meta {
             display: flex;
@@ -141,6 +141,7 @@
             padding: 15px;
             border-radius: 4px;
             border-left: 3px solid #d9381e;
+            margin-bottom: 22px;
         }
         .meta-item strong {
             color: #fff;
@@ -151,6 +152,48 @@
         .meta-item span {
             color: #888;
             font-size: 12px;
+        }
+        .action-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .view-day-btn {
+            background: #1c1c1c;
+            border: 1px solid #333;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .view-day-btn:hover {
+            border-color: #d9381e;
+            color: #d9381e;
+        }
+        .start-day-btn {
+            background-color: #d9381e;
+            border: 1px solid #d9381e;
+            color: #ffffff;
+            padding: 10px 22px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: 0.3s;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .start-day-btn:hover {
+            background-color: #b52d16;
+            border-color: #b52d16;
         }
         @media(max-width: 900px) {
             .day-block {
@@ -178,11 +221,11 @@
     </section>
 
     <div class="schedule-content schedule-container">
-        <!-- Monday -->
+        <!-- Day 1 -->
         <div class="day-block">
             <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800');"></div>
             <div class="day-content">
-                <span class="day-badge">Monday • Day 1</span>
+                <div class="day-badge">Day 1</div>
                 <h3>Upper Body Hypertrophy & Re-activation</h3>
                 <p><strong>Kaise Karein:</strong> Incline Dumbbell Press aur Barbell Rows ka combination use karein. Moderate weight ke sath explosive positive aur controlled negative movement rakhen.</p>
                 <p><strong>Body Changing Benefits:</strong> Purani muscle memory activate hoti hai, chest thickness aur back width tezi se recover hoti hai.</p>
@@ -190,14 +233,18 @@
                     <div class="meta-item"><strong>Sets & Reps</strong><span>4 Sets × 10, 8, 8, 6 Reps</span></div>
                     <div class="meta-item"><strong>Rest Time</strong><span>75 Seconds</span></div>
                 </div>
+                <div class="action-btns">
+                    <a href="view-day.html?level=intermediate&day=1" class="view-day-btn">View Day</a>
+                    <button type="button" class="start-day-btn" onclick="startWorkout('Day 1 - Upper Body Hypertrophy & Re-activation')">Start Workout</button>
+                </div>
             </div>
         </div>
 
-        <!-- Tuesday -->
+        <!-- Day 2 -->
         <div class="day-block">
             <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800');"></div>
             <div class="day-content">
-                <span class="day-badge">Tuesday • Day 2</span>
+                <div class="day-badge">Day 2</div>
                 <h3>Lower Body Power & Core</h3>
                 <p><strong>Kaise Karein:</strong> Barbell Back Squats aur Romanian Deadlifts. Core tight rakhte hue deep descent lein.</p>
                 <p><strong>Body Changing Benefits:</strong> Leg strength wapas aati hai aur overall hormonal release boost hota hai.</p>
@@ -205,29 +252,37 @@
                     <div class="meta-item"><strong>Sets & Reps</strong><span>4 Sets × 10 Reps</span></div>
                     <div class="meta-item"><strong>Rest Time</strong><span>90 Seconds</span></div>
                 </div>
+                <div class="action-btns">
+                    <a href="view-day.html?level=intermediate&day=2" class="view-day-btn">View Day</a>
+                    <button type="button" class="start-day-btn" onclick="startWorkout('Day 2 - Lower Body Power & Core')">Start Workout</button>
+                </div>
             </div>
         </div>
 
-        <!-- Wednesday -->
+        <!-- Day 3 -->
         <div class="day-block">
             <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&q=80&w=800');"></div>
             <div class="day-content">
-                <span class="day-badge">Wednesday • Day 3</span>
+                <div class="day-badge">Day 3</div>
                 <h3>Shoulder Sculpting & Arms</h3>
                 <p><strong>Kaise Karein:</strong> Overhead Military Press aur Superset Biceps/Triceps curls.</p>
                 <p><strong>Body Changing Benefits:</strong> Arms aur shoulders mein sharp cuts wapas aane lagte hain.</p>
                 <div class="exercise-meta">
                     <div class="meta-item"><strong>Sets & Reps</strong><span>3 Sets × 12 Reps</span></div>
-                    <div class="meta-item"><strong>RestTime</strong><span>60 Seconds</span></div>
+                    <div class="meta-item"><strong>Rest Time</strong><span>60 Seconds</span></div>
+                </div>
+                <div class="action-btns">
+                    <a href="view-day.html?level=intermediate&day=3" class="view-day-btn">View Day</a>
+                    <button type="button" class="start-day-btn" onclick="startWorkout('Day 3 - Shoulder Sculpting & Arms')">Start Workout</button>
                 </div>
             </div>
         </div>
 
-        <!-- Thursday -->
+        <!-- Day 4 -->
         <div class="day-block">
             <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800');"></div>
             <div class="day-content">
-                <span class="day-badge">Thursday • Day 4</span>
+                <div class="day-badge">Day 4</div>
                 <h3>Functional Strength & Conditioning</h3>
                 <p><strong>Kaise Karein:</strong> Battle ropes, weighted lunges aur kettlebell swings.</p>
                 <p><strong>Body Changing Benefits:</strong> Stamina improve hota hai aur stubborn fat burn hota hai.</p>
@@ -235,14 +290,18 @@
                     <div class="meta-item"><strong>Sets & Reps</strong><span>4 Rounds Circuit</span></div>
                     <div class="meta-item"><strong>Rest Time</strong><span>60 Seconds</span></div>
                 </div>
+                <div class="action-btns">
+                    <a href="view-day.html?level=intermediate&day=1" class="view-day-btn">View Day</a>
+                    <button type="button" class="start-day-btn" onclick="startWorkout('Day 4 - Functional Strength & Conditioning')">Start Workout</button>
+                </div>
             </div>
         </div>
 
-        <!-- Friday -->
+        <!-- Day 5 -->
         <div class="day-block">
             <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800');"></div>
             <div class="day-content">
-                <span class="day-badge">Friday • Day 5</span>
+                <div class="day-badge">Day 5</div>
                 <h3>Back & Rear Delts Focus</h3>
                 <p><strong>Kaise Karein:</strong> T-Bar Rows aur Face Pulls ka heavy execution.</p>
                 <p><strong>Body Changing Benefits:</strong> V-taper physique shape aur posture strong hota hai.</p>
@@ -250,14 +309,18 @@
                     <div class="meta-item"><strong>Sets & Reps</strong><span>4 Sets × 10 Reps</span></div>
                     <div class="meta-item"><strong>Rest Time</strong><span>75 Seconds</span></div>
                 </div>
+                <div class="action-btns">
+                    <a href="view-day.html?level=intermediate&day=2" class="view-day-btn">View Day</a>
+                    <button type="button" class="start-day-btn" onclick="startWorkout('Day 5 - Back & Rear Delts Focus')">Start Workout</button>
+                </div>
             </div>
         </div>
 
-        <!-- Saturday -->
+        <!-- Day 6 -->
         <div class="day-block">
             <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800');"></div>
             <div class="day-content">
-                <span class="day-badge">Saturday • Day 6</span>
+                <div class="day-badge">Day 6</div>
                 <h3>HIIT Cardio & Core Strength</h3>
                 <p><strong>Kaise Karein:</strong> Sprint intervals aur hanging leg raises.</p>
                 <p><strong>Body Changing Benefits:</strong> Cardiovascular endurance aur abdominal definition milti hai.</p>
@@ -265,8 +328,19 @@
                     <div class="meta-item"><strong>Duration</strong><span>35 Minutes</span></div>
                     <div class="meta-item"><strong>Intensity</strong><span>High</span></div>
                 </div>
+                <div class="action-btns">
+                    <a href="view-day.html?level=intermediate&day=3" class="view-day-btn">View Day</a>
+                    <button type="button" class="start-day-btn" onclick="startWorkout('Day 6 - HIIT Cardio & Core Strength')">Start Workout</button>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function startWorkout(dayName) {
+            alert(dayName + " session shuru ho gaya hai! Apne sets aur rest timer ko dhyan mein rakhte hue form maintain karein.");
+        }
+    </script>
 </body>
-</html>
+                </html>
+                
